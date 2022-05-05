@@ -13,7 +13,7 @@ namespace TheWorkoutLibrary.Data
         {
 
         }
-        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<Workout> videoWorkoutLibrary { get; set; } //Must match Table in Database
         
     }
 }

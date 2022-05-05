@@ -8,3 +8,21 @@
 
 <h1>Upload</h1>
 
+<form class="EnterWorkoutForm" method="post" enctype="multipart/form-data">
+    <h4>Input Video Details</h4>
+    <div asp-validation-summary="All"></div>
+    <span asp-validation-for="Workout.workoutName"></span>
+    <div>Name of Workout : <input asp-for="Workout.workoutName" /></div>
+    <div>Workout Difficulty : <input asp-for="Workout.workoutDifficulty" /></div>
+    <div>Notes : <input asp-for="Workout.workoutNotes" /></div>
+    <div>
+        <label>Upload Video</label>
+        <input type="file" id="file1"
+               name="file1"
+               multiple="multiple" />
+    </div>
+    <div>
+        <button class="EnterWorkoutBtn" type="submit" asp-page-handler="Save">Save</button>
+    </div>
+
+</form>
