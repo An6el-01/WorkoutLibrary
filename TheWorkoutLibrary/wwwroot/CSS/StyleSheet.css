@@ -1,2 +1,137 @@
-﻿body {
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    
 }
+
+/* Layout page - footer */
+
+.WLLogo{
+    max-width: 20%;
+    height: auto;
+}
+
+.SocialLinks{
+    margin-top: 100px;
+}
+
+.DisplayFooter{
+    display: block;
+}
+
+.InstaLogo{
+    float: left;
+    max-width: 5%;
+    margin-top: 10px;
+    height: auto;
+}
+
+.Instagram{
+    float: left;
+}
+
+.InstaText{
+    float: left;
+    margin-left: 20px;
+}
+
+.Email{
+    float: left;
+}
+
+.EmailLogo{
+    float: left;
+    margin-top: 10px;
+    max-width: 7%;
+    height: auto;
+}
+
+.JamesEmail{
+    float: left;
+    margin-left: 20px;
+}
+
+/* Layout page - nav bar */
+
+.menu-btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger {
+    width: 50px;
+    height: 6px;
+    background: #000000;
+    border-radius: 5px;
+    box-shadow:0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before,
+.menu-btn_burger::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: #000000;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(255,101,47,.2);
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn_burger::before {
+    transform: translateY(-16px);
+}
+
+.menu-btn_burger::after {
+    transform: translateY(16px);
+}
+
+/* Layout page - Animation for nav bar */
+.menu-btn.open .menu-btn_burger {
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn_burger::before {
+    transform: rotate(45deg);
+}
+
+.menu-btn.open .menu-btn_burger::after {
+    transform: rotate(-45deg);
+}
+
+/* browseVideos page */
+
+/* createdWorkoutLibrary page */
+
+/* createWorkout page */
+
+/* index page */
+
+/* LoginLogout page */
+
+/* Payment page */
+
+/* Profile page */
+
+/* Register page */
+
+/* Upload page */
+
+/* weeklyWorkout page */
+
+
+
+
+
+
+
