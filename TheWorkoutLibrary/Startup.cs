@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TheWorkoutLibrary.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace TheWorkoutLibrary
 {
@@ -29,7 +31,7 @@ namespace TheWorkoutLibrary
             services.AddRazorPages();
             services.AddMvc();
             services.AddControllersWithViews();
-            //services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
+            services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
 
         }
 
