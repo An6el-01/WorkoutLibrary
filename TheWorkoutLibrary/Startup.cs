@@ -41,7 +41,8 @@ namespace TheWorkoutLibrary
 
             app.UseRouting();
             app.UseHttpsRedirection();
-            app.UseStaticFiles();         
+            app.UseStaticFiles();      
+            
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
