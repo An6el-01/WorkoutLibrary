@@ -7,23 +7,64 @@
     <link href="~/CSS/StyleSheet.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-        @RenderBody()
-        <div class="Navigation">
-            <nav>
-                <ul>
-                    <li><a asp-page="/LoginLogout">Log-in</a></li>
-                    <li><a asp-page="/browseVideos">Browse Videos</a></li>
-                    <li><a asp-page="/createdWorkoutLibrary">Created Workout Library</a></li>
-                    <li><a asp-page="/Index">Dashboard</a></li>
-                    <li><a asp-page="/Payment">Payment</a></li>
-                    <li><a asp-page="/Profile">Profile</a></li>
-                    <li><a asp-page="/Register">Register</a></li>
-                    <li><a asp-page="/weeklyWorkout">Weekly Workout</a></li>
-                    <li><a asp-page="/Upload">Upload</a></li>
-                </ul>
-            </nav>
+<div>
+    @RenderBody()
+    
+    <div class="menu-btn">
+        <div class="menu-btn_burger"></div>
+    </div>
+    
+    <div class="Navigation">
+        <nav>
+            <ul>
+                <li><a asp-page="/LoginLogout">Log-in</a></li>
+                <li><a asp-page="/browseVideos">Browse Videos</a></li>
+                <li><a asp-page="/createdWorkoutLibrary">Created Workout Library</a></li>
+                <li><a asp-page="/Index">Dashboard</a></li>
+                <li><a asp-page="/Payment">Payment</a></li>
+                <li><a asp-page="/Profile">Profile</a></li>
+                <li><a asp-page="/Register">Register</a></li>
+                <li><a asp-page="/weeklyWorkout">Weekly Workout</a></li>
+                <li><a asp-page="/Upload">Upload</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<footer class = "border-top footer text-muted">
+    <div class="footer">
+        
+        <div class="SocialLinks">
+            <img class="WLLogo" src="Images/WL Master Logo.jpg" alt="Logo">
+            <p> Social Links: </p>
+        </div>
+
+        <div class="DisplayFooter">
+            <div class="Instagram">
+                <img class="InstaLogo" src="Images/Instagram.png" alt="Logo">
+                <p><a class = "InstaText" href="https://instagram.com/the.workoutlibrary?igshid=">Instagram</a></p>
+            </div>
+            
+            <div class="Email">
+                <img class="EmailLogo" src="Images/Email.webp" alt="Logo">
+                <p><a class = "JamesEmail" href="mailto:james@radicalfitness.co.uk"> james@radicalfitness.co.uk</a></p>
+            </div>
         </div>
     </div>
+</footer>
+    
 </body>
 </html>
+
+<script>
+const menuBtn = document.querySelector('.menu-btn');
+let menuOpen = false;
+menuBtn.addEventListener('click', () => {
+if (!menuOpen) {
+menuBtn.classList.add('open');
+menuOpen = true;
+} else {
+menuBtn.classList.remove('open');
+menuOpen = false;
+}
+});
+</script>
