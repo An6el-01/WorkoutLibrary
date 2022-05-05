@@ -7,7 +7,6 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="wwwroot\Images\" />
-    <Folder Include="wwwroot\CSS\" />
     <Folder Include="wwwroot\JS\" />
   </ItemGroup>
 
