@@ -9,8 +9,6 @@ namespace TheWorkoutLibrary.Pages
 {
     public class PaymentModel : PageModel
     {
-        public void OnGet()
-        {
-        }
+        public long AmountPayable = 999;
     }
 }

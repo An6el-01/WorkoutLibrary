@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TheWorkoutLibrary.Data;
 using Microsoft.EntityFrameworkCore;
+using Stripe;
 
 namespace TheWorkoutLibrary
 {
@@ -32,6 +33,8 @@ namespace TheWorkoutLibrary
             services.AddMvc();
             services.AddControllersWithViews();
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
+
 
         }
 
@@ -42,6 +45,8 @@ namespace TheWorkoutLibrary
             {
                 app.UseDeveloperExceptionPage();
             }
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
+
 
             app.UseRouting();
             app.UseHttpsRedirection();
