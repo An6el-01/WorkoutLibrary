@@ -155,12 +155,38 @@ body {
 }
 
 tr{
-    border: 1px white;
+    /*border: 1px white;*/
     background-color: white;
     text-align: left;
     width: 100%;
-    border-collapse: collapse;
     vertical-align: top;
+}
+
+th{
+    text-align: center;
+}
+
+.search{
+    text-align: center;
+    border-radius: 10px;
+}
+
+.searchButton{
+    border-radius: 10px;
+    color: white;
+    background-color: #662582;
+    text-align: center;
+    
+}
+
+.SearchFull{
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.searchForm{
+    text-align: center;
 }
 
 table{
@@ -177,7 +203,7 @@ tr:hover {
 .material-symbols-outlined {
     font-variation-settings:
             'FILL' 0,
-            'wght' 400,
+            'wght' 600,
             'GRAD' 0,
             'opsz' 48
 }
@@ -208,6 +234,23 @@ tr:hover {
             'GRAD' 0,
             'opsz' 48
 }
+
+.info{
+    width: 150px;
+    color: #662582;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 600,
+            'GRAD' 0,
+            'opsz' 60
+}
+
+.Title{
+    text-align: center;
+}
+
+
+
 
 /* createdWorkoutLibrary page */
 
