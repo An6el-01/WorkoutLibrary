@@ -7,8 +7,10 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace TheWorkoutLibrary.Pages
 {
-    public class PaymentModel : PageModel
+    public class CalendarModel : PageModel
     {
-        public long AmountPayable = 999;
+        public void OnGet()
+        {
+        }
     }
 }

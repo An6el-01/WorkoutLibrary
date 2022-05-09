@@ -1,4 +1,5 @@
 ﻿@page
+@using TheWorkoutLibrary.Data
 @model TheWorkoutLibrary.Pages.browseVideosModel
 @{
     ViewData["Title"] = "Browse Videos";
@@ -8,3 +9,42 @@
 
 
 <h1>BrowseVideos</h1>
+<table class="table">
+    <thead>
+    <th>Video Table</th>
+    </thead>
+    <tbody>
+        @foreach (var WO in Model.Workout)
+        {
+            <div class="column">
+                
+                <div class="columnImg">
+                    @{
+                        try
+                        {
+                            <video width="300" height="200" controls muted>
+                                <source src="@string.Format("data:video/mp4;base64,{0}", Convert.ToBase64String(WO.videoData))" type="video/mp4"/>
+                                <source src="@string.Format("data:video/webm;base64,{0}", Convert.ToBase64String(WO.videoData))" type="video/webm"/>"
+                                </video>
+                            
+                        }
+                        catch
+                        {
+                            <source src="/Images/empty.png" alt="No Image Provided"/>
+                        }
+                    }
+                </div>
+            </div>
+    
+            <tr>
+                <td>@WO.videoData</td>
+                <td>@WO.workoutName</td>
+                <td>@WO.activityStatus</td>
+                <td>@WO.workoutDifficulty</td>
+                
+            </tr>  
+        }
+    
+
+    </tbody>
+</table>
