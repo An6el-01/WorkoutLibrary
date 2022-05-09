@@ -7,3 +7,25 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <h1>Register</h1>
+<form method="post">
+    <h4>Create a new account.</h4>
+    <hr />
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="Input.Email"></label>
+        <input asp-for="Input.Email" class="form-control" />
+        <span asp-validation-for="Input.Email"></span>
+    </div>
+    <div>
+        <label asp-for="Input.Password"></label>
+        <input asp-for="Input.Password" class="form-control" />
+        <span asp-validation-for="Input.Password"></span>
+    </div>
+    <div>
+        <label asp-for="Input.ConfirmPassword"></label>
+        <input asp-for="Input.ConfirmPassword" />
+        <span asp-validation-for="Input.ConfirmPassword"></span>
+    </div>
+    <button type="submit">Register</button>
+
+</form>

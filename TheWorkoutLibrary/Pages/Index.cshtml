@@ -5,6 +5,12 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Identity
+@using TheWorkoutLibrary.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
 
 <h1>Dashboard</h1>
 <h1>MyWorkoutLibrary</h1>
