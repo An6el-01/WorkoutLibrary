@@ -4,7 +4,9 @@
 body {
     font-family: 'Open Sans', sans-serif;
     margin: 0 0 55px 0; /* No margin for every side of the body aside from the bottom. 55px for the bottom to make space for the navigation bar*/
+    background: linear-gradient(167.4deg, rgba(102, 37, 130, 0.5) -2.21%, rgba(74, 96, 144, 0.5) 36.1%, rgba(57, 135, 151, 0.5) 65.29%);
 }
+
 
 /* Layout page - footer */
 
@@ -144,6 +146,68 @@ body {
     font-size: 18px;
 }
 /* browseVideos page */
+
+
+.browseVideo {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+tr{
+    border: 1px white;
+    background-color: white;
+    text-align: left;
+    width: 100%;
+    border-collapse: collapse;
+    vertical-align: top;
+}
+
+table{
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+}
+
+tr:hover {
+    background-color: #D6EEEE;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48
+}
+
+.material-symbols-outlined1 {
+    color: limegreen;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48
+}
+
+.material-symbols-outlined2 {
+    color: orange;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48
+}
+
+.material-symbols-outlined3 {
+    color: red;
+    font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 48
+}
 
 /* createdWorkoutLibrary page */
 
