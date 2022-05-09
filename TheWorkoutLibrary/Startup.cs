@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using TheWorkoutLibrary.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Stripe;
 
 namespace TheWorkoutLibrary
 {
