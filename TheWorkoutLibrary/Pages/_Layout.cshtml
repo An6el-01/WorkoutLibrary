@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link href="~/CSS/StyleSheet.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 <div>
@@ -13,12 +14,38 @@
     <div class="menu-btn">
         <div class="menu-btn_burger"></div>
     </div>
-    
+    <nav class="Nav">
+        <a asp-page="/Index" class="navLink">
+            <span class="material-icons navIcon">home</span>
+            <span class="navText">Dashboard</span>
+        </a>
+
+        <a asp-page="/Profile" class="navLink">
+            <span class="material-icons navIcon">person</span>
+            <span class="navText">Profile</span>
+        </a>
+
+        <a asp-page="/browseVideos" class="navLink">
+            <span class="material-icons navIcon">videocam</span>
+            <span class="navText">Browse Videos</span>
+        </a>
+       
+        <a asp-page="/createWorkouts" class="navLink">
+            <span class="material-icons navIcon">directions_run</span>
+            <span class="navText">Created Workouts</span>
+        </a>
+
+        <a asp-page="/Calendar" class="navLink">
+            <span class="material-icons navIcon">calendar_month</span>
+            <span class="navText">Calendar</span>
+        </a>
+    </nav>
     <div class="Navigation">
         <nav>
             <ul>
                 <li><a asp-page="/LoginLogout">Log-in</a></li>
                 <li><a asp-page="/browseVideos">Browse Videos</a></li>
+                <li><a asp-page="/createWorkouts">Create Workouts</a></li>
                 <li><a asp-page="/createdWorkoutLibrary">Created Workout Library</a></li>
                 <li><a asp-page="/Index">Dashboard</a></li>
                 <li><a asp-page="/Payment">Payment</a></li>
@@ -26,6 +53,7 @@
                 <li><a asp-page="/Register">Register</a></li>
                 <li><a asp-page="/weeklyWorkout">Weekly Workout</a></li>
                 <li><a asp-page="/Upload">Upload</a></li>
+                <li><a asp-page="/Calendar">Calendar</a></li>
             </ul>
         </nav>
     </div>

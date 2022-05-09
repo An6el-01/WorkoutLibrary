@@ -3,7 +3,7 @@
 
 body{
     font-family: 'Open Sans', sans-serif;
-    
+    margin: 0 0 55px 0; /* No margin for every side of the body aside from the bottom. 55px for the bottom to make space for the navigation bar*/
 }
 
 /* Layout page - footer */
@@ -108,7 +108,41 @@ body{
 .menu-btn.open .menu-btn_burger::after {
     transform: rotate(-45deg);
 }
+/* Layout page - Mobile version of nav bar */
+.Nav{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    display: flex;
+    overflow-x: auto;
+}
 
+.navLink{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    flex-grow:  1;
+    min-width: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 13px;
+    color: #444444;
+    text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.1s ease-in-out
+}
+
+    .navLink:hover {
+        color: #662582;
+    }
+
+.navIcon{
+    font-size: 18px;
+}
 /* browseVideos page */
 
 /* createdWorkoutLibrary page */
