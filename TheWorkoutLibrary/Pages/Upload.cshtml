@@ -13,7 +13,13 @@
     <div asp-validation-summary="All"></div>
     <span asp-validation-for="Workout.workoutName"></span>
     <div>Name of Workout : <input asp-for="Workout.workoutName" /></div>
-    <div>Workout Difficulty : <input asp-for="Workout.workoutDifficulty" /></div>
+    <div>
+        Workout Difficulty : <br>
+        @foreach (var level in Model.difficulties)
+        {
+        <input type="radio" asp-for="Workout.workoutDifficulty" value="@level" />@level<br />
+        }
+    </div>
     <div>Notes : <input asp-for="Workout.workoutNotes" /></div>
     <div>
         <label>Upload Video</label>

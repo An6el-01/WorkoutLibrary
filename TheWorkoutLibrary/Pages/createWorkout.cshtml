@@ -7,3 +7,34 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <h1>createWorkout</h1>
+
+<form id="createWorkoutForm" method="post">
+
+    <table class="workoutItemsTable">
+        <tbody>
+            @foreach (var item in Model.Items)
+
+            {
+                <tr>
+                    <td>
+                        <video width="160" height="283" controls muted>
+                            <source src="@string.Format("data:video/mp4;base64,{0}", Convert.ToBase64String(@item.videoData))" type="video/mp4" />
+                        </video>
+                    </td>
+
+                    <td>@item.workoutName</td>
+                    <td>@item.workoutID</td>
+                    <td>@item.quantity</td>
+                    
+                    @*<td>@item.sets</td>
+                    <td>@item.reps</td>*@
+
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+    @*<button id="createBtn" type="submit" asp-page-handler="Create">CREATE</button>
+    <button id="clearBtn" type="reset" asp-page-handler="Clear">CLEAR</button>*@
+</form>

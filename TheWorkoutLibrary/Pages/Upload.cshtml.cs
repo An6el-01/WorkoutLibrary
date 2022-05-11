@@ -16,6 +16,10 @@ namespace TheWorkoutLibrary.Pages
     {
         private AppDbContext _db;
 
+
+        public string[] difficulties = new[] { "Beginner", "Intermediate", "Advanced" };
+
+
         [BindProperty]
         public Workout Workout { get; set; }
 
