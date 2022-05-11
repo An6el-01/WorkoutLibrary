@@ -14,26 +14,31 @@
 <div class="Title">
     <h1>BrowseVideos</h1>
 </div>
-
-<div class = "SearchFull">
 <form class="SearchForm" method="POST">
-    <div class="search"><input asp-for="Search" placeholder="Search"/></div>
-    <button class="searchButton" type="submit" asp-page-handler="Search">Search</button>
-</form>
-</div>
+    <div class="searchUpload">
+        
+        <div class="SearchFull">
+            <div class="search"><input asp-for="Search" placeholder="Search"/></div>
+            <button class="searchButton" type="submit" asp-page-handler="Search">Search</button>
+            </div>
 
+        
+        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+
+        {
+            <button class="uploadButton" type="submit" asp-page-handler="Upload">Upload</button>
+        }
+
+    </div>
+</form>
 <form method="POST">
     <div class = "browseVideo">
         
 
-        <table>
+        <table class="table">
             
             <thead>
             </thead>
-            
-                
-            
-
             <tr>
                 <td>
                     <h3>Beginner
@@ -93,11 +98,16 @@
 
                     <td>
                         <h2>@WO.workoutName</h2>
-                        <div class="Edit">
-                            <span class="material-symbols-outlined">
-                                edit_note
-                            </span>
-                        </div>
+                        
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        
+                                {
+                                    <div class="Edit">
+                                        <span class="material-symbols-outlined">
+                                            edit_note
+                                        </span>
+                                    </div>
+                                }
 
                         <div class="Dumbbell">
                             @if (@WO.workoutDifficulty == "Beginner")
@@ -125,17 +135,16 @@
                                 </div>
                             }
                         </div>
-
                     </td>
-
                     <td>
                         <div class="info">
                             <span class="material-symbols-outlined">
                                 info
                             </span>
                         </div>
-
+                        
                     </td>
+                    
 
                 </tr>
             }

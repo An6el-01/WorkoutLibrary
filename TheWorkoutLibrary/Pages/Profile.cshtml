@@ -1,10 +1,92 @@
 ﻿@page
+@using Microsoft.AspNetCore.Identity
+@using TheWorkoutLibrary.Data
 @model TheWorkoutLibrary.Pages.ProfileModel
 @{
     ViewData["Title"] = "Profile";
     Layout = "~/Pages/_Layout.cshtml";
 }
+
+
+<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
-<h1>Profile</h1>
+    <div class = "BackgroundProfile">
+
+        <h1>Profile</h1>
+
+        <div class="profileNameMain">
+            <div class="imageGrey">
+                <img class="greyUser" src="/Images/greyProfile.png" alt="user">
+            </div>
+
+            <div class="UserName">
+                
+                    <p>@UserManager.GetUserName(User)</p>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <p>Admin</p>
+                    }
+                    else
+                    {
+                        <p>Member</p>
+                    }
+                }
+            </div>
+
+            <div class="fitnessLevel">
+                <p4>Fitness Level: </p4>
+            </div>
+
+            <div class="dateJoined">
+                <p5>Date Joined: </p5> 
+            </div>
+        
+            <div class="weightsImage">
+                <img class="weightsProfile" src="/Images/weightsProfile.png" alt="user">
+            </div>
+        
+            <div class="calendarImage">
+                <img class="weightCalendar" src="/Images/weightCalendar.png" alt="user">
+            </div>
+        
+
+        </div>
+
+        <div class="UserID">
+            <p4>UserID:</p4>
+            <p4>@UserManager.GetUserId(User)</p4>
+        </div>
+
+        <div class="Subscription">
+            <p6>Subscription Status: </p6>
+        
+        
+            <div class="greenTick">
+                <span class="material-symbols-outlined">
+                    verified
+                </span>
+            </div>
+
+        </div>
+        
+    
+
+        <div class="EndDate">
+            <p6>End Date:</p6>
+        </div>
+   
+        <div class="Renew">
+            <p6>Renew Subscription</p6>
+        </div>
+   
+        <div class="End">
+            <p6>End Subscription</p6>
+        </div>
+
+    </div>
+

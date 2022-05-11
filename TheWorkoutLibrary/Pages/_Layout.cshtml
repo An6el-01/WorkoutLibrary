@@ -23,11 +23,14 @@
                 <span class="material-icons navIcon">home</span>
                 <span class="navText">Dashboard</span>
             </a>
-
+        @if (User.Identity.IsAuthenticated)
+        {
             <a asp-page="/Profile" class="navLink">
                 <span class="material-icons navIcon">person</span>
                 <span class="navText">Profile</span>
             </a>
+        }
+            
 
             <a asp-page="/browseVideos" class="navLink">
                 <span class="material-icons navIcon">videocam</span>

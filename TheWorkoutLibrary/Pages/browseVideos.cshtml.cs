@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -18,7 +19,7 @@ namespace TheWorkoutLibrary.Pages
         public IList<Workout> Workout { get; private set; }
         
         [BindProperty] public string Search { get; set; }
-        
+        [BindProperty] public string Upload { get; set; }
 
         public browseVideosModel(AppDbContext db)
         {
@@ -29,6 +30,11 @@ namespace TheWorkoutLibrary.Pages
             Workout = _db.videoWorkoutLibrary.FromSqlRaw("SELECT * FROM videoWorkoutLibrary").ToList();
         }
 
+        public IActionResult OnPostUpload()
+        {
+            return RedirectToPage("/Upload");
+
+        }
         public IActionResult OnPostSearch()
         {
             /*Workout = _db.videoWorkoutLibrary.FromSqlRaw("SELECT * FROM videoWorkoutLibrary WHERE activityStatus =1 AND workoutName LIKE'" + Search + "%'").ToList();
