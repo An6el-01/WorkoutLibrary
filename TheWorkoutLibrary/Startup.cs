@@ -43,7 +43,9 @@ namespace TheWorkoutLibrary
                 options.AccessDeniedPath = new PathString("/Accessdenied");
                 options.LogoutPath = new PathString("/Index");
             }
+
 );
+            services.Configure<StripeSettings>(Configuration.GetSection("Stripe"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -53,6 +55,10 @@ namespace TheWorkoutLibrary
             {
                 app.UseDeveloperExceptionPage();
             }
+            
+            StripeConfiguration.ApiKey = Configuration.GetSection("Stripe")["SecretKey"];
+
+
             CreateRoles(serviceProvider).Wait();
             app.UseRouting();
             app.UseHttpsRedirection();
