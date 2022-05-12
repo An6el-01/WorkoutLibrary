@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -28,6 +29,8 @@ namespace TheWorkoutLibrary.Pages
             _userInManager = um;
             _db = db;
         }
+
+        
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
@@ -39,7 +42,21 @@ namespace TheWorkoutLibrary.Pages
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     await _userInManager.AddToRoleAsync(user, "Member");
                     NewBasket();
-                    NewCheckoutUser(Input.Email);
+                    CheckoutUser.email = Input.Email;                   
+                    CheckoutUser.basketID = Basket.basketID;
+                    CheckoutUser.firstName = Convert.ToString(Request.Form["firstName"]);
+                    CheckoutUser.lastName = Convert.ToString(Request.Form["lastName"]);
+                    CheckoutUser.startDate = Convert.ToDateTime(Request.Form["startDate"]);
+                    CheckoutUser.subscriptionStatus = true;
+                    foreach (var file in Request.Form.Files)
+                    {
+                        MemoryStream ms = new MemoryStream();
+                        file.CopyTo(ms);
+                        CheckoutUser.imageData = ms.ToArray();
+                        ms.Close();
+                        ms.Dispose();
+                    }
+                    _db.CheckoutUsers.Add(CheckoutUser);
                     await _db.SaveChangesAsync();
                     return RedirectToPage("/Index");
                 }
@@ -64,12 +81,6 @@ namespace TheWorkoutLibrary.Pages
                 Basket.basketID = currentBasket.basketID + 1;
             }
             _db.Baskets.Add(Basket);
-        }
-        public void NewCheckoutUser(string Email)
-        {
-            CheckoutUser.email = Email;            
-            CheckoutUser.basketID = Basket.basketID;
-            _db.CheckoutUsers.Add(CheckoutUser);
-        }
+        }        
     }
 }

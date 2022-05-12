@@ -7,14 +7,29 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <h1>Register</h1>
-<form method="post">
-    <h4>Create a new account.</h4>
+<form method="post" enctype="multipart/form-data">
+    <h4>Registration</h4>
     <hr />
     <div asp-validation-summary="All"></div>
     <div>
         <label asp-for="Input.Email"></label>
         <input asp-for="Input.Email" class="form-control" />
         <span asp-validation-for="Input.Email"></span>
+    </div>
+    <div>
+        <label asp-for="CheckoutUser.firstName">First Name</label>
+        <input type="text" name="firstName" asp-for="CheckoutUser.firstName"/>
+        <span asp-validation-for="CheckoutUser.firstName"></span>
+    </div>
+    <div>
+        <label asp-for="CheckoutUser.lastName">Last Name</label>
+        <input type="text" name="lastName" asp-for="CheckoutUser.lastName" />
+        <span asp-validation-for="CheckoutUser.lastName"></span>
+    </div>
+    <div>
+        <label asp-for="CheckoutUser.startDate">Today's Date</label>
+        <input type="date" name="startDate" asp-for="CheckoutUser.startDate" />
+        <span asp-validation-for="CheckoutUser.startDate"></span>
     </div>
     <div>
         <label asp-for="Input.Password"></label>
@@ -26,6 +41,13 @@
         <input asp-for="Input.ConfirmPassword" />
         <span asp-validation-for="Input.ConfirmPassword"></span>
     </div>
+    <div>
+        Upload Profile Picture:<br />
+        <input type="file" id="file1"
+               name="file1"
+               multiple="multiple" />
+    </div>
+
     <button type="submit">Register</button>
 
 </form>
