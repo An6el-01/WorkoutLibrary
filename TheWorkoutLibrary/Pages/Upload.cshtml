@@ -76,17 +76,10 @@
             </div>
         }
     </div>
-
-
-
-
-    <div class="uploadBox">
-        <div class="Upload">
-            <label>Upload Video</label>
-            <input class="inputUpload" type="file" id="file1"
-                   name="file1"
-                   multiple="multiple" />
-        </div>
+    <div>
+        <label asp-for="excercise.YoutubeURL">Embeded Youtube URL</label>
+        <input name="youtube" asp-for="excercise.YoutubeURL" />
+        <span asp-validation-for="excercise.YoutubeURL"></span>
     </div>
 
     <div class="buttonSubmit">
