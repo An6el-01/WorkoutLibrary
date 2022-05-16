@@ -66,46 +66,57 @@ body {
 
 /* Layout page - nav bar */
 
-.menu-btn {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    transition: all .5s ease-in-out;
+
+.dropdown {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow-y: hidden;
+    transition: 0.5s;
 }
 
-.menu-btn_burger {
-    width: 50px;
-    height: 6px;
-    background: #000000;
-    border-radius: 5px;
-    box-shadow:0 2px 5px rgba(255,101,47,.2);
-    transition: all .5s ease-in-out;
-}
-
-.menu-btn_burger::before,
-.menu-btn_burger::after {
-    content: '';
+.dropDownList {
     position: absolute;
-    width: 50px;
-    height: 6px;
-    background: #000000;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(255,101,47,.2);
-    transition: all .5s ease-in-out;
+    top: 90px;
+    float: left;
 }
 
-.menu-btn_burger::before {
-    transform: translateY(-16px);
+.dropdown a {
+    padding: 20px 0px;
+    text-decoration: none;
+    font-size: 30px;
+    color: black;
+    display: block;
+    transition: 0.3s;
 }
 
-.menu-btn_burger::after {
-    transform: translateY(16px);
+    .dropdown a:hover, dropdown a:focus {
+        color: #662582;
+        font-size: 34px;
+    }
+
+.hamburger {
+    color: black;
+    left: 10px;
+    top: 20px;
+    font-size: 50px;
+    cursor: pointer;
 }
 
+.dropdown .buttonX {
+    padding: 0px;
+    font-size: 70px;
+    color: black;
+}
+
+    .dropdown .buttonX:hover {
+        font-size: 75px;
+        color: #662582;
+    }
 /*Layout Page - Logo*/
 
 

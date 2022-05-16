@@ -9,16 +9,19 @@ namespace TheWorkoutLibrary.Data
     public class WorkoutItem
     {
         [Key, Required]
-        public int workoutID { get; set; }
+        public int Id { get; set; }
+
         [Required]
-        public int quantity { get; set; }
+        public string Name { get; set; }
+
+        [Required, StringLength(125)]
+        public string YoutubeURL { get; set; }
+
         [Required]
-        public string workoutName { get; set; }
-        //[Required]
-        //public int sets { get; set; }
-        //[Required]
-        //public int reps { get; set; }
+        public int Sets { get; set; }
+
         [Required]
-        public byte[] videoData { get; set; }
+        public int Reps { get; set; }
+
     }
 }

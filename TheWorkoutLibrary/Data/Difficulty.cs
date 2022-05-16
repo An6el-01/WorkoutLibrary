@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.ComponentModel.DataAnnotations;
 
 namespace TheWorkoutLibrary.Data
 {
-    public class Basket
+    public enum Difficulty
     {
-        [Key]
-        public int basketID { get; set; }
+        Beginner = 0,
+        Intermediate = 1,
+        Advanced = 2
     }
 }

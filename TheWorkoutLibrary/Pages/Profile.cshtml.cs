@@ -15,11 +15,12 @@ namespace TheWorkoutLibrary.Pages
     public class ProfileModel : PageModel
     {
         private readonly AppDbContext _db;
-        /*public IList<CheckoutUser> Image { get; private set; }*/
-        [BindProperty] public CheckoutUser Image { get; set; }
+       
+        [BindProperty] public UserProfile Image { get; set; }
         [BindProperty] public string Search { get; set; }
         [BindProperty] public string Upload { get; set; }
-        public CheckoutUser checkoutUser { get; set; }
+
+        public UserProfile currentUser { get; set; }
 
 
         private readonly UserManager<ApplicationUser> _um;
@@ -33,8 +34,8 @@ namespace TheWorkoutLibrary.Pages
         public async Task<IActionResult> OnGetAsync()
         {
             var user = await _um.GetUserAsync(User);
-            checkoutUser = await _db.CheckoutUsers.FindAsync(user.Email);
-            if (checkoutUser == null)
+            currentUser = await _db.userProfiles.FindAsync(user.Email);
+            if (currentUser == null)
             {
                 return RedirectToPage("/Index");
             }
@@ -54,7 +55,7 @@ namespace TheWorkoutLibrary.Pages
                 {
                     MemoryStream ms = new MemoryStream();
                     file.CopyTo(ms);
-                    checkoutUser.imageData = ms.ToArray();
+                    currentUser.ImageData = ms.ToArray();
                     ms.Close();
                     ms.Dispose();
                 }

@@ -14,35 +14,34 @@
 <form class="EnterWorkoutForm" method="post" enctype="multipart/form-data">
     <h4>Input Video Details</h4>
     <div asp-validation-summary="All"></div>
-    <span asp-validation-for="Workout.workoutName"></span>
-    
-    
+
+
     <div class="whiteWorkoutName">
         <div class="Text">
             <img class="textImage" src="/Images/Text.png" alt="text">
         </div>
 
-        <div class="workoutNameClass"><input asp-for="Workout.workoutName" placeholder="Workout Name"/></div>
+        <div class="workoutNameClass"><input asp-for="excercise.Name" placeholder="Workout Name" /></div>
     </div>
-    
-    
-    
-    
+
+
+
+
     <div class="whiteWorkoutNotes">
-            <div class="Notes">
-                <img class="notesImage" src="/Images/Notes.png" alt="user">
-            </div>
-    
-        <div class="workoutNotes"><input asp-for="Workout.workoutNotes" placeholder="Notes" /></div>
+        <div class="Notes">
+            <img class="notesImage" src="/Images/Notes.png" alt="user">
         </div>
-    
-    
+
+        <div class="workoutNotes"><input asp-for="excercise.Notes" placeholder="Notes" /></div>
+    </div>
+
+
     <div class="workoutDifficultyDiv">
         Workout Difficulty : <br>
         @foreach (var level in Model.difficulties)
         {
-            <input type="radio" asp-for="Workout.workoutDifficulty" value="@level"/>@level
-            
+            <input type="radio" asp-for="excercise.Difficulty" value="@level" />@level
+
             <div class="Dumbbell">
                 @if (@level == "Beginner")
                 {
@@ -50,9 +49,9 @@
                         <span class="material-symbols-outlined">
                             fitness_center
                         </span>
-                        <br/>
+                        <br />
                     </div>
-                    <br/>
+                    <br />
                 }
                 else if (@level == "Intermediate")
                 {
@@ -60,9 +59,9 @@
                         <span class="material-symbols-outlined">
                             fitness_center
                         </span>
-                        <br/>
+                        <br />
                     </div>
-                    <br/>
+                    <br />
                 }
                 else if (@level == "Advanced")
                 {
@@ -70,26 +69,26 @@
                         <span class="material-symbols-outlined">
                             fitness_center
                         </span>
-                        <br/>
+                        <br />
                     </div>
-                    <br/>
+                    <br />
                 }
             </div>
         }
     </div>
-    
-    
-    
-    
+
+
+
+
     <div class="uploadBox">
         <div class="Upload">
             <label>Upload Video</label>
-            <input class = "inputUpload" type="file" id="file1"
+            <input class="inputUpload" type="file" id="file1"
                    name="file1"
-                   multiple="multiple"/>
+                   multiple="multiple" />
         </div>
     </div>
-    
+
     <div class="buttonSubmit">
         <button class="EnterWorkoutBtn" type="submit" asp-page-handler="Save">Save</button>
     </div>

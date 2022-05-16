@@ -19,6 +19,9 @@ namespace TheWorkoutLibrary.Pages
 
         public string[] difficulties = new[] { "Beginner", "Intermediate", "Advanced" };
 
+        [BindProperty]
+        public Excercise excercise { get; set; }
+
 
         [BindProperty]
         public Workout Workout { get; set; }
@@ -39,16 +42,11 @@ namespace TheWorkoutLibrary.Pages
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid) { return Page(); }
-            Workout.activityStatus = true;
-            foreach(var file in Request.Form.Files)
-            {
-                MemoryStream ms = new MemoryStream();
-                file.CopyTo(ms);
-                Workout.videoData = ms.ToArray();
-                ms.Close();
-                ms.Dispose();
-            }
-            _db.videoWorkoutLibrary.Add(Workout);
+            excercise.Name = Convert.ToString(Request.Form["name"]);
+            excercise.Notes = Convert.ToString(Request.Form["notes"]);
+            excercise.YoutubeURL = Convert.ToString(Request.Form["youtube"]);
+            excercise.Visibility = true;            
+            _db.Excercise.Add(excercise);
             await _db.SaveChangesAsync();
             return RedirectToPage("/browseVideos");
         }

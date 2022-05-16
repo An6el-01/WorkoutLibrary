@@ -14,10 +14,11 @@ namespace TheWorkoutLibrary.Data
         {
 
         }
-        public DbSet<Workout> videoWorkoutLibrary { get; set; } 
-        public DbSet<CheckoutUser> CheckoutUsers { get; set; }
-        public DbSet<Basket> Baskets { get; set; }
-        public DbSet<BasketItem> BasketItems { get; set; }
+        public DbSet<UserProfile> userProfiles { get; set; }
+        public DbSet<Excercise> Excercise { get; set; }
+        public DbSet<WorkoutExcercise> WorkoutExcercise { get; set; }
+        public DbSet<Workout> Workout { get; set; }
+
 
         [NotMapped]
         public DbSet<WorkoutItem> WorkoutItems { get; set; }
@@ -25,7 +26,7 @@ namespace TheWorkoutLibrary.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<BasketItem>().HasKey(t => new { t.workoutID, t.basketID });            
+            //builder.Entity<BasketItem>().HasKey(t => new { t.workoutID, t.basketID });            
         }
     }   
 

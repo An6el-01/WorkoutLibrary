@@ -12,116 +12,142 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<div class="Logo">
-    <a asp-page="/Index">
-    <img class="whiteLogo" src="/Images/Logo White Official.png" alt="logo">
-    </a>
-</div>
-<div>
-    <div class="menu-btn">
-        <div class="menu-btn_burger"></div>
-    </div>
-    <nav class="Nav">
-        <a asp-page="/Index" class="navLink">
-            <span class="material-icons navIcon">home</span>
-            <span class="navText">Dashboard</span>
+    <div class="Logo">
+        <a asp-page="/Index">
+            <img class="whiteLogo" src="/Images/Logo White Official.png" alt="logo">
         </a>
-        @if (User.Identity.IsAuthenticated)
-        {
-            <a asp-page="/Profile" class="navLink">
-                <span class="material-icons navIcon">person</span>
-                <span class="navText">Profile</span>
+    </div>
+    <div>
+
+        <div id="myMenu" class="dropdown">
+            <a href="javascript:" class="buttonX" onclick="closeMenu()">&times;</a>
+            <div class="dropDownList">
+                <a asp-page="/Index" class="navLink">
+                    <span class="material-icons navIcon">home</span>
+                    <span class="navText">Dashboard</span>
+                </a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-page="/Profile" class="navLink">
+                        <span class="material-icons navIcon">person</span>
+                        <span class="navText">Profile</span>
+                    </a>
+                }
+                <a asp-page="/browseVideos" class="navLink">
+                    <span class="material-icons navIcon">videocam</span>
+                    <span class="navText">Browse Videos</span>
+                </a>
+                <a asp-page="/createdWorkoutLibrary" class="navLink">
+                    <span class="material-icons navIcon">directions_run</span>
+                    <span class="navText">Created Workouts</span>
+                </a>
+                <a asp-page="/Calendar" class="navLink">
+                    <span class="material-icons navIcon">calendar_month</span>
+                    <span class="navText">Calendar</span>
+                </a>
+            </div>
+        </div>
+        <span class="hamburger" onclick="openMenu()">&#9776;</span>
+        <script src="app.js"></script>
+
+
+        <nav class="Nav">
+            <a asp-page="/Index" class="navLink">
+                <span class="material-icons navIcon">home</span>
+                <span class="navText">Dashboard</span>
             </a>
-        }
-
-
-        <a asp-page="/browseVideos" class="navLink">
-            <span class="material-icons navIcon">videocam</span>
-            <span class="navText">Browse Videos</span>
-        </a>
-
-        <a asp-page="/createdWorkoutLibrary" class="navLink">
-            <span class="material-icons navIcon">directions_run</span>
-            <span class="navText">Created Workouts</span>
-        </a>
-
-        <a asp-page="/Calendar" class="navLink">
-            <span class="material-icons navIcon">calendar_month</span>
-            <span class="navText">Calendar</span>
-        </a>
-    </nav>
-
-    <div id="profileName">
-        @if (SignInManager.IsSignedIn(User))
-        {
-            <p>Hello, @UserManager.GetUserName(User)</p>
-            if (User.IsInRole("Admin"))
+            @if (User.Identity.IsAuthenticated)
             {
-                <p>Administrator</p>
+                <a asp-page="/Profile" class="navLink">
+                    <span class="material-icons navIcon">person</span>
+                    <span class="navText">Profile</span>
+                </a>
             }
-            else
-            {
-                <p>Member</p>
-            }
-            <form asp-page="/Logout" method="post">
-                <button type="submit">Logout</button>
-            </form>
-        }
-    </div>
-    <div class="Navigation">
-        <nav>
-            <ul>
-                <li><a asp-page="/Login">Log-in</a></li>
-                <li><a asp-page="/browseVideos">Browse Videos</a></li>
-                <li><a asp-page="/createWorkout">Create Workout</a></li>
-                <!--<li><a asp-page="/createdWorkoutLibrary">Created Workout Library</a></li>-->
-                <li><a asp-page="/Index">Dashboard</a></li>
-                <li><a asp-page="/Payment">Payment</a></li>
-                <li><a asp-page="/Profile">Profile</a></li>
-                <li><a asp-page="/Register">Register</a></li>
-                <li><a asp-page="/Upload">Upload</a></li>
-                <!--<li><a asp-page="/Calendar">Calendar</a></li>-->
-            </ul>
+
+
+            <a asp-page="/browseVideos" class="navLink">
+                <span class="material-icons navIcon">videocam</span>
+                <span class="navText">Browse Videos</span>
+            </a>
+
+            <a asp-page="/createdWorkoutLibrary" class="navLink">
+                <span class="material-icons navIcon">directions_run</span>
+                <span class="navText">Created Workouts</span>
+            </a>
+
+            <a asp-page="/Calendar" class="navLink">
+                <span class="material-icons navIcon">calendar_month</span>
+                <span class="navText">Calendar</span>
+            </a>
         </nav>
-    </div>
-</div>
-@RenderBody()
 
-<footer class="border-top footer text-muted">
-    <div class="footerMain">
-        <div class="SocialLinks">
-            <img class="WLLogo" src="Images/WL Master Logo.jpg" alt="Logo">
-            <p> Social Links: </p>
+        <div id="profileName">
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <p>Hello, @UserManager.GetUserName(User)</p>
+                if (User.IsInRole("Admin"))
+                {
+                    <p>Administrator</p>
+                }
+                else
+                {
+                    <p>Member</p>
+                }
+                <form asp-page="/Logout" method="post">
+                    <button type="submit">Logout</button>
+                </form>
+            }
         </div>
+        <div class="Navigation">
+            <nav>
+                <ul>
+                    <li><a asp-page="/Login">Log-in</a></li>
+                    <li><a asp-page="/browseVideos">Browse Videos</a></li>
+                    <li><a asp-page="/createWorkout">Create Workout</a></li>
+                    <li><a asp-page="/createdWorkoutLibrary">Created Workout Library</a></li>
+                    <li><a asp-page="/Index">Dashboard</a></li>
+                    <li><a asp-page="/Payment">Payment</a></li>
+                    <li><a asp-page="/Profile">Profile</a></li>
+                    <li><a asp-page="/Register">Register</a></li>
+                    <li><a asp-page="/Upload">Upload</a></li>
+                    <li><a asp-page="/Calendar">Calendar</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    @RenderBody()
 
-        <div class="DisplayFooter">
-            <div class="Instagram">
-                <img class="InstaLogo" src="Images/Instagram.png" alt="Logo">
-                <p><a class="InstaText" href="https://instagram.com/the.workoutlibrary?igshid=">Instagram</a></p>
+    <footer class="border-top footer text-muted">
+        <div class="footerMain">
+            <div class="SocialLinks">
+                <img class="WLLogo" src="Images/WL Master Logo.jpg" alt="Logo">
+                <p> Social Links: </p>
             </div>
 
-            <div class="Email">
-                <img class="EmailLogo" src="Images/Email.webp" alt="Logo">
-                <p><a class="JamesEmail" href="mailto:james@radicalfitness.co.uk"> james@radicalfitness.co.uk</a></p>
+            <div class="DisplayFooter">
+                <div class="Instagram">
+                    <img class="InstaLogo" src="Images/Instagram.png" alt="Logo">
+                    <p><a class="InstaText" href="https://instagram.com/the.workoutlibrary?igshid=">Instagram</a></p>
+                </div>
+
+                <div class="Email">
+                    <img class="EmailLogo" src="Images/Email.webp" alt="Logo">
+                    <p><a class="JamesEmail" href="mailto:james@radicalfitness.co.uk"> james@radicalfitness.co.uk</a></p>
+                </div>
             </div>
         </div>
-    </div>
 
-</footer>
+    </footer>
 
 </body>
 </html>
 
 <script>
-const menuBtn = document.querySelector('.menu-btn');
-let menuOpen = false;
-menuBtn.addEventListener('click', () => {
-if (!menuOpen) {
-menuBtn.classList.add('open');
-menuOpen = true;
-} else {
-menuBtn.classList.remove('open');
-menuOpen = false;
-}
-});
+    function openMenu() {
+        document.getElementById('myMenu').style.height = "100%"
+        document.getElementById('myMenu').style.width = "25%"
+    }
+    function closeMenu() {
+        document.getElementById('myMenu').style.height = "0%"
+    }
 </script>

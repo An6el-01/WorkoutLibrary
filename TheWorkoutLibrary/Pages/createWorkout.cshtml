@@ -10,31 +10,60 @@
 
 <form id="createWorkoutForm" method="post">
 
-    <table class="workoutItemsTable">
-        <tbody>
-            @foreach (var item in Model.Items)
+    <h4>Create New Workout</h4>
+    <hr />
+    <div asp-validation-summary="All"></div>
+    <div>
+        <label asp-for="newWorkout.Name">Workout Name</label>
+        <input type="text" name="name" asp-for="newWorkout.Name" />
+        <span asp-validation-for="newWorkout.Name"></span>
+    </div>
+    <div>
+        <label asp-for="newWorkout.Notes">Notes</label>
+        <input type="text" name="notes" asp-for="newWorkout.Notes" />
+        <span asp-validation-for="newWorkout.Notes"></span>
+    </div>
+    <div>
+        Workout Difficulty : <br>
+        @foreach (var level in Model.difficulties)
+        {
+            <input type="radio" name='difficulty' asp-for="newWorkout.Difficulty" value="@level" />@level<br />
+        }
+    </div>
+    <button id="createBtn" type="submit" asp-page-handler="Create">CREATE</button>
 
-            {
-                <tr>
-                    <td>
-                        <video width="160" height="283" controls muted>
-                            <source src="@string.Format("data:video/mp4;base64,{0}", Convert.ToBase64String(@item.videoData))" type="video/mp4" />
-                        </video>
-                    </td>
 
-                    <td>@item.workoutName</td>
-                    <td>@item.workoutID</td>
-                    <td>@item.quantity</td>
-                    
-                    @*<td>@item.sets</td>
-                    <td>@item.reps</td>*@
+    @*<div>
+            Upload Thumbnail Picture:<br />
+            <input type="file" id="file1"
+                   name="file1"
+                   multiple="multiple" />
+        </div>*@
+<div>
+    <h4>Name: </h4><p>@Model.lastWorkout.Name</p>
+    <h4>Notes: </h4><p>@Model.lastWorkout.Notes</p>
+    <h4>Difficulty: </h4><p>@Model.lastWorkout.Difficulty</p>
+</div>
+<div class="workouts">
+    @if (Model.Items == null)
+    {
+        <h2>No Items Currently in Workout</h2>
+    }
+    @foreach (var excercise in Model.excercises)
+    {
+        <h4>Excercise: </h4><p>@excercise.Name, @excercise.Notes, @excercise.Difficulty</p>  
+        <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@excercise.Id">Add</button>
+    }
+</div>
+<div class="groupedExcercises">
+    @foreach (var item in Model.Items)
+    {
+        <iframe width="560" height="315" src="@item.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                </tr>
+        <h4>Name: </h4><p>@item.Name</p>
+        <h4>Sets: </h4><p>@item.Sets</p>
+        <h4>Reps: </h4><p>@item.Reps</p>
+    }
+    </div>  
 
-            }
-        </tbody>
-    </table>
-
-    @*<button id="createBtn" type="submit" asp-page-handler="Create">CREATE</button>
-    <button id="clearBtn" type="reset" asp-page-handler="Clear">CLEAR</button>*@
 </form>

@@ -26,7 +26,7 @@
                 try
                 {
                     <div class="userImage">
-                        <img class="newUserImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@Model.checkoutUser.imageData))"/>
+                        <img class="newUserImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@Model.currentUser.ImageData))"/>
                     </div>
                 }catch{
                     
@@ -60,7 +60,7 @@
             </div>
 
             <div class="dateJoined">
-                <p5>Date Joined: @Model.checkoutUser.startDate </p5>
+                <p5>Date Joined: @Model.currentUser.StartDate </p5>
             </div>
 
             <div class="weightsImage">

@@ -20,8 +20,9 @@ namespace TheWorkoutLibrary.Pages
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userInManager;
 
-        public CheckoutUser CheckoutUser = new CheckoutUser();
-        public Basket Basket = new Basket();
+        
+        public UserProfile userProfile = new UserProfile();
+        public Workout workout = new Workout();
 
         public RegisterModel(UserManager<ApplicationUser> um, SignInManager<ApplicationUser> sm, AppDbContext db )
         {
@@ -29,8 +30,7 @@ namespace TheWorkoutLibrary.Pages
             _userInManager = um;
             _db = db;
         }
-
-        
+                
         public async Task<IActionResult> OnPostAsync()
         {
             if (ModelState.IsValid)
@@ -41,22 +41,33 @@ namespace TheWorkoutLibrary.Pages
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     await _userInManager.AddToRoleAsync(user, "Member");
-                    NewBasket();
-                    CheckoutUser.email = Input.Email;                   
-                    CheckoutUser.basketID = Basket.basketID;
-                    CheckoutUser.firstName = Convert.ToString(Request.Form["firstName"]);
-                    CheckoutUser.lastName = Convert.ToString(Request.Form["lastName"]);
-                    CheckoutUser.startDate = Convert.ToDateTime(Request.Form["startDate"]);
-                    CheckoutUser.subscriptionStatus = true;
+
+
+                    var currentUser = _db.userProfiles.FromSqlRaw("SELECT * FROM UserProfiles")
+                        .OrderByDescending(b => b.UserId)
+                        .FirstOrDefault();
+                    if (currentUser == null)
+                    {
+                        userProfile.UserId = 1;
+                    }
+                    else
+                    {
+                        userProfile.UserId = currentUser.UserId + 1;                        
+                    }
+                    userProfile.Email = Input.Email;                   
+                    userProfile.FirstName = Convert.ToString(Request.Form["firstName"]);
+                    userProfile.LastName = Convert.ToString(Request.Form["lastName"]);
+                    userProfile.StartDate = Convert.ToDateTime(Request.Form["startDate"]);
+                    userProfile.SubscriptionStatus = true;
                     foreach (var file in Request.Form.Files)
                     {
                         MemoryStream ms = new MemoryStream();
                         file.CopyTo(ms);
-                        CheckoutUser.imageData = ms.ToArray();
+                        userProfile.ImageData = ms.ToArray();
                         ms.Close();
                         ms.Dispose();
                     }
-                    _db.CheckoutUsers.Add(CheckoutUser);
+                    _db.userProfiles.Add(userProfile);
                     await _db.SaveChangesAsync();
                     return RedirectToPage("/Index");
                 }
@@ -67,20 +78,5 @@ namespace TheWorkoutLibrary.Pages
             }
             return Page();
         }
-        public void NewBasket()
-        {
-            var currentBasket = _db.Baskets.FromSqlRaw("SELECT * FROM Baskets")
-                .OrderByDescending(b => b.basketID)
-                .FirstOrDefault();
-            if (currentBasket == null)
-            {
-                Basket.basketID = 1;
-            }
-            else
-            {
-                Basket.basketID = currentBasket.basketID + 1;
-            }
-            _db.Baskets.Add(Basket);
-        }        
     }
 }

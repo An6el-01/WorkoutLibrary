@@ -14,39 +14,39 @@
     <div asp-validation-summary="All"></div>
     <div class="rDivEmail">
         <label asp-for="Input.Email"></label>
-        <input asp-for="Input.Email" class="form-control"/>
+        <input asp-for="Input.Email" class="form-control" />
         <span asp-validation-for="Input.Email"></span>
     </div>
     <div class="rDivFirstName">
-        <label asp-for="CheckoutUser.firstName">First Name</label>
-        <input type="text" name="firstName" asp-for="CheckoutUser.firstName"/>
-        <span asp-validation-for="CheckoutUser.firstName"></span>
+        <label asp-for="userProfile.FirstName">First Name</label>
+        <input type="text" name="firstName" asp-for="userProfile.FirstName" />
+        <span asp-validation-for="userProfile.FirstName"></span>
     </div>
     <div class="rDivLastName">
-        <label asp-for="CheckoutUser.lastName">Last Name</label>
-        <input type="text" name="lastName" asp-for="CheckoutUser.lastName"/>
-        <span asp-validation-for="CheckoutUser.lastName"></span>
+        <label asp-for="userProfile.LastName">Last Name</label>
+        <input type="text" name="lastName" asp-for="userProfile.LastName" />
+        <span asp-validation-for="userProfile.LastName"></span>
     </div>
     <div class="rDivDate">
-        <label asp-for="CheckoutUser.startDate">Today's Date</label>
-        <input type="date" name="startDate" asp-for="CheckoutUser.startDate"/>
-        <span asp-validation-for="CheckoutUser.startDate"></span>
+        <label asp-for="userProfile.StartDate">Today's Date</label>
+        <input type="date" name="startDate" asp-for="userProfile.StartDate" />
+        <span asp-validation-for="userProfile.StartDate"></span>
     </div>
     <div class="rDivPassword">
         <label asp-for="Input.Password"></label>
-        <input asp-for="Input.Password" class="form-control"/>
+        <input asp-for="Input.Password" class="form-control" />
         <span asp-validation-for="Input.Password"></span>
     </div>
     <div class="rDivConfirmPassword">
         <label asp-for="Input.ConfirmPassword"></label>
-        <input asp-for="Input.ConfirmPassword"/>
+        <input asp-for="Input.ConfirmPassword" />
         <span asp-validation-for="Input.ConfirmPassword"></span>
     </div>
     <div class="rDivPic">
-        Upload Profile Picture:<br/>
+        Upload Profile Picture:<br />
         <input type="file" id="file1"
                name="file1"
-               multiple="multiple"/>
+               multiple="multiple" />
     </div>
 
 

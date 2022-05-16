@@ -77,85 +77,82 @@
             </tr>
 
             <tbody>
-                @foreach (var WO in Model.Workout)
+                @foreach (var WO in Model.excercises)
                 {
-                    <tr>
+                <tr>
 
-                        @{
-                            try
-                            {
-                                <td>
-                                    <video width="160" height="283" controls muted>
-                                        <source src="@string.Format("data:video/mp4;base64,{0}", Convert.ToBase64String(WO.videoData))" type="video/mp4" />
+                    @{
+                        try
+                        {                           
+                            <td>
+                                <iframe width="560" height="315" src="@WO.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </td>                            
+                        }
+                        catch
+                        {
+                            <td>
+                                <img src="/Images/empty.png" alt="No Image Provided" />
+                            </td>
+                        }
+                    }
 
-                                    </video>
-                                </td>
-                            }
-                            catch
-                            {
-                                <td>
-                                    <img src="/Images/empty.png" alt="No Image Provided" />
-                                </td>
-                            }
+
+                    <td>
+                        <h2>@WO.Name</h2>
+
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+
+                        {
+                            <div class="Edit">
+                                <span class="material-symbols-outlined">
+                                    edit_note
+                                </span>
+                            </div>
                         }
 
-
-                        <td>
-                            <h2>@WO.workoutName</h2>
-
-                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-
+                        <div class="Dumbbell">
+                            @if (@WO.Difficulty == "Beginner")
                             {
-                                <div class="Edit">
+                                <div class="material-symbols-outlined1">
                                     <span class="material-symbols-outlined">
-                                        edit_note
+                                        fitness_center
                                     </span>
                                 </div>
                             }
+                            else if (@WO.Difficulty == "Intermediate")
+                            {
+                                <div class="material-symbols-outlined2">
+                                    <span class="material-symbols-outlined">
+                                        fitness_center
+                                    </span>
+                                </div>
+                            }
+                            else if (@WO.Difficulty == "Advanced")
+                            {
+                                <div class="material-symbols-outlined3">
+                                    <span class="material-symbols-outlined">
+                                        fitness_center
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        <div class="info">
+                            <span class="material-symbols-outlined">
+                                info
+                            </span>
+                        </div>
 
-                            <div class="Dumbbell">
-                                @if (@WO.workoutDifficulty == "Beginner")
-                                {
-                                    <div class="material-symbols-outlined1">
-                                        <span class="material-symbols-outlined">
-                                            fitness_center
-                                        </span>
-                                    </div>
-                                }
-                                else if (@WO.workoutDifficulty == "Intermediate")
-                                {
-                                    <div class="material-symbols-outlined2">
-                                        <span class="material-symbols-outlined">
-                                            fitness_center
-                                        </span>
-                                    </div>
-                                }
-                                else if (@WO.workoutDifficulty == "Advanced")
-                                {
-                                    <div class="material-symbols-outlined3">
-                                        <span class="material-symbols-outlined">
-                                            fitness_center
-                                        </span>
-                                    </div>
-                                }
-                            </div>
-                        </td>
+                    </td>
+                    @if (User.Identity.IsAuthenticated)
+                    {
                         <td>
-                            <div class="info">
-                                <span class="material-symbols-outlined">
-                                    info
-                                </span>
-                            </div>
-
+                            <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-itemID="@WO.Id">ADD</button>
                         </td>
-                        @if (User.Identity.IsAuthenticated)
-                        {
-                            <td>
-                                <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-itemID="@WO.workoutID">ADD</button>
-                            </td>
-                        }
+                    }
 
-                    </tr>
+                </tr>
                 }
             </tbody>
         </table>
