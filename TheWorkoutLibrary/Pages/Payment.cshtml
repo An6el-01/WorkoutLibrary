@@ -9,15 +9,17 @@
 @using TheWorkoutLibrary.Data
 @using Microsoft.Extensions.Options
 @inject IOptions<StripeSettings> Stripe
-
-<h1>Payment</h1>
-<form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">
-    <script src="//checkout.stripe.com/v2/checkout.js"
-            class="stripe-button"
-            data-key="@Stripe.Value.PublishableKey"
-            data-locale="auto"
-            data-description="Membership Payment Placeholder"
-            data-amount="@Model.AmountPayable"
-            data-currency="GBP">
+<hr />
+<div class="paymentDiv">
+    <h1>Payment</h1>
+    <form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">
+        <script src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="@Stripe.Value.PublishableKey"
+                data-locale="auto"
+                data-description="Membership Payment Placeholder"
+                data-amount="@Model.AmountPayable"
+                data-currency="GBP">
     </script>
-</form>
+    </form>
+</div>

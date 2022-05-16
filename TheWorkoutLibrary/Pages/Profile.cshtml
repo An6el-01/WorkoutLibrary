@@ -1,4 +1,5 @@
 ﻿@page
+@using System.Net.Mime
 @using Microsoft.AspNetCore.Identity
 @using TheWorkoutLibrary.Data
 @model TheWorkoutLibrary.Pages.ProfileModel
@@ -14,46 +15,62 @@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
+<hr />
     <div class = "BackgroundProfile">
 
         <h1>Profile</h1>
 
         <div class="profileNameMain">
-            <div class="imageGrey">
-                <img class="greyUser" src="/Images/greyProfile.png" alt="user">
-            </div>
+            
+            @{
+                try
+                {
+                    <div class="userImage">
+                        <img class="newUserImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@Model.checkoutUser.imageData))"/>
+                    </div>
+                }catch{
+                    
+                <div class="imageGrey">
+                        <img class="greyUser" src="/Images/greyProfile.png" alt="user">
+                    </div>
+                }
+                
+            }
+            
+            <form class="imageChangeForm" method="POST">
+                <button class="imageButton" type="submit" asp-page-handler="Image">
+                    
+                </button>
+            </form>
+            
+            
 
             <div class="UserName">
-                
-                    <p>@UserManager.GetUserName(User)</p>
-                    @if (User.IsInRole("Admin"))
-                    {
-                        <p>Admin</p>
-                    }
-                    else
-                    {
-                        <p>Member</p>
-                    }
-                
-            </div>
 
-            <div class="fitnessLevel">
-                <p4>Fitness Level: </p4>
+                <p>@UserManager.GetUserName(User)</p>
+                @if (User.IsInRole("Admin"))
+                {
+                    <p>Admin</p>
+                }
+                else
+                {
+                    <p>Member</p>
+                }
+
             </div>
 
             <div class="dateJoined">
-                <p5>Date Joined: </p5> 
+                <p5>Date Joined: @Model.checkoutUser.startDate </p5>
             </div>
-        
+
             <div class="weightsImage">
                 <img class="weightsProfile" src="/Images/weightsProfile.png" alt="user">
             </div>
-        
+
             <div class="calendarImage">
                 <img class="weightCalendar" src="/Images/weightCalendar.png" alt="user">
             </div>
-        
+
 
         </div>
 

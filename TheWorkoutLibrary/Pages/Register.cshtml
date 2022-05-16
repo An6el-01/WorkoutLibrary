@@ -6,48 +6,50 @@
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
-<h1>Register</h1>
 <form method="post" enctype="multipart/form-data">
-    <h4>Registration</h4>
     <hr />
+    <div class="registerWelcomeMessage">
+        <h1>Registration</h1>
+    </div>
     <div asp-validation-summary="All"></div>
-    <div>
+    <div class="rDivEmail">
         <label asp-for="Input.Email"></label>
-        <input asp-for="Input.Email" class="form-control" />
+        <input asp-for="Input.Email" class="form-control"/>
         <span asp-validation-for="Input.Email"></span>
     </div>
-    <div>
+    <div class="rDivFirstName">
         <label asp-for="CheckoutUser.firstName">First Name</label>
         <input type="text" name="firstName" asp-for="CheckoutUser.firstName"/>
         <span asp-validation-for="CheckoutUser.firstName"></span>
     </div>
-    <div>
+    <div class="rDivLastName">
         <label asp-for="CheckoutUser.lastName">Last Name</label>
-        <input type="text" name="lastName" asp-for="CheckoutUser.lastName" />
+        <input type="text" name="lastName" asp-for="CheckoutUser.lastName"/>
         <span asp-validation-for="CheckoutUser.lastName"></span>
     </div>
-    <div>
+    <div class="rDivDate">
         <label asp-for="CheckoutUser.startDate">Today's Date</label>
-        <input type="date" name="startDate" asp-for="CheckoutUser.startDate" />
+        <input type="date" name="startDate" asp-for="CheckoutUser.startDate"/>
         <span asp-validation-for="CheckoutUser.startDate"></span>
     </div>
-    <div>
+    <div class="rDivPassword">
         <label asp-for="Input.Password"></label>
-        <input asp-for="Input.Password" class="form-control" />
+        <input asp-for="Input.Password" class="form-control"/>
         <span asp-validation-for="Input.Password"></span>
     </div>
-    <div>
+    <div class="rDivConfirmPassword">
         <label asp-for="Input.ConfirmPassword"></label>
-        <input asp-for="Input.ConfirmPassword" />
+        <input asp-for="Input.ConfirmPassword"/>
         <span asp-validation-for="Input.ConfirmPassword"></span>
     </div>
-    <div>
-        Upload Profile Picture:<br />
+    <div class="rDivPic">
+        Upload Profile Picture:<br/>
         <input type="file" id="file1"
                name="file1"
-               multiple="multiple" />
+               multiple="multiple"/>
     </div>
 
-    <button type="submit">Register</button>
+
+    <button class="RegisterSubmitBtn" type="submit">Register</button>
 
 </form>
