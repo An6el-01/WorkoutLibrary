@@ -13,18 +13,18 @@
 <table class="excerciseTable">
     <tbody>        
           
-       @foreach (var item in Model.Items)
+       @foreach (var item in Model.workouts)
                 {
                 <tr>
                     <td>
-                        <iframe width="560" height="315" src="@item.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <img class="savedWorkoutsPicture" src="@item.ImageURL" alt="@item.ImageURL" width="600" height="400" >                        
                     </td>
                     <td>@item.Name</td>
-                    <td>@item.Sets</td>
-                    <td>@item.Reps</td>
-                    @*<td>
+                    <td>@item.Notes</td>
+                    <td>@item.Difficulty</td>
+                    <td>
                         <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@item.Id">Add</button>
-                    </td>*@
+                    </td>
                 </tr>
 
                 }
