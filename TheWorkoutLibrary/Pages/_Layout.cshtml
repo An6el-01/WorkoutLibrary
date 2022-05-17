@@ -26,6 +26,34 @@
                     <span class="material-icons navIcon">home</span>
                     <span class="navText">Dashboard</span>
                 </a>
+                <a asp-page="/createdWorkoutLibrary" class="navLink">
+                    <span class="material-icons navIcon">directions_run</span>
+                    <span class="navText">Workouts</span>
+                    <a asp-page="/browseVideos" class="navLink">
+                        <span class="material-icons navIcon">videocam</span>
+                        <span class="navText">Exercises</span>
+                    </a>
+                </a>
+                <a asp-page="/Calendar" class="navLink">
+                    <span class="material-icons navIcon">calendar_month</span>
+                    <span class="navText">Calendar</span>
+                </a>
+                <a asp-page="/Payment" class="navLink">
+                    <span class="material-icons">currency_pound</span>
+                    <span class="navText">Payment</span>
+                </a>
+                <a asp-page="/Login" class="navLink">
+                <span class="navText">Log-in</span>
+                </a>
+                <a asp-page="/createWorkout" class="navLink">
+                    <span class="navText">Create Workout</span>
+                </a>
+                <a asp-page="/Register" class="navLink">
+                    <span class="navText">Register</span>
+                </a>
+                <a asp-page="/Upload" class="navLink">
+                    <span class="navText">Upload</span>     
+                </a>
                 @if (User.Identity.IsAuthenticated)
                 {
                     <a asp-page="/Profile" class="navLink">
@@ -33,18 +61,6 @@
                         <span class="navText">Profile</span>
                     </a>
                 }
-                <a asp-page="/browseVideos" class="navLink">
-                    <span class="material-icons navIcon">videocam</span>
-                    <span class="navText">Browse Videos</span>
-                </a>
-                <a asp-page="/createdWorkoutLibrary" class="navLink">
-                    <span class="material-icons navIcon">directions_run</span>
-                    <span class="navText">Created Workouts</span>
-                </a>
-                <a asp-page="/Calendar" class="navLink">
-                    <span class="material-icons navIcon">calendar_month</span>
-                    <span class="navText">Calendar</span>
-                </a>
             </div>
         </div>
         <span class="hamburger" onclick="openMenu()">&#9776;</span>
@@ -56,29 +72,29 @@
                 <span class="material-icons navIcon">home</span>
                 <span class="navText">Dashboard</span>
             </a>
-            @if (User.Identity.IsAuthenticated)
-            {
-                <a asp-page="/Profile" class="navLink">
-                    <span class="material-icons navIcon">person</span>
-                    <span class="navText">Profile</span>
-                </a>
-            }
-
-
-            <a asp-page="/browseVideos" class="navLink">
-                <span class="material-icons navIcon">videocam</span>
-                <span class="navText">Browse Videos</span>
-            </a>
-
             <a asp-page="/createdWorkoutLibrary" class="navLink">
                 <span class="material-icons navIcon">directions_run</span>
-                <span class="navText">Created Workouts</span>
+                <span class="navText">Workouts</span>
+                <a asp-page="/browseVideos" class="navLink">
+                    <span class="material-icons navIcon">videocam</span>
+                    <span class="navText">Exercises</span>
+                </a>
             </a>
-
             <a asp-page="/Calendar" class="navLink">
                 <span class="material-icons navIcon">calendar_month</span>
                 <span class="navText">Calendar</span>
             </a>
+            <a asp-page="/Payment" class="navLink">
+                <span class="material-icons">currency_pound</span>
+                <span class="navText">Payment</span>
+            </a>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-page="/Profile" class="navLink">
+                        <span class="material-icons navIcon">person</span>
+                        <span class="navText">Profile</span>
+                    </a>
+                }
         </nav>
 
         <div id="profileName">
@@ -97,22 +113,6 @@
                     <button type="submit">Logout</button>
                 </form>
             }
-        </div>
-        <div class="Navigation">
-            <nav>
-                <ul>
-                    <li><a asp-page="/Login">Log-in</a></li>
-                    <li><a asp-page="/browseVideos">Browse Videos</a></li>
-                    <li><a asp-page="/createWorkout">Create Workout</a></li>
-                    <li><a asp-page="/createdWorkoutLibrary">Created Workout Library</a></li>
-                    <li><a asp-page="/Index">Dashboard</a></li>
-                    <li><a asp-page="/Payment">Payment</a></li>
-                    @*<li><a asp-page="/Profile">Profile</a></li>*@
-                    <li><a asp-page="/Register">Register</a></li>
-                    <li><a asp-page="/Upload">Upload</a></li>
-                    <li><a asp-page="/Calendar">Calendar</a></li>
-                </ul>
-            </nav>
         </div>
     </div>
     @RenderBody()
