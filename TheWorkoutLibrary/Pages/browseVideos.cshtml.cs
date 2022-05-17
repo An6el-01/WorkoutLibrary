@@ -20,6 +20,8 @@ namespace TheWorkoutLibrary.Pages
 
         public IList<Excercise> excercises { get; private set; }
 
+        public IList<Excercise> mostRecent { get; private set; }
+
         private readonly UserManager<ApplicationUser> _um;
 
         public browseVideosModel(AppDbContext db, UserManager<ApplicationUser> um)
@@ -29,7 +31,9 @@ namespace TheWorkoutLibrary.Pages
         }
         public void OnGet()
         {
-            excercises = _db.Excercise.ToList();
+            excercises = _db.Excercise.ToList();           
+
+            mostRecent = excercises.Take(3).ToList();
         }
 
         public IActionResult OnPostUpload()
@@ -39,7 +43,7 @@ namespace TheWorkoutLibrary.Pages
         }
         public IActionResult OnPostSearch()
         {
-            excercises = _db.Excercise.Where(x => x.Name.Contains(Search)).ToList();
+            excercises = _db.Excercise.Where(x => x.Name.Contains(Search)).ToList();          
             return Page();
         }
     }

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using TheWorkoutLibrary.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authorization;
+using System.IO;
 
 namespace TheWorkoutLibrary.Pages
 {
@@ -23,8 +24,9 @@ namespace TheWorkoutLibrary.Pages
         public IList<WorkoutExcercise> workoutExcercises { get; set; }
         public IList<Workout> workouts { get; set; }
         public IList<Excercise> excercises { get; set; }
-                          
-        public Workout newWorkout = new Workout();
+
+        [BindProperty]
+        public Workout newWorkout { get; set; }
 
         [BindProperty]
         public Workout lastWorkout { get; set; }
@@ -73,8 +75,10 @@ namespace TheWorkoutLibrary.Pages
                     Id = 1,
                     Name = Convert.ToString(Request.Form["name"]),
                     Notes = Convert.ToString(Request.Form["notes"]),
-                    UserId = currentUser.UserId
-                };
+                    UserId = currentUser.UserId,
+                    ImageURL = Convert.ToString(Request.Form["image"])                    
+            };
+
                 _db.Workout.Add(newWorkout);
                 await _db.SaveChangesAsync();
             }
@@ -86,6 +90,7 @@ namespace TheWorkoutLibrary.Pages
             newWorkout.Notes = Convert.ToString(Request.Form["notes"]);
             newWorkout.UserId = currentUser.UserId;
             newWorkout.Difficulty = Convert.ToString(Request.Form["difficulty"]);
+            newWorkout.ImageURL = Convert.ToString(Request.Form["image"]);
             _db.Workout.Add(newWorkout);
             try
             {

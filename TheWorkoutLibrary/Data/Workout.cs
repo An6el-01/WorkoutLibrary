@@ -17,5 +17,7 @@ namespace TheWorkoutLibrary.Data
         [StringLength(25)]
         public string Difficulty { get; set; }
         public int UserId { get; set; }
+        [StringLength(125)]
+        public string ImageURL { get; set; }
     }
 }

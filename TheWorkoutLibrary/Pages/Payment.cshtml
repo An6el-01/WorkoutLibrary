@@ -9,7 +9,7 @@
 @using TheWorkoutLibrary.Data
 @using Microsoft.Extensions.Options
 @inject IOptions<StripeSettings> Stripe
-<hr />
+
 <div class="paymentDiv">
     <h1>Payment</h1>
     <form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">
