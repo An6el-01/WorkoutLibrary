@@ -1,9 +1,11 @@
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 using TheWorkoutLibrary.Data;
 
 namespace TheWorkoutLibrary.Pages
@@ -14,16 +16,22 @@ namespace TheWorkoutLibrary.Pages
 
         public IList<Workout> workouts { get; private set; }
         public IList<Workout> recentWorkouts { get; private set; }
-
+        public IList<Workout> oldestWorkouts { get; private set; }
+        
         public IndexModel(AppDbContext db)
         {
             _db = db;
            
         }
+        
+        
         public void OnGet()
         {
             workouts = _db.Workout.ToList();
             recentWorkouts = workouts.Take(3).ToList();
+            workouts = workouts.Reverse().ToList();
+            oldestWorkouts = workouts.Take(3).ToList();
         }
     }
 }
+

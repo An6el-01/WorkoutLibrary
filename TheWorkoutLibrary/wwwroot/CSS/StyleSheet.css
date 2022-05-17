@@ -1,5 +1,4 @@
-﻿
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -9,12 +8,12 @@ body {
 
 
 /* Layout page - footer */
-.WLLogo{
+.WLLogo {
     max-width: 20%;
     height: auto;
 }
 
-.footerMain{
+.footerMain {
     background: white;
     border-top: 1px solid #662582;
     width: auto;
@@ -22,44 +21,44 @@ body {
     margin-top: 100px;
 }
 
-.SocialLinks{
+.SocialLinks {
     margin-top: 20px;
 }
 
-.DisplayFooter{
+.DisplayFooter {
     display: block;
     margin-bottom: 50px;
     background: white;
 }
 
-.InstaLogo{
+.InstaLogo {
     float: left;
     max-width: 5%;
     margin-top: 10px;
     height: auto;
 }
 
-.Instagram{
+.Instagram {
     float: left;
 }
 
-.InstaText{
+.InstaText {
     float: left;
     margin-left: 20px;
 }
 
-.Email{
+.Email {
     float: left;
 }
 
-.EmailLogo{
+.EmailLogo {
     float: left;
     margin-top: 10px;
     max-width: 7%;
     height: auto;
 }
 
-.JamesEmail{
+.JamesEmail {
     float: left;
     margin-left: 20px;
 }
@@ -86,47 +85,48 @@ body {
 }
 
 .dropdown a {
-    padding: 20px 0px;
+    padding: 15px 0px;
     text-decoration: none;
-    font-size: 30px;
+    font-size: 12.5px;
     color: black;
     display: block;
     transition: 0.3s;
 }
 
-    .dropdown a:hover, dropdown a:focus {
-        color: #662582;
-        font-size: 34px;
-    }
+.dropdown a:hover, dropdown a:focus {
+    color: #662582;
+    font-size: 20px;
+}
 
 .hamburger {
     color: black;
     left: 10px;
     top: 20px;
-    font-size: 50px;
+    font-size: 40px;
     cursor: pointer;
 }
 
 .dropdown .buttonX {
-    padding: 0px;
-    font-size: 70px;
+    padding: 1px;
+    font-size: 40px;
     color: black;
 }
 
-    .dropdown .buttonX:hover {
-        font-size: 75px;
-        color: #662582;
-    }
+.dropdown .buttonX:hover {
+    font-size: 45px;
+    color: #662582;
+}
 /*Layout Page - Logo*/
 
 
-.Logo{
+.Logo {
     width: 300px;
     height: 100px;
     float: right;
     margin-top: 10px;
 }
-.Logo .whiteLogo{
+
+.Logo .whiteLogo {
     width: 100%;
     height: auto;
     float: right;
@@ -146,7 +146,7 @@ body {
     transform: rotate(-45deg);
 }
 /* Layout page - Mobile version of nav bar */
-.Nav{
+.Nav {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -157,12 +157,12 @@ body {
     overflow-x: auto;
 }
 
-.navLink{
+.navLink {
     display: flex;
-    flex-direction:column;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-grow:  1;
+    flex-grow: 1;
     min-width: 50px;
     overflow: hidden;
     white-space: nowrap;
@@ -173,11 +173,11 @@ body {
     transition: background-color 0.1s ease-in-out
 }
 
-    .navLink:hover {
-        color: #662582;
-    }
+.navLink:hover {
+    color: #662582;
+}
 
-.navIcon{
+.navIcon {
     font-size: 18px;
 }
 /* browseVideos page */
@@ -189,7 +189,7 @@ body {
     margin-right: auto;
 }
 
-tr{
+tr {
     border: 1px #662582;
     /*background-color: white;*/
     text-align: left;
@@ -197,61 +197,57 @@ tr{
     vertical-align: top;
 }
 
-.table .th{
+.table .th {
     text-align: center;
 }
 
-.table .td{
+.table .td {
     /*border: 1px #662582;*/
     border-bottom: 1px solid #662582;
 }
 
 
-.search{
+.search {
     text-align: center;
     border-radius: 10px;
 }
 
-.searchButton{
+.searchButton {
     border-radius: 10px;
     color: white;
     background-color: #662582;
     text-align: center;
-    
 }
 
-.searchUpload{
+.searchUpload {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
 }
 
-.searchUpload .SearchFull{
+.searchUpload .SearchFull {
     text-align: center;
     margin-right: auto;
     margin-left: auto;
 }
 
-.searchForm{
+.searchForm {
     text-align: center;
 }
 
-.searchUpload .uploadButton{
+.searchUpload .uploadButton {
     border-radius: 10px;
     color: white;
     background-color: #662582;
     text-align: center;
-    
 }
 
-.table{
+.table {
     border: 3px #662582;
     background-color: white;
     margin-left: auto;
     margin-right: auto;
     border-radius: 10px;
-    
-    
 }
 
 tr:hover {
@@ -259,51 +255,31 @@ tr:hover {
 }
 
 .material-symbols-outlined {
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 600,
-            'GRAD' 0,
-            'opsz' 48
+    font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 48
 }
 
 .material-symbols-outlined1 {
     color: limegreen;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 48
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
 .material-symbols-outlined2 {
     color: orange;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 48
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
 .material-symbols-outlined3 {
     color: red;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 48
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
-.info{
+.info {
     float: right;
     color: #662582;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 600,
-            'GRAD' 0,
-            'opsz' 60
+    font-variation-settings: 'FILL' 0, 'wght' 600, 'GRAD' 0, 'opsz' 60
 }
 
-.Title{
+.Title {
     text-align: center;
 }
 
@@ -363,6 +339,8 @@ tr:hover {
     position: absolute;
     left: 0;
     right: 0;
+    margin-left: 48px;
+    margin-bottom: 18px;
     text-align: center;
     bottom: 20%; /* Adjust this value to move the positioned div up and down */
     font-family: Arial,sans-serif;
@@ -428,24 +406,23 @@ tr:hover {
 
 /* Login page */
 
-.welcomeMessage{
+.welcomeMessage {
     text-align: center;
     width: 300px;
     height: 100px;
     margin-left: auto;
     margin-right: auto;
     color: white;
-    
 }
-.welcomeMessage .h1, .h2{
+
+.welcomeMessage .h1, .h2 {
     font-size: 20px;
     color: white;
     margin-left: auto;
     margin-right: auto;
-    
 }
 
-.emailDiv{
+.emailDiv {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -456,7 +433,7 @@ tr:hover {
     height: 49px;
 }
 
-.emailDiv .input{
+.emailDiv .input {
     font-size: 50px;
     width: 250px;
     height: 49px;
@@ -464,7 +441,7 @@ tr:hover {
     text-align: center;
 }
 
-.passwordDiv{
+.passwordDiv {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -475,7 +452,7 @@ tr:hover {
     height: 49px;
 }
 
-.passwordDiv .input{
+.passwordDiv .input {
     display: block;
     font-size: 50px;
     width: 100%;
@@ -485,7 +462,7 @@ tr:hover {
     text-align: center;
 }
 
-.LoginSubmitBtn{
+.LoginSubmitBtn {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -499,27 +476,25 @@ tr:hover {
     text-align: center;
     color: white;
     transition: all .5s ease-in-out;
-    
 }
 
 .LoginSubmitBtn:hover {
     text-decoration-line: underline;
     transform: scale(1.1);
     cursor: grab;
-    
 }
 /*Logout page */
 
 /* Payment page */
 
-.paymentDiv{
+.paymentDiv {
     font-size: 15px;
     background: white;
     width: 200px;
     height: 150px;
     margin-top: 30px;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     border: 1px solid #662582;
     border-radius: 10px;
     text-align: center;
@@ -531,7 +506,7 @@ tr:hover {
     background: linear-gradient(180deg, rgba(196, 196, 196, 0.7) 0%, rgba(0, 0, 0, 0.7) 77.94%);
 }*/
 
-.profileNameMain{
+.profileNameMain {
     background: white;
     border-radius: 20px;
     text-align: center;
@@ -541,7 +516,7 @@ tr:hover {
     height: 210px;
 }
 
-.greyUser{
+.greyUser {
     float: left;
     border-radius: 100px;
     width: 90%;
@@ -549,7 +524,7 @@ tr:hover {
     border-color: #662582;
 }
 
-.newUserImage{
+.newUserImage {
     float: left;
     border-radius: 100px;
     width: 90%;
@@ -557,20 +532,20 @@ tr:hover {
     border-color: #662582;
 }
 
-.newUserImage:hover{
+.newUserImage:hover {
     transform: scale(1.1);
     opacity: 0.7;
     cursor: grab;
 }
 
-.greyUser:hover{
+.greyUser:hover {
     filter: grayscale(100%);
     transform: scale(1.1);
     opacity: 0.7;
     cursor: grab;
 }
 
-.userImage{
+.userImage {
     position: absolute;
     float: left;
     width: 85px;
@@ -580,17 +555,17 @@ tr:hover {
 }
 
 
-.p{
+.p {
     text-align: center;
 }
 
-.p4{
+.p4 {
     font-size: 20px;
     margin-top: 500px;
     text-align: left;
 }
 
-.p5{
+.p5 {
     font-size: 20px;
     margin-top: 100px;
     text-align: left;
@@ -598,38 +573,37 @@ tr:hover {
 
 
 
-.fitnessLevel{
+.fitnessLevel {
     position: absolute;
     margin-top: 120px;
     margin-left: 20px;
     float: left;
 }
 
-.dateJoined{
+.dateJoined {
     float: left;
     text-align: left;
     margin-top: 150px;
     margin-left: 20px;
 }
 
-.calendarImage{
+.calendarImage {
     position: absolute;
     margin-top: 150px;
     margin-left: 275px;
     width: 50px;
     height: 50px;
     float: right;
-    
 }
 
-.weightCalendar{
+.weightCalendar {
     color: #662582;
     width: 80%;
     height: auto;
 }
 
 
-.weightsImage{
+.weightsImage {
     position: absolute;
     margin-left: 275px;
     margin-right: 50px;
@@ -639,7 +613,7 @@ tr:hover {
     float: right;
 }
 
-.weightsProfile{
+.weightsProfile {
     color: #662582;
     width: 80%;
     height: auto;
@@ -647,7 +621,7 @@ tr:hover {
 
 
 
-.imageGrey{
+.imageGrey {
     position: absolute;
     float: left;
     width: 85px;
@@ -656,7 +630,7 @@ tr:hover {
     margin-top: 20px;
 }
 
-.UserName{
+.UserName {
     position: absolute;
     margin-left: 120px;
     float: right;
@@ -664,7 +638,7 @@ tr:hover {
     border-radius: 20px;
 }
 
-.UserID{
+.UserID {
     background: white;
     width: 308px;
     height: 49px;
@@ -684,7 +658,7 @@ tr:hover {
 }*/
 
 
-.Subscription{
+.Subscription {
     background: white;
     width: 308px;
     height: 49px;
@@ -695,26 +669,27 @@ tr:hover {
     border-radius: 10px;
 }
 
-.Subscription .p6{
-    font-size: 20px; 
+.Subscription .p6 {
+    font-size: 20px;
     text-align: center;
     position: absolute;
     float: left;
     margin-left: 70px;
     margin-top: 20px;
 }
-.Subscription .greenTick{
+
+.Subscription .greenTick {
     color: green;
     float: right;
     margin-right: 50px;
     margin-top: 15px;
 }
 
-.Subscription:hover{
+.Subscription:hover {
     text-decoration-line: underline;
 }
 
-.EndDate{
+.EndDate {
     background: white;
     width: 308px;
     height: 49px;
@@ -725,11 +700,11 @@ tr:hover {
     border-radius: 10px;
 }
 
-.EndDate:hover{
+.EndDate:hover {
     text-decoration-line: underline;
 }
 
-.Renew{
+.Renew {
     background: white;
     width: 308px;
     height: 49px;
@@ -740,11 +715,11 @@ tr:hover {
     border-radius: 10px;
 }
 
-.Renew:hover{
+.Renew:hover {
     text-decoration-line: underline;
 }
 
-.End{
+.End {
     background: white;
     width: 308px;
     height: 49px;
@@ -755,7 +730,7 @@ tr:hover {
     border-radius: 10px;
 }
 
-.End:hover{
+.End:hover {
     text-decoration-line: underline;
 }
 
@@ -767,24 +742,23 @@ tr:hover {
 
 
 /* Register page */
-.registerWelcomeMessage{
+.registerWelcomeMessage {
     text-align: center;
     width: 300px;
     height: 100px;
     margin-left: auto;
     margin-right: auto;
     color: white;
-
 }
-.registerWelcomeMessage .h1, .h2{
+
+.registerWelcomeMessage .h1, .h2 {
     font-size: 20px;
     color: white;
     margin-left: auto;
     margin-right: auto;
-
 }
 
-.rDivEmail{
+.rDivEmail {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -795,7 +769,7 @@ tr:hover {
     height: 49px;
 }
 
-.rDivEmail .input{
+.rDivEmail .input {
     font-size: 50px;
     width: 250px;
     height: 49px;
@@ -803,7 +777,7 @@ tr:hover {
     text-align: center;
 }
 
-.rDivFirstName{
+.rDivFirstName {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -814,7 +788,7 @@ tr:hover {
     height: 49px;
 }
 
-.rDivFirstName .input{
+.rDivFirstName .input {
     font-size: 50px;
     width: 250px;
     height: 49px;
@@ -822,7 +796,7 @@ tr:hover {
     text-align: center;
 }
 
-.rDivLastName{
+.rDivLastName {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -833,7 +807,7 @@ tr:hover {
     height: 49px;
 }
 
-.rDivLastName .input{
+.rDivLastName .input {
     font-size: 50px;
     width: 250px;
     height: 49px;
@@ -841,7 +815,7 @@ tr:hover {
     text-align: center;
 }
 
-.rDivDate{
+.rDivDate {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -852,7 +826,7 @@ tr:hover {
     height: 49px;
 }
 
-.rDivDate .input{
+.rDivDate .input {
     font-size: 50px;
     width: 250px;
     height: 49px;
@@ -860,7 +834,7 @@ tr:hover {
     text-align: center;
 }
 
-.rDivPassword{
+.rDivPassword {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -871,7 +845,7 @@ tr:hover {
     height: 49px;
 }
 
-.rDivPassword .input{
+.rDivPassword .input {
     display: block;
     font-size: 50px;
     width: 100%;
@@ -881,7 +855,7 @@ tr:hover {
     text-align: center;
 }
 
-.rDivConfirmPassword{
+.rDivConfirmPassword {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -892,7 +866,7 @@ tr:hover {
     height: 49px;
 }
 
-.rDivConfirmPassword .input{
+.rDivConfirmPassword .input {
     display: block;
     font-size: 50px;
     width: 100%;
@@ -902,7 +876,7 @@ tr:hover {
     text-align: center;
 }
 
-.rDivPic{
+.rDivPic {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -913,7 +887,7 @@ tr:hover {
     height: 100px;
 }
 
-.rDivPic .input{
+.rDivPic .input {
     display: block;
     font-size: 50px;
     width: 100%;
@@ -923,7 +897,7 @@ tr:hover {
     text-align: center;
 }
 
-.RegisterSubmitBtn{
+.RegisterSubmitBtn {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -937,21 +911,19 @@ tr:hover {
     text-align: center;
     color: white;
     transition: all .5s ease-in-out;
-
 }
 
 .RegisterSubmitBtn:hover {
     text-decoration-line: underline;
     transform: scale(1.1);
     cursor: grab;
-
 }
-.firstName{
-    
+
+.firstName {
 }
 /* Upload page */
 
-.whiteWorkoutName{
+.whiteWorkoutName {
     background: white;
     width: 308px;
     height: 49px;
@@ -961,7 +933,7 @@ tr:hover {
     border-radius: 10px;
 }
 
-.whiteWorkoutName .workoutNameClass{
+.whiteWorkoutName .workoutNameClass {
     float: right;
     margin-top: 3px;
     border-radius: 10px;
@@ -969,20 +941,20 @@ tr:hover {
     height: 49px;
 }
 
-.whiteWorkoutName .Text .textImage{
+.whiteWorkoutName .Text .textImage {
     width: 80%;
     height: auto;
     margin-left: 10px;
     margin-top: 5px;
 }
 
-.whiteWorkoutName .Text{
+.whiteWorkoutName .Text {
     position: absolute;
     width: 50px;
     height: 49px;
 }
 
-.whiteWorkoutNotes{
+.whiteWorkoutNotes {
     background: white;
     width: 308px;
     height: 49px;
@@ -993,31 +965,29 @@ tr:hover {
     border-radius: 10px;
 }
 
-.whiteWorkoutNotes .Notes{
+.whiteWorkoutNotes .Notes {
     position: absolute;
     width: 50px;
     height: 49px;
 }
 
-.whiteWorkoutNotes .Notes .notesImage{
+.whiteWorkoutNotes .Notes .notesImage {
     width: 80%;
     height: auto;
     margin-left: 10px;
     margin-top: 5px;
-    
 }
 
-.whiteWorkoutNotes .workoutNotes{
+.whiteWorkoutNotes .workoutNotes {
     float: right;
     margin-top: 5px;
     margin-left: 100px;
     border-radius: 10px;
     width: 250px;
     height: 49px;
-    
 }
 
-.workoutDifficultyDiv{
+.workoutDifficultyDiv {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -1028,41 +998,28 @@ tr:hover {
     height: 175px;
 }
 
-.material-symbols-outlined4{
+.material-symbols-outlined4 {
     position: absolute;
     margin-left: 15px;
     color: limegreen;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 48
-
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
 .material-symbols-outlined5 {
     position: absolute;
     margin-left: 15px;
     color: orange;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 48
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
 .material-symbols-outlined6 {
     position: absolute;
     margin-left: 15px;
     color: red;
-    font-variation-settings:
-            'FILL' 0,
-            'wght' 400,
-            'GRAD' 0,
-            'opsz' 48
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
-.uploadBox{
+.uploadBox {
     background: white;
     border: 1px solid black;
     border-radius: 10px;
@@ -1073,26 +1030,26 @@ tr:hover {
     height: 204px;
 }
 
-.Upload{
+.Upload {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
 }
 
-.inputUpload{
+.inputUpload {
     float: left;
     margin-top: 70px;
     margin-left: 75px;
 }
 
-.buttonSubmit{
+.buttonSubmit {
     float: left;
     margin-left: 255px;
     margin-right: auto;
     margin-top: 10px;
 }
 
-.buttonSubmit .EnterWorkoutBtn{
+.buttonSubmit .EnterWorkoutBtn {
     border-radius: 10px;
     color: white;
     background-color: #662582;
@@ -1102,8 +1059,31 @@ tr:hover {
 /* weeklyWorkout page */
 
 
+@media screen and (min-width: 601px) {
+    .Nav {
+        display: none;
+    }
 
+    .navLink {
+        display: none;
+    }
+}
 
+@media screen and (max-width: 600px) {
+    .dropdown {
+        display: none;
+    }
 
+    .dropDownList {
+        display: none;
+    }
 
+    .hamburger {
+        display: none;
+    }
 
+    .dropdown .buttonX {
+        display: none;
+    }
+
+}

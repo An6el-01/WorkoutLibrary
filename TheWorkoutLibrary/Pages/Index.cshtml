@@ -1,4 +1,5 @@
-﻿@page
+﻿
+@page
 @model TheWorkoutLibrary.Pages.IndexModel
 @{
     ViewData["Title"] = "Index";
@@ -26,7 +27,7 @@
                     @{
                         try
                         {
-                            <a asp-page="/createdWorkoutLibrary">
+                            <a asp-page="/Calendar">
                                 <img class="savedWorkoutsPicture" src="/Images/savedWorkoutsD.jpeg" alt="user">
                             </a>
                         }
@@ -49,7 +50,9 @@
                     @{
                         try
                         {
+                        <a asp-page="/createdWorkoutLibrary">
                             <img class="imagesD1" src="@item.ImageURL" alt="user">
+                        </a>
                         }
                         catch
                         {
@@ -84,13 +87,11 @@
         
         
                     </div>
-                    <div class="dashboardHeaders">
-                        <h3>New Workout</h3>
-                    </div>
+                    
                 </div>
             </div>
 
-        @foreach (var item in Model.recentWorkouts)
+        @foreach (var item in Model.oldestWorkouts)
         {
             <div class="grid-item">
 
@@ -98,9 +99,11 @@
                     @{
                         try
                         {
+                        <a asp-page="/createdWorkoutLibrary">
                             <img class="imagesD2" src="@item.ImageURL" alt="user">
-                        }
-                        catch
+                        </a>
+                    }
+                    catch
                         {
                             <img src="/Images/empty.png" alt="No Image Provided"/>
                         }
@@ -115,6 +118,4 @@
         }
         </div>
         </div>
-    
-
 
