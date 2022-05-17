@@ -5,177 +5,116 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using System.Drawing
 @using Microsoft.AspNetCore.Identity
 @using TheWorkoutLibrary.Data
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-
 <div class="dDivFullPage">
-    
     <div class="dDivWelcomeMessage">
         <h1>Welcome</h1>
         <h1>MyWorkoutLibrary</h1>
     </div>
     
-    <div class="dgrid-container">
+<div class="dgrid-container">
+
         <div class="grid-item">
             <div class="dDivSavedWorkouts">
                 <div class="Line">
 
-                @{
-                    try
-                    {
-                        <a asp-page="/createdWorkoutLibrary">
-                            <img class="savedWorkoutsPicture" src="/Images/savedWorkoutsD.jpeg" alt="user">
-                        </a>
+                    @{
+                        try
+                        {
+                            <a asp-page="/createdWorkoutLibrary">
+                                <img class="savedWorkoutsPicture" src="/Images/savedWorkoutsD.jpeg" alt="user">
+                            </a>
+                        }
+                        catch
+                        {
+                            <img src="/Images/empty.png" alt="No Image Provided"/>
+                        }
                     }
-                    catch
-                    {
-                        <img src="/Images/empty.png" alt="No Image Provided"/>
-                    }
-                }
-
-            </div>
-        </div>
-        </div>
-        
-        <div class="grid-item">
-            
-            <div class="dDivAbBurner">
-                @{
-                    try
-                    {
-                        <img class="abBurnerPicture" src="/Images/abBurnerD.jpeg" alt="user">
-                    }
-                    catch
-                    {
-                        <img src="/Images/empty.png" alt="No Image Provided"/>
-                    }
-                }
-                
-            </div>
-        </div>
-
-        <div class="grid-item">
-            
-            <div class="dDivBicepPump">
-
-                @{
-                    try
-                    {
-                        <img class="bicepsPicture" src="/Images/bicepPumpD.jpeg" alt="user">
-                    }
-                    catch
-                    {
-                        <img src="/Images/empty.png" alt="No Image Provided"/>
-                    }
-                }
-                
-
+                </div>
+                    
             </div>
         </div>
     
-    
-        <div class="grid-item">
-            
-            <div class="dDivTuesdaysRun">
-            @{
-                try
-                {
-                    <img class="tuesdaysRunPicture" src="/Images/tuesdaysRunD.jpeg" alt="user">
-                }
-                catch
-                {
-                    <img src="/Images/empty.png" alt="No Image Provided"/>
-                }
-            }
-            
+
+        @foreach (var item in Model.recentWorkouts)
+        {
+            <div class="grid-item">
+
+                <div class="dFirstRow">
+                    @{
+                        try
+                        {
+                            <img class="imagesD1" src="@item.ImageURL" alt="user">
+                        }
+                        catch
+                        {
+                            <img src="/Images/empty.png" alt="No Image Provided"/>
+                        }
+                    }
+
+                </div>
+                <div class="dashboardHeaders">
+                    <h2>@item.Name</h2>
+                </div>
             </div>
-        </div> 
+        }
+            
+            <div class="grid-item">
         
-
-         <div class="grid-item">
-             
-             <div class="dDivNewWorkout">
-                 <div class="Line">
-
-                     @{
-                         try
-                         {
-                             <a asp-page="/createWorkout">
-                                 <img class="newWorkoutsPicture" src="/Images/newWorkoutD.jpeg" alt="user">
-                             </a>
-                         }
-                         catch
-                         {
-                             <img src="/Images/empty.png" alt="No Image Provided"/>
-                         }
-                     }
-
-
-                 </div>
-             </div>
-             </div>
-
-    
-        <div class="grid-item">
-            
-            <div class="dDivShoulderWorkout">
-                
-                @{
-                    try
-                    {
-                        <img class="shoulderPicture" src="/Images/shoulderWorkoutD.jpeg" alt="user">
-                    }
-                    catch
-                    {
-                        <img src="/Images/empty.png" alt="No Image Provided"/>
-                    }
-                }
-                
-            </div>
+                <div class="dDivNewWorkout">
+                    <div class="Line">
         
+                        @{
+                            try
+                            {
+                                <a asp-page="/createWorkout">
+                                    <img class="newWorkoutsPicture" src="/Images/newWorkoutD.jpeg" alt="user">
+                                </a>
+                            }
+                            catch
+                            {
+                                <img src="/Images/empty.png" alt="No Image Provided"/>
+                            }
+                        }
+        
+        
+                    </div>
+                    <div class="dashboardHeaders">
+                        <h3>New Workout</h3>
+                    </div>
+                </div>
             </div>
 
+        @foreach (var item in Model.recentWorkouts)
+        {
+            <div class="grid-item">
 
-
-        <div class="grid-item">
-
-            <div class="dDivLegPump">
-
-                @{
-                    try
-                    {
-                        <img class="legPumpPicture" src="/Images/legPumpD.jpeg" alt="user">
+                <div class="dSecondRow">
+                    @{
+                        try
+                        {
+                            <img class="imagesD2" src="@item.ImageURL" alt="user">
+                        }
+                        catch
+                        {
+                            <img src="/Images/empty.png" alt="No Image Provided"/>
+                        }
                     }
-                    catch
-                    {
-                        <img src="/Images/empty.png" alt="No Image Provided"/>
-                    }
-                }
-                
+
+                </div>
+                <div class="dashboardHeaders">
+                    <h3>@item.Name</h3>
+                </div>
+
             </div>
+        }
         </div>
-
-        <div class="grid-item">
-
-            <div class="dDivCardioDay">
-
-                @{
-                    try
-                    {
-                        <img class="cardioDayPicture" src="/Images/cardioDayD.jpeg" alt="user">
-                    }
-                    catch
-                    {
-                        <img src="/Images/empty.png" alt="No Image Provided"/>
-                    }
-                }
-                
-            </div>
-
-
         </div>
-    </div>
-</div>
+    
+
+
