@@ -32,11 +32,14 @@ namespace TheWorkoutLibrary.Pages
 
         public void OnGet()
         {
-            workouts = _db.Workout.ToList();
+            workouts = _db.Workout
+                .Include(workout => workout.Excercises)
+                .ThenInclude(workoutExercise => workoutExercise.Excercise)
+                .ToList();
 
-            Items = _db.WorkoutItems.FromSqlRaw(
+            /*Items = _db.WorkoutItems.FromSqlRaw(
             "SELECT Excercise.Id, Excercise.Name, Excercise.YoutubeURL, WorkoutExcercise.Sets, WorkoutExcercise.Reps " +
-            "FROM Excercise INNER JOIN WorkoutExcercise ON Excercise.Id = WorkoutExcercise.ExcerciseId ").ToList();
+            "FROM Excercise INNER JOIN WorkoutExcercise ON Excercise.Id = WorkoutExcercise.ExcerciseId ").ToList();*/
 
         }
     }

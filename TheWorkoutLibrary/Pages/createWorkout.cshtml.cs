@@ -37,14 +37,14 @@ namespace TheWorkoutLibrary.Pages
             _db = db;
             _um = um;
         }
-        //public void OnGet()
-        //{
-        //    workouts = _db.Workout.ToList();
-        //    excercises = _db.Excercise.ToList();
-        //}
         public async Task OnGetAsync()
         {
+            workoutExcercises = _db.WorkoutExcercise.ToList();
+
+            //workoutExcercises = _db.WorkoutExcercise.Include(x => x.Id).ToList();
+
             excercises = _db.Excercise.ToList();
+
             var user = await _um.GetUserAsync(User);
             UserProfile currentUser = await _db.userProfiles.FindAsync(user.Email);
                         
@@ -54,7 +54,7 @@ namespace TheWorkoutLibrary.Pages
 
 
             Items = _db.WorkoutItems.FromSqlRaw(
-            "SELECT Excercise.Id, Excercise.Name, Excercise.YoutubeURL, WorkoutExcercise.Sets, WorkoutExcercise.Reps " + 
+            "SELECT Excercise.Id, Excercise.Name, Excercise.YoutubeURL, WorkoutExcercise.Sets, WorkoutExcercise.Reps " +
             "FROM Excercise INNER JOIN WorkoutExcercise ON Excercise.Id = WorkoutExcercise.ExcerciseId " +
             "Where WorkoutId = {0}", lastWorkout.Id).ToList();
         }
@@ -62,6 +62,7 @@ namespace TheWorkoutLibrary.Pages
         public async Task<IActionResult> OnPostAsync()
         {    
             if (!ModelState.IsValid) { return Page(); }
+            
             var user = await _um.GetUserAsync(User);
             UserProfile currentUser = await _db.userProfiles.FindAsync(user.Email);
 
@@ -100,6 +101,14 @@ namespace TheWorkoutLibrary.Pages
             {
                 throw new Exception($"Unable to create New Workout", e);
             }
+
+
+            //workoutExcercises = _db.WorkoutExcercise
+            //    .Include(x => x.Id)
+            //    .Where(x => x.WorkoutId == (2))
+            //    .ToList();
+            excercises = _db.Excercise.ToList();
+            workouts = _db.Workout.Where(x => x.UserId == (currentUser.UserId)).ToList();
             return Page();
         }
     }

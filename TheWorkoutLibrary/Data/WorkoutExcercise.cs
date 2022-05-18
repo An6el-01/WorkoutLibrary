@@ -12,8 +12,8 @@ namespace TheWorkoutLibrary.Data
         public int Id { get; set; }       
         public int WorkoutId { get; set; }
         public int ExcerciseId { get; set; }
+        public Excercise Excercise { get; set; }
         public int Sets { get; set; }
         public int Reps { get; set; }
-        public int UserId { get; set; }
     }
 }

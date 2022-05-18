@@ -19,5 +19,7 @@ namespace TheWorkoutLibrary.Data
         public int UserId { get; set; }
         [StringLength(125)]
         public string ImageURL { get; set; }
+
+        public List<WorkoutExcercise> Excercises { get; set; }
     }
 }

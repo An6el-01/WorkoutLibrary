@@ -31,7 +31,7 @@
         }
     </div>
     <div>
-        <label asp-for="newWorkout.ImageURL">Embeded Youtube URL</label>
+        <label asp-for="newWorkout.ImageURL">Upload Image URL</label>
         <input name="image" asp-for="newWorkout.ImageURL" />
         <span asp-validation-for="newWorkout.ImageURL"></span>
     </div>
@@ -42,26 +42,38 @@
         <h4>Notes: </h4><p>@Model.lastWorkout.Notes</p>
         <h4>Difficulty: </h4><p>@Model.lastWorkout.Difficulty</p>
     </div>
-    @*<div class="workouts">
-            @if (Model.Items == null)
-            {
-                <h2>No Items Currently in Workout</h2>
-            }
-            @foreach (var excercise in Model.excercises)
-            {
-                <h4>Excercise: </h4><p>@excercise.Name, @excercise.Notes, @excercise.Difficulty</p>
-                <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@excercise.Id">Add</button>
-            }
-        </div>*@
+    <div class="workouts">
+        @if (Model.Items == null)
+        {
+            <h2>No Items Currently in Workout</h2>
+        }
+        @foreach (var excercise in Model.excercises)
+        {
+            <h4>Excercise: </h4><p>@excercise.Name, @excercise.Notes, @excercise.Difficulty</p>
+            <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@excercise.Id">Add</button>
+        }
+    </div>
     @*<div class="groupedExcercises">
-            @foreach (var item in Model.Items)
-            {
-                <iframe width="560" height="315" src="@item.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        @foreach (var item in Model.Items)
+        {
+            <iframe width="560" height="315" src="@item.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                <h4>Name: </h4><p>@item.Name</p>
-                <h4>Sets: </h4><p>@item.Sets</p>
-                <h4>Reps: </h4><p>@item.Reps</p>
-            }
-        </div>*@
+            <h4>Name: </h4><p>@item.Name</p>
+            <h4>Sets: </h4><p>@item.Sets</p>
+            <h4>Reps: </h4><p>@item.Reps</p>
+        }
+    </div>*@
+
+<div class="groupedExcercises">
+    @foreach (var item in Model.workoutExcercises)
+    {
+        <h4>Youtube URL: </h4><p>@item.Excercise.YoutubeURL</p>
+        <h4>Name: </h4><p>@item.Excercise.Name</p>    
+        <h4>Workout Id: </h4><p>@item.WorkoutId</p>
+        <h4>Excercise Id: </h4><p>@item.ExcerciseId</p>
+        <h4>Sets: </h4><p>@item.Sets</p>
+        <h4>Reps: </h4><p>@item.Reps</p>
+    }        
+</div>
 
 </form>
