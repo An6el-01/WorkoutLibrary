@@ -1055,3 +1055,70 @@ html, body {
     }
 
 }
+/* Workouts Videos Page CSS*/
+.titleWorkouts {
+    text-align: center;
+    font-size: 32px;
+}
+
+
+
+.greyBox {
+    background-color: #ececec;
+    border-radius: 10px;
+    margin: auto;
+    width: 80%;
+    border: 3px solid #ffffff;
+    padding: 10px;
+}
+
+
+
+.savedWorkoutsItems {
+    background: white;
+    border-radius: 10px;
+    margin: auto;
+    width: 87%;
+    border: 3px solid white;
+    padding: 10px;
+}
+
+
+
+.libraryWorkoutsPicture {
+    width: 80%;
+    height: 50%;
+}
+
+
+
+.savedWorkoutLevels {
+    display: flex;
+    text-align: center;
+    width: 87%;
+    margin: auto;
+    height: 100px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+
+
+.workoutLevel {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+.workoutLevel1 {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+.workoutLevel2 {
+    margin-right: auto;
+    margin-left: auto;
+}
