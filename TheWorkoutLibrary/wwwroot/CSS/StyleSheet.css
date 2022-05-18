@@ -292,117 +292,70 @@ tr:hover {
 
 /* index page */
 
-/*.dDivFullPage{
-    border: 1px solid black;
-    width: 1400px;
-    height: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}*/
 
-.dDivFullPage .dDivWelcomeMessage{
+.dDivWelcomeMessage{
     color: white;
     text-align: center;
 }
 
+html, body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0 0 55px 0; /* No margin for every side of the body aside from the bottom. 55px for the bottom to make space for the navigation bar*/
+    background: linear-gradient(167.4deg, rgba(102, 37, 130, 0.5) -2.21%, rgba(74, 96, 144, 0.5) 36.1%, rgba(57, 135, 151, 0.5) 65.29%);
+    min-height: 100%;
+}
 
-@media(min-width: 700px) {
-    .dgrid-container {
-        margin-top: 50px;
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        padding: 10px;
-        width: 100%
-    }
-    .Line {
-        border-right: 2px solid white;
-        height: 200px;
-    }
+* {
+    box-sizing: border-box;
 }
 
 
-.grid-item{
-    /*border: 1px solid black;*/
-    position: relative;
-    padding: 20px;
+.dgrid-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.grid-item {
+    max-width: 300px;
+    padding:0px;
+    margin: 20px auto;
+}
+.grid-item a{
+    text-decoration:none;
+    color:black;
+    padding:0px;
+    margin:0px;
+}
+.grid-item:hover{
+    transition: .10s;
+    border-radius:3px;
+    box-shadow: 0px 0px 30px 10px #662582;
+    background-color: #662582;
+    border:2px solid white;
+}
+.DashBoardImg {
+    max-width: 275px;
+    object-fit: cover;
+    padding: 0px;
+    margin-top:0px;
+    margin-bottom:0px;
+}
+.dashboardHeaders {
+    background: white;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0px;
+    margin: 0px;
+    height:40px;
+}
+.dashboardHeaders h2{
+    margin: 2px auto;
+    text-align:center;
+    font-size: 20px;
 }
 
-
-
-.grid-item .dashboardHeaders{
-    background: linear-gradient(90deg, rgba(0, 215, 202, 0.36) 0%, rgba(54, 171, 205, 0.487302) 22.4%, rgba(119, 118, 209, 0.64) 68.23%);
-    z-index: 999;
-    /*margin-bottom: 10px;*/
-    position: absolute;
-    left: 0;
-    right: 0;
-    margin-left: 48px;
-    margin-bottom: 18px;
-    text-align: center;
-    bottom: 20%; /* Adjust this value to move the positioned div up and down */
-    font-family: Arial,sans-serif;
-    color: #fff;
-    width: 30%; /* Set the width of the positioned div */
-}
-
-.dDivSavedWorkouts {
-    margin-left: auto;
-    margin-right: auto;
-    /*margin-left: 30px;*/
-    width: 275px;
-    height: 185px;
-}
-
-.dDivSavedWorkouts .savedWorkoutsPicture{
-    width: 80%;
-    height: auto;
-}
-
-
-.dFirstRow{
-    margin-left: auto;
-    margin-right: auto;
-    /*margin-left: 30px;*/
-    width: 275px;
-    height: 185px;
-}
-
-
-.dFirstRow .imagesD1 {
-    width: 80%;
-    height: auto;
-}
-
-
-.grid-item .dDivNewWorkout {
-    margin-left: auto;
-    margin-right: auto;
-    /*margin-left: 30px;*/
-    width: 275px;
-    height: 185px;
-}
-
-.dDivNewWorkout .newWorkoutsPicture{
-    width: 80%;
-    height: auto;
-}
-
-.dSecondRow{
-    margin-left: auto;
-    margin-right: auto;
-    /*margin-left: 30px;*/
-    width: 275px;
-    height: 185px;
-}
-
-
-.dSecondRow .imagesD2 {
-    width: 80%;
-    height: auto;
-}
+/*end of new*/
 
 /* Login page */
 
@@ -1043,10 +996,11 @@ tr:hover {
 }
 
 .buttonSubmit {
-    float: left;
-    margin-left: 255px;
+    margin-left: auto;
     margin-right: auto;
-    margin-top: 10px;
+    margin-top: 30px;
+    width: 40px;
+    height: 20px;
 }
 
 .buttonSubmit .EnterWorkoutBtn {
@@ -1054,7 +1008,21 @@ tr:hover {
     color: white;
     background-color: #662582;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.youtubeLink{
+    background: white;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 329px;
+    height: 50px;
+}
+
 
 /* weeklyWorkout page */
 
