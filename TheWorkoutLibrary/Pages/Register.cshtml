@@ -30,38 +30,36 @@
 
 <form method="post" enctype="multipart/form-data">
 
-    <div class="registerWelcomeMessage">
-        <h1>Registration</h1>
-    </div>
+    
     <div asp-validation-summary="All"></div>
     <div class="rDivEmail">
         <label asp-for="Input.Email"></label>
-        <input asp-for="Input.Email" class="form-control" />
+        <input asp-for="Input.Email" class="inputClass" />
         <span asp-validation-for="Input.Email"></span>
     </div>
     <div class="rDivFirstName">
         <label asp-for="userProfile.FirstName">First Name</label>
-        <input type="text" name="firstName" asp-for="userProfile.FirstName" />
+        <input type="text" name="firstName" asp-for="userProfile.FirstName" class="inputClass" />
         <span asp-validation-for="userProfile.FirstName"></span>
     </div>
     <div class="rDivLastName">
         <label asp-for="userProfile.LastName">Last Name</label>
-        <input type="text" name="lastName" asp-for="userProfile.LastName" />
+        <input type="text" name="lastName" asp-for="userProfile.LastName" class="inputClass" />
         <span asp-validation-for="userProfile.LastName"></span>
     </div>
     <div class="rDivDate">
         <label asp-for="userProfile.StartDate">Today's Date</label>
-        <input type="date" name="startDate" asp-for="userProfile.StartDate" />
+        <input type="date" name="startDate" asp-for="userProfile.StartDate" class="inputDate" />
         <span asp-validation-for="userProfile.StartDate"></span>
     </div>
     <div class="rDivPassword">
         <label asp-for="Input.Password"></label>
-        <input asp-for="Input.Password" class="form-control" />
+        <input asp-for="Input.Password" class="inputClass"  />
         <span asp-validation-for="Input.Password"></span>
     </div>
     <div class="rDivConfirmPassword">
         <label asp-for="Input.ConfirmPassword"></label>
-        <input asp-for="Input.ConfirmPassword" />
+        <input asp-for="Input.ConfirmPassword" class="inputConfirmPassword" />
         <span asp-validation-for="Input.ConfirmPassword"></span>
     </div>
     <div class="rDivPic">

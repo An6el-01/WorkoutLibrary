@@ -695,6 +695,33 @@ html, body {
 
 
 /* Register page */
+
+.inputClass {
+    border: none;
+    width: 200px;
+    height: 40px;
+    margin-left:10px;
+}
+
+.inputDate {
+    border: none;
+    width: 180px;
+    height: 40px;
+    margin-left: 10px;
+}
+
+.inputConfirmPassword {
+    border: none;
+    width: 150px;
+    height: 40px;
+    margin-left: 8px;
+}
+
+#file1{
+    margin-top:30px;
+    margin-left:60px;
+}
+
 .registerWelcomeMessage {
     text-align: center;
     width: 300px;
@@ -720,6 +747,7 @@ html, body {
     margin-right: auto;
     width: 308px;
     height: 49px;
+    
 }
 
 .rDivEmail .input {
@@ -855,7 +883,7 @@ html, body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 30px;
-    width: 50%;
+    width: 20%;
     border-radius: 10px;
     background-color: #662582;
     padding: 14px 28px;
