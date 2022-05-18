@@ -11,8 +11,11 @@ using TheWorkoutLibrary.Data;
 
 namespace TheWorkoutLibrary.Pages
 {
+
+    
     public class RegisterModel : PageModel
     {
+        public long AmountPayable = 999;
         [BindProperty]
         public RegistrationModel Input { get; set; }
         private AppDbContext _db;
