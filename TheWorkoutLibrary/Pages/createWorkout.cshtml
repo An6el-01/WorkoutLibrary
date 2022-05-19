@@ -37,43 +37,45 @@
     </div>
 
     <button id="createBtn" type="submit" asp-page-handler="Create">CREATE</button>
+</form>
+
+
     <div>
         <h4>Name: </h4><p>@Model.lastWorkout.Name</p>
         <h4>Notes: </h4><p>@Model.lastWorkout.Notes</p>
         <h4>Difficulty: </h4><p>@Model.lastWorkout.Difficulty</p>
     </div>
-    <div class="workouts">
-        @if (Model.Items == null)
-        {
-            <h2>No Items Currently in Workout</h2>
-        }
-        @foreach (var excercise in Model.excercises)
-        {
-            <h4>Excercise: </h4><p>@excercise.Name, @excercise.Notes, @excercise.Difficulty</p>
-            <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@excercise.Id">Add</button>
-        }
-    </div>
-    @*<div class="groupedExcercises">
-        @foreach (var item in Model.Items)
-        {
-            <iframe width="560" height="315" src="@item.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<form id="addExcerciseForm" method="post">
 
-            <h4>Name: </h4><p>@item.Name</p>
-            <h4>Sets: </h4><p>@item.Sets</p>
-            <h4>Reps: </h4><p>@item.Reps</p>
-        }
-    </div>*@
+        <div class="workouts">
+            @foreach (var excercise in Model.excercises)
+            {
+            <div class="addExcercises">
+                <h4>Excercise: </h4><p>@excercise.Name, @excercise.Notes, @excercise.Difficulty</p>
+
+                <label asp-for="newWorkoutExcercise.Sets">Sets </label>
+                <input name="sets" asp-for="newWorkoutExcercise.Sets" />
+                <span asp-validation-for="newWorkoutExcercise.Sets"></span>
+
+
+                <label asp-for="newWorkoutExcercise.Reps">Reps </label>
+                <input name="reps" asp-for="newWorkoutExcercise.Reps" />
+                <span asp-validation-for="newWorkoutExcercise.Reps"></span>
+                <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-ExcerciseId="@excercise.Id">Add</button>
+            </div>
+            }
+        </div>                    
+</form>
 
 <div class="groupedExcercises">
     @foreach (var item in Model.workoutExcercises)
     {
-        <h4>Youtube URL: </h4><p>@item.Excercise.YoutubeURL</p>
-        <h4>Name: </h4><p>@item.Excercise.Name</p>    
+        <iframe width="560" height="315" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
+        <h4>Name: </h4><p>@item.Excercise.Name</p>
         <h4>Workout Id: </h4><p>@item.WorkoutId</p>
         <h4>Excercise Id: </h4><p>@item.ExcerciseId</p>
         <h4>Sets: </h4><p>@item.Sets</p>
         <h4>Reps: </h4><p>@item.Reps</p>
-    }        
+    }
 </div>
 
-</form>

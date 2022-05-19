@@ -20,10 +20,13 @@ namespace TheWorkoutLibrary.Pages
 
         public string[] difficulties = new[] { "Beginner", "Intermediate", "Advanced" };
 
-        public IList<WorkoutItem> Items { get; set;}
+        
         public IList<WorkoutExcercise> workoutExcercises { get; set; }
         public IList<Workout> workouts { get; set; }
         public IList<Excercise> excercises { get; set; }
+
+        [BindProperty]
+        public WorkoutExcercise newWorkoutExcercise { get; set; }
 
         [BindProperty]
         public Workout newWorkout { get; set; }
@@ -37,26 +40,25 @@ namespace TheWorkoutLibrary.Pages
             _db = db;
             _um = um;
         }
+
         public async Task OnGetAsync()
         {
-            workoutExcercises = _db.WorkoutExcercise.ToList();
-
-            //workoutExcercises = _db.WorkoutExcercise.Include(x => x.Id).ToList();
+            workoutExcercises = _db.WorkoutExcercise.ToList();            
 
             excercises = _db.Excercise.ToList();
 
             var user = await _um.GetUserAsync(User);
             UserProfile currentUser = await _db.userProfiles.FindAsync(user.Email);
                         
-            workouts = _db.Workout.Where(x => x.UserId == (currentUser.UserId)).ToList();           
+            workouts = _db.Workout
+                .Where(x => x.UserId == (currentUser.UserId))
+                .ToList();           
            
             lastWorkout = workouts.LastOrDefault();
 
-
-            Items = _db.WorkoutItems.FromSqlRaw(
-            "SELECT Excercise.Id, Excercise.Name, Excercise.YoutubeURL, WorkoutExcercise.Sets, WorkoutExcercise.Reps " +
-            "FROM Excercise INNER JOIN WorkoutExcercise ON Excercise.Id = WorkoutExcercise.ExcerciseId " +
-            "Where WorkoutId = {0}", lastWorkout.Id).ToList();
+            workoutExcercises = _db.WorkoutExcercise
+                .Where(x => x.WorkoutId == lastWorkout.Id)
+                .ToList();
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -102,14 +104,69 @@ namespace TheWorkoutLibrary.Pages
                 throw new Exception($"Unable to create New Workout", e);
             }
 
-
-            //workoutExcercises = _db.WorkoutExcercise
-            //    .Include(x => x.Id)
-            //    .Where(x => x.WorkoutId == (2))
-            //    .ToList();
             excercises = _db.Excercise.ToList();
-            workouts = _db.Workout.Where(x => x.UserId == (currentUser.UserId)).ToList();
+
+            workouts = _db.Workout
+                .Where(x => x.UserId == (currentUser.UserId))
+                .ToList();
+
+            workoutExcercises = _db.WorkoutExcercise
+                .Where(x => x.WorkoutId == lastWorkout.Id)
+                .ToList();
+
             return Page();
+        }
+        public async Task<IActionResult> OnPostAddAsync(int ExcerciseId)
+        {
+            var user = await _um.GetUserAsync(User);
+            UserProfile currentUser = await _db.userProfiles.FindAsync(user.Email);
+            var item = await _db.Excercise.FindAsync(ExcerciseId);
+
+            workouts = _db.Workout
+                .Where(x => x.UserId == (currentUser.UserId))
+                .ToList();
+
+            lastWorkout = workouts.LastOrDefault();
+
+            workoutExcercises = _db.WorkoutExcercise.ToList();
+            var current = workoutExcercises.LastOrDefault();                      
+
+            if (current.Id < 1)
+            {
+                WorkoutExcercise newWorkoutExc = new WorkoutExcercise
+                {
+                    Id = 1,
+                    ExcerciseId = ExcerciseId,
+                    WorkoutId = lastWorkout.Id,
+                    Sets = Convert.ToInt32(Request.Form["sets"]),
+                    Reps = Convert.ToInt32(Request.Form["reps"])
+                };
+
+                _db.WorkoutExcercise.Add(newWorkoutExc);
+                await _db.SaveChangesAsync();
+            }
+            else
+            {
+                newWorkoutExcercise.Id = current.Id + 1;
+            }
+            newWorkoutExcercise.ExcerciseId = ExcerciseId;
+            newWorkoutExcercise.WorkoutId = lastWorkout.Id;           
+            newWorkoutExcercise.Sets = Convert.ToInt32(Request.Form["sets"]);
+            newWorkoutExcercise.Reps = Convert.ToInt32(Request.Form["reps"]);
+            _db.WorkoutExcercise.Add(newWorkoutExcercise);
+            try
+            {
+                await _db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new Exception($"Unable to create New Workout", e);
+            }
+            workoutExcercises = _db.WorkoutExcercise
+              .Where(x => x.WorkoutId == lastWorkout.Id)
+              .ToList();
+
+            return RedirectToPage();
         }
     }
 }
