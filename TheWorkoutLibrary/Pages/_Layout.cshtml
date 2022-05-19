@@ -38,10 +38,6 @@
                     <span class="material-icons navIcon">calendar_month</span>
                     <span class="navText">Calendar</span>
                 </a>
-                <a asp-page="/Payment" class="navLink">
-                    <span class="material-icons">currency_pound</span>
-                    <span class="navText">Payment</span>
-                </a>
                 <a asp-page="/Login" class="navLink">
                 <span class="navText">Log-in</span>
                 </a>
@@ -84,17 +80,21 @@
                 <span class="material-icons navIcon">calendar_month</span>
                 <span class="navText">Calendar</span>
             </a>
-            <a asp-page="/Payment" class="navLink">
-                <span class="material-icons">currency_pound</span>
-                <span class="navText">Payment</span>
-            </a>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    <a asp-page="/Profile" class="navLink">
-                        <span class="material-icons navIcon">person</span>
-                        <span class="navText">Profile</span>
-                    </a>
-                }
+            @if (User.Identity.IsAuthenticated)
+            {
+                <a asp-page="/Profile" class="navLink">
+                    <span class="material-icons navIcon">person</span>
+                    <span class="navText">Profile</span>
+                </a>
+            }
+            else
+            {
+                <a asp-page="/Login" class="navLink">
+                    <span class="material-icons navIcon">person</span>
+                    <span class="navText">Login</span>
+                </a>
+            }
+
         </nav>
 
         <div id="profileName">
