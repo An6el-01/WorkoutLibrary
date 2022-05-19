@@ -79,9 +79,19 @@ body {
 }
 
 .dropDownList {
+    border-top: 1px solid #662582;
     position: absolute;
-    top: 90px;
+    top: 220px;
     float: left;
+}
+
+.dropDownList .SignInUp{
+    margin-top: 30px;
+}
+
+.dropDownList .AdminPages{
+    margin-top: 30px;
+    border-top: 1px solid #662582;
 }
 
 .dropdown a {
@@ -288,6 +298,10 @@ tr:hover {
 
 /* createdWorkoutLibrary page */
 
+.greyBox{
+    margin-top: 200px;
+}
+
 /* createWorkout page */
 
 /* index page */
@@ -296,6 +310,8 @@ tr:hover {
 .dDivWelcomeMessage{
     color: white;
     text-align: center;
+    margin-top: 60px;
+    
 }
 
 html, body {
@@ -354,6 +370,14 @@ html, body {
     text-align:center;
     font-size: 20px;
 }
+.RegisterText{
+    text-align: center;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
 
 /*end of new*/
 
@@ -373,6 +397,8 @@ html, body {
     color: white;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    
 }
 
 .emailDiv {
@@ -394,6 +420,7 @@ html, body {
     text-align: center;
 }
 
+
 .passwordDiv {
     background: white;
     border: 1px solid black;
@@ -406,21 +433,20 @@ html, body {
 }
 
 .passwordDiv .input {
-    display: block;
     font-size: 50px;
-    width: 100%;
-    height: auto;
-    margin-top: 15px;
+    width: 250px;
+    height: 49px;
     float: right;
     text-align: center;
 }
+
 
 .LoginSubmitBtn {
     display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
-    width: 50%;
+    width: 20%;
     border-radius: 10px;
     background-color: #662582;
     padding: 14px 28px;
@@ -480,8 +506,9 @@ html, body {
 .newUserImage {
     float: left;
     border-radius: 100px;
-    width: 90%;
-    height: auto;
+    /*width: 90%;*/
+    width: 85px;
+    height: 85px;
     border-color: #662582;
 }
 
@@ -505,6 +532,7 @@ html, body {
     height: 85px;
     margin-left: 20px;
     margin-top: 20px;
+    border-radius: 50%;
 }
 
 
@@ -591,7 +619,7 @@ html, body {
     border-radius: 20px;
 }
 
-.UserID {
+.PEmail {
     background: white;
     width: 308px;
     height: 49px;
@@ -602,7 +630,7 @@ html, body {
     border-radius: 10px;
 }
 
-.UserID:hover {
+.PEmail:hover {
     text-decoration-line: underline;
 }
 
@@ -633,6 +661,13 @@ html, body {
 
 .Subscription .greenTick {
     color: green;
+    float: right;
+    margin-right: 50px;
+    margin-top: 15px;
+}
+
+.Subscription .redTick {
+    color: red;
     float: right;
     margin-right: 50px;
     margin-top: 15px;
@@ -882,7 +917,7 @@ html, body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 30px;
+    margin-top: 70px;
     width: 20%;
     border-radius: 10px;
     background-color: #662582;
@@ -1094,7 +1129,9 @@ html, body {
 .greyBox {
     background-color: #ececec;
     border-radius: 10px;
-    margin: auto;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right:auto;
     width: 80%;
     border: 3px solid #ffffff;
     padding: 10px;

@@ -12,99 +12,133 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<div class="dDivWelcomeMessage">
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="dDivWelcomeMessage">
         <h1>Welcome</h1>
         <h1>MyWorkoutLibrary</h1>
-</div>    
-<div class="dgrid-container">
-    <div class="grid-item">
-        <a asp-page="/Calendar">
-            @{
-                try
-                {
+    </div>
+    <div class="dgrid-container">
+        <div class="grid-item">
+            <a asp-page="/Calendar">
+                @{
+                    try
+                    {
 
-                    <img class="DashBoardImg" src="/Images/legpump.jpeg" alt="user">
+                        <img class="DashBoardImg" src="/Images/legpump.jpeg" alt="user">
 
+                    }
+                    catch
+                    {
+                        <img src="/Images/empty.png" alt="No Image Provided"/>
+                    }
                 }
-                catch
-                {
-                    <img src="/Images/empty.png" alt="No Image Provided" />
-                }
-            }
-            <div class="dashboardHeaders">
-                <h2>Saved Workouts</h2>
-            </div>
-        </a>
-</div>
+                <div class="dashboardHeaders">
+                    <h2>Saved Workouts</h2>
+                </div>
+            </a>
+        </div>
         @foreach (var item in Model.recentWorkouts)
         {
-<div class="grid-item">
-    <a asp-page="/createdWorkoutLibrary">
-        @{
-            try
-            {
+            <div class="grid-item">
+                <a asp-page="/Description" asp-route-id="@item.Id">
+                    @{
+                        try
+                        {
 
-                <img class="DashBoardImg" src="@item.ImageURL" alt="user">
+                            <img class="DashBoardImg" src="@item.ImageURL" alt="user">
 
-            }
-            catch
-            {
-                <img src="/Images/empty.png" alt="No Image Provided" />
-            }
+                        }
+                        catch
+                        {
+                            <img src="/Images/empty.png" alt="No Image Provided"/>
+                        }
+                    }
+                    <div class="dashboardHeaders">
+                        <h2>@item.Name</h2>
+                    </div>
+                </a>
+            </div>
         }
-        <div class="dashboardHeaders">
-            <h2>@item.Name</h2>
+        <div class="grid-item">
+            <a asp-page="/createWorkout">
+                @{
+                    try
+                    {
+
+                        <img class="DashBoardImg" src="/Images/legpump.jpeg" alt="user">
+
+                    }
+                    catch
+                    {
+                        <img src="/Images/empty.png" alt="No Image Provided"/>
+                    }
+                }
+                <div class="dashboardHeaders">
+                    <h2>Create Workout</h2>
+                </div>
+            </a>
         </div>
-    </a>
-</div>
-        }
-<div class="grid-item">
-    <a asp-page="/createWorkout">
-        @{
-            try
-            {
-
-                <img class="DashBoardImg" src="/Images/legpump.jpeg" alt="user">
-
-            }
-            catch
-            {
-                <img src="/Images/empty.png" alt="No Image Provided" />
-            }
-        }
-        <div class="dashboardHeaders">
-            <h2>Create Workout</h2>
-        </div>
-    </a>
-</div>
         @foreach (var item in Model.oldestWorkouts)
         {
-<div class="grid-item">
-    <a asp-page="/createdWorkoutLibrary">
+            <div class="grid-item">
+                <a asp-page="/Description" asp-route-id="@item.Id">
 
 
-        @{
-            try
-            {
+                    @{
+                        try
+                        {
 
-                <img class="DashBoardImg" src="@item.ImageURL" alt="user">
+                            <img class="DashBoardImg" src="@item.ImageURL" alt="user">
 
-            }
-            catch
-            {
-                <img src="/Images/empty.png" alt="No Image Provided" />
-            }
+                        }
+                        catch
+                        {
+                            <img src="/Images/empty.png" alt="No Image Provided"/>
+                        }
+                    }
+
+
+                    <div class="dashboardHeaders">
+                        <h2>@item.Name</h2>
+                    </div>
+                </a>
+
+            </div>
+
         }
-
-
-        <div class="dashboardHeaders">
-            <h2>@item.Name</h2>
-        </div>
-    </a>
-
     </div>
-        }
-</div>
+}
+else
+{
+    <form class="LoginForm" method="post">
+
+        <div class="welcomeMessage">
+            <h1>Login</h1>
+            <h2>Enter User Details</h2>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="emailDiv">
+            <label class="emailLabel" asp-for="Input.Email"></label>
+            <input type="text" asp-for="Input.Email"/>
+            <span asp-validation-for="Input.Email"></span>
+        </div>
+
+        <div class="passwordDiv">
+            <label class="passwordLabel" asp-for="Input.Password"></label>
+            <input asp-for="Input.Password"/>
+            <span asp-validation-for="Input.Password"></span>
+        </div>
+
+       
+        <button class="LoginSubmitBtn" type="submit">Log In</button>
+        <div class="RegisterText">
+            <p5>Don't have an account? <a asp-page="/Register">Register Here</a></p5>
+        </div>
+        
+    </form>
+}
+    
 
 
 

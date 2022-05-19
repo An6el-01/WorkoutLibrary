@@ -14,11 +14,13 @@ namespace TheWorkoutLibrary.Pages
 {
     public class ProfileModel : PageModel
     {
-        private readonly AppDbContext _db;
+        private AppDbContext _db;
        
         [BindProperty] public UserProfile Image { get; set; }
         [BindProperty] public string Search { get; set; }
         [BindProperty] public string Upload { get; set; }
+        
+        
 
         public UserProfile currentUser { get; set; }
 
@@ -75,6 +77,41 @@ namespace TheWorkoutLibrary.Pages
             }
 
         }
+        
+        public async Task<IActionResult> OnPostDeleteAsync(string Email)
+        {
+            var item = await _db.userProfiles.FindAsync(Email);
+            item.SubscriptionStatus = false;
+            _db.Attach(item).State = EntityState.Modified;
+            try
+            {
+                await _db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new Exception($"Item {item.UserId} not found!", e);
+            }
+            
+            return RedirectToPage();
+        }
+        
+        public async Task<IActionResult> OnPostRenewAsync(string Email)
+        {
+            var item = await _db.userProfiles.FindAsync(Email);
+            item.SubscriptionStatus = true;
+            _db.Attach(item).State = EntityState.Modified;
+            try
+            {
+                await _db.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException e)
+            {
+                throw new Exception($"Item {item.UserId} not found!", e);
+            }
+            
+            return RedirectToPage();
+        }
     }
+    
 }
     

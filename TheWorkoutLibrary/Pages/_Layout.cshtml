@@ -21,43 +21,82 @@
 
         <div id="myMenu" class="dropdown">
             <a href="javascript:" class="buttonX" onclick="closeMenu()">&times;</a>
-            <div class="dropDownList">
-                <a asp-page="/Index" class="navLink">
-                    <span class="material-icons navIcon">home</span>
-                    <span class="navText">Dashboard</span>
-                </a>
-                <a asp-page="/createdWorkoutLibrary" class="navLink">
-                    <span class="material-icons navIcon">directions_run</span>
-                    <span class="navText">Workouts</span>
-                    <a asp-page="/browseVideos" class="navLink">
-                        <span class="material-icons navIcon">videocam</span>
-                        <span class="navText">Exercises</span>
-                    </a>
-                </a>
-                <a asp-page="/Calendar" class="navLink">
-                    <span class="material-icons navIcon">calendar_month</span>
-                    <span class="navText">Calendar</span>
-                </a>
-                <a asp-page="/Login" class="navLink">
-                <span class="navText">Log-in</span>
-                </a>
-                <a asp-page="/createWorkout" class="navLink">
-                    <span class="navText">Create Workout</span>
-                </a>
-                <a asp-page="/Register" class="navLink">
-                    <span class="navText">Register</span>
-                </a>
-                <a asp-page="/Upload" class="navLink">
-                    <span class="navText">Upload</span>     
-                </a>
-                @if (User.Identity.IsAuthenticated)
+            <div id="profileName">
+                @if (SignInManager.IsSignedIn(User))
                 {
-                    <a asp-page="/Profile" class="navLink">
-                        <span class="material-icons navIcon">person</span>
-                        <span class="navText">Profile</span>
-                    </a>
+                    <p>Hello, @UserManager.GetUserName(User)</p>
+                    if (User.IsInRole("Admin"))
+                    {
+                        <p>Administrator</p>
+                    }
+                    else
+                    {
+                        <p>Member</p>
+                    }
+                    <form asp-page="/Logout" method="post">
+                        <button type="submit">Logout</button>
+                    </form>
                 }
+                else
+                {
+                    <div class="SignInUp">
+                        <h3>Sign In/Up</h3>
+                        <a asp-page="/Login" class="navLink">
+                            <span class="navText">Log-in</span>
+                        </a>
+                        <a asp-page="/Register" class="navLink">
+                            <span class="navText">Register</span>
+                        </a>
+                    </div>
+                }
+                
             </div>
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="dropDownList">
+                    <h3>Pages:</h3>
+                    <a asp-page="/Index" class="navLink">
+                        <span class="material-icons navIcon">home</span>
+                        <span class="navText">Dashboard</span>
+                    </a>
+                    <a asp-page="/createdWorkoutLibrary" class="navLink">
+                        <span class="material-icons navIcon">directions_run</span>
+                        <span class="navText">Workouts</span>
+                        <a asp-page="/browseVideos" class="navLink">
+                            <span class="material-icons navIcon">videocam</span>
+                            <span class="navText">Exercises</span>
+                        </a>
+                    </a>
+                    <a asp-page="/Calendar" class="navLink">
+                        <span class="material-icons navIcon">calendar_month</span>
+                        <span class="navText">Calendar</span>
+                    </a>
+                    
+                        <a asp-page="/Profile" class="navLink">
+                            <span class="material-icons navIcon">person</span>
+                            <span class="navText">Profile</span>
+                        </a>
+                    
+
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <div class="AdminPages">
+
+                            <h3>Admin</h3>
+                            <a asp-page="/createWorkout" class="navLink">
+                                <span class="navText">Create Workout</span>
+                            </a>
+                            <a asp-page="/Upload" class="navLink">
+                                <span class="navText">Upload</span>
+                            </a>
+
+                        </div>
+                    }
+
+
+
+                </div>
+            }
         </div>
         <span class="hamburger" onclick="openMenu()">&#9776;</span>
         <script src="app.js"></script>
@@ -96,25 +135,7 @@
             }
 
         </nav>
-
-        <div id="profileName">
-            @if (SignInManager.IsSignedIn(User))
-            {
-                <p>Hello, @UserManager.GetUserName(User)</p>
-                if (User.IsInRole("Admin"))
-                {
-                    <p>Administrator</p>
-                }
-                else
-                {
-                    <p>Member</p>
-                }
-                <form asp-page="/Logout" method="post">
-                    <button type="submit">Logout</button>
-                </form>
-            }
-        </div>
-    </div>
+</div>
     @RenderBody()
 
     <footer class="border-top footer text-muted">

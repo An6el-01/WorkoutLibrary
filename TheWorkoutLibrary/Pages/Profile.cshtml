@@ -37,17 +37,10 @@
                 
             }
             
-            <form class="imageChangeForm" method="POST">
-                <button class="imageButton" type="submit" asp-page-handler="Image">
-                    
-                </button>
-            </form>
-            
-            
 
             <div class="UserName">
 
-                <p>@UserManager.GetUserName(User)</p>
+                <p>@Model.currentUser.FirstName, @Model.currentUser.LastName</p>
                 @if (User.IsInRole("Admin"))
                 {
                     <p>Admin</p>
@@ -74,36 +67,50 @@
 
         </div>
 
-        <div class="UserID">
-            <p4>UserID:</p4>
-            <p4>@UserManager.GetUserId(User)</p4>
+        <div class="PEmail">
+            <p4>Email:</p4>
+            <p4>@Model.currentUser.Email</p4>
         </div>
-
-        <div class="Subscription">
-            <p6>Subscription Status: </p6>
+        
+        </div>
+        <form method="post">
+        @if (@Model.currentUser.SubscriptionStatus == false)
+        {
+            
+            <div class="Subscription">
+                <p6>Subscription Status: </p6>
         
         
-            <div class="greenTick">
-                <span class="material-symbols-outlined">
-                    verified
-                </span>
+                <div class="redTick">
+                    <span class="material-symbols-outlined">
+                        verified
+                    </span>
+                </div>
             </div>
-
+            
+            <div class="Renew">
+                <p6>Renew Subscription</p6>
+                <button id="RenewBtn" type="submit" asp-page-handler="Renew" asp-route-Email="@Model.currentUser.Email">Renew</button>
+            </div>
+            
+        }else{
+            <div class="Subscription">
+        <p6>Subscription Status: </p6>
+        
+        
+        <div class="greenTick">
+            <span class="material-symbols-outlined">
+                verified
+            </span>
+        </div>
         </div>
         
-    
-
-        <div class="EndDate">
-            <p6>End Date:</p6>
-        </div>
-   
-        <div class="Renew">
-            <p6>Renew Subscription</p6>
-        </div>
-   
         <div class="End">
-            <p6>End Subscription</p6>
-        </div>
+                <p6>End Subscription</p6>
+                <button id="DeleteBtn" type="submit" asp-page-handler="Delete" asp-route-Email="@Model.currentUser.Email">End</button>
+            </div>
+        }
+        </form>
 
-    </div>
+    
 
