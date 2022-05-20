@@ -372,7 +372,7 @@ html, body {
 }
 .RegisterText{
     text-align: center;
-    margin-top: 30px;
+    margin-top: 100px;
     margin-left: auto;
     margin-right: auto;
     color: white;
@@ -442,12 +442,14 @@ html, body {
 
 
 .LoginSubmitBtn {
+    position: absolute;
+    float: left;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 70px;
-    width: 20%;
-    border-radius: 10px;
+    border-radius: 50px;
+    width: 150px;
+    height: 58px;
     background-color: #662582;
     padding: 14px 28px;
     font-size: 16px;
@@ -814,13 +816,48 @@ html, body {
 
 .rDivLastName {
     background: white;
-    border: 1px solid black;
     border-radius: 10px;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     width: 308px;
     height: 49px;
+}
+
+.ResetDiv{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    width: 325px;
+    height: 49px;
+}
+
+.ResetDiv .ResetBtn{
+    opacity: 30%;
+    position: relative;
+    float: right;
+    background-color: transparent;
+    text-align: right;
+    border-radius: 50px;
+    width: 150px;
+    height: 58px;
+    transition: all .5s ease-in-out;
+    cursor: grab;
+}
+
+.ResetBtn .resetID{
+    float: right;
+    border-radius: 50px;
+    width: 150px;
+    height: 58px;
+    cursor: grab;
+}
+
+.ResetDiv .ResetBtn:hover {
+    opacity: 100%;
+    text-decoration-line: underline;
+    transform: scale(1.1);
+    cursor: grab;
 }
 
 .rDivLastName .input {
@@ -914,12 +951,14 @@ html, body {
 }
 
 .RegisterSubmitBtn {
+    position: absolute;
+    float: left;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 70px;
-    width: 20%;
-    border-radius: 10px;
+    border-radius: 50px;
+    width: 150px;
+    height: 58px;
     background-color: #662582;
     padding: 14px 28px;
     font-size: 16px;
@@ -928,6 +967,7 @@ html, body {
     color: white;
     transition: all .5s ease-in-out;
 }
+
 
 .RegisterSubmitBtn:hover {
     text-decoration-line: underline;

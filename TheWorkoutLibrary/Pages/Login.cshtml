@@ -26,10 +26,18 @@
         <input asp-for="Input.Password"/>
         <span asp-validation-for="Input.Password"></span>
     </div>
-
-    <button class="LoginSubmitBtn" type="submit">Log In</button>
+    
+    <div class="ResetDiv">
+                
+        <div class="ResetBtn">
+            <button class ="resetID" type="reset" value="Reset">Reset</button>
+            </div>
+    
+        <button class="LoginSubmitBtn" type="submit">Log In</button>
+        </div>
     <div class="RegisterText">
         <p5>Don't have an account? <a asp-page="/Register">Register Here</a></p5>
-    </div>
+        </div>
+    
     
 </form>
