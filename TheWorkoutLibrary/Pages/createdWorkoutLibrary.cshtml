@@ -8,28 +8,37 @@
 
 
 
+
+
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
 
 
 
 <div class="greyBox">
-
-
-
     <h1 class="titleWorkouts">Workout Videos</h1>
 
 
 
-    <form class="SearchForm" method="POST">
-        <div class="searchUpload">
-            <div class="SearchFull">
-                <div class="search"><input asp-for="Search" placeholder="Search" /></div>
-                <button class="searchButton" type="submit" asp-page-handler="Search">Search</button>
+    <div class="Card">
+        <div class="CardInner">
+            <label class="wL-searchLabel">Search for a workout</label>
+            <div class="container">
+                <button class="Icon" type="submit" asp-page-handler="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg>
+                </button>
+                <div class="InputContainer">
+                    <input class="wL-input" placeholder="SearchLibrary" />
+                </div>
             </div>
         </div>
-    </form>
+    </div>
+
+
+
     <div class="savedWorkoutLevels">
         <td>
             <h3 class="workoutLevel">
@@ -42,14 +51,21 @@
 
 
 
+
+
         <td>
             <h3 class="workoutLevel1">
                 Intermediate
                 <div class="material-symbols-outlined2">
                     <span class="material-symbols-outlined">fitness_center</span>
+
+
+
                 </div>
             </h3>
         </td>
+
+
 
 
 
@@ -65,24 +81,89 @@
 
 
 
+
+
     <div class="savedWorkoutsItems">
-        
-            @foreach (var workout in Model.workouts)
+        @*<table class="excerciseTable">
+            <tbody>
+
+
+
+
+
+            @foreach (var item in Model.workouts)
             {
-                <img class="savedWorkoutsPicture" src="@workout.ImageURL" alt="@workout.ImageURL" width="600" height="400">
-                <div>
-                    <h2>@workout.Name</h2>
-                    <h2>@workout.Notes</h2>
-                    <h2>@workout.Difficulty</h2>
-
-                </div><div>
-                    <h4>Included Excercises: @string.Join(", ", workout.Excercises.Select(x => x.Excercise.Name))</h4>
-                    <h4>Notes: @string.Join(", ", workout.Excercises.Select(x => x.Excercise.Notes))</h4>
-
-                </div>
-                <a asp-page="/Description" asp-route-id="@workout.Id">Details</a>
-                <br />
+            <tr>
+            <td>
+            <img class="libraryWorkoutsPicture" src="@item.ImageURL" alt="@item.ImageURL" width="600" height="400">
+            </td>
+            <td class="itemName">@item.Name</td>
+            <td class="itemNotes">@item.Notes</td>
+            <td class="itemDifficulty">@item.Difficulty</td>
+            <td>
+            <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@item.Id">Add</button>
+            </td>
+            </tr>
             }
-        
+
+
+
+
+
+            </tbody>
+            </table>*@
+
+
+
+
+
+        @foreach (var workout in Model.workouts)
+        {
+            <img class="WorkoutsPicture" src="@workout.ImageURL" alt="@workout.ImageURL">
+            /* width = "600" height = "400"*/
+            <div>
+                <h2>@workout.Name</h2>
+                <h2>@workout.Notes</h2>
+
+
+
+                @if (workout.Difficulty == "Beginner")
+                {
+                    <div class="material-symbols-outlined1">
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>}
+                @if (workout.Difficulty == "Intermediate")
+                {
+                    <div class="material-symbols-outlined2">
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>}
+                @if (workout.Difficulty == "Advanced")
+                {
+                    <div class="material-symbols-outlined3">
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>}
+
+
+
+            </div>
+
+
+
+
+
+            <div>
+                <h4>Included Excercises: @string.Join(", ", workout.Excercises.Select(x => x.Excercise.Name))</h4>
+                <h4>Notes: @string.Join(", ", workout.Excercises.Select(x => x.Excercise.Notes))</h4>
+
+
+
+            </div>
+
+            <a asp-page="/Description" asp-route-id="@workout.Id">Details</a>
+            <br />
+        }
+
+
+
     </div>
 </div>
