@@ -7,6 +7,7 @@
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 
+<link rel="stylesheet" href="~/CSS/StyleSheet.css" />
 
 <form class="LoginForm" method="post">
 
@@ -17,13 +18,13 @@
     <div asp-validation-summary="All"></div>
     <div class="emailDiv">
         <label class="emailLabel" asp-for="Input.Email"></label>
-        <input type="text" asp-for="Input.Email"/>
+        <input type="text" asp-for="Input.Email" class="inputClass"/>
         <span asp-validation-for="Input.Email"></span>
     </div>
 
     <div class="passwordDiv">
         <label class="passwordLabel" asp-for="Input.Password"></label>
-        <input asp-for="Input.Password"/>
+        <input asp-for="Input.Password" class="inputClass"/>
         <span asp-validation-for="Input.Password"></span>
     </div>
     

@@ -12,6 +12,8 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
+    <link rel="stylesheet" href="~/CSS/StyleSheet.css" />
+
 @if (User.Identity.IsAuthenticated)
 {
     <div class="dDivWelcomeMessage">
@@ -120,13 +122,13 @@ else
         <div asp-validation-summary="All"></div>
         <div class="emailDiv">
             <label class="emailLabel" asp-for="Input.Email"></label>
-            <input type="text" asp-for="Input.Email"/>
+            <input type="text" asp-for="Input.Email" class="inputClass"/>
             <span asp-validation-for="Input.Email"></span>
         </div>
 
         <div class="passwordDiv">
             <label class="passwordLabel" asp-for="Input.Password"></label>
-            <input asp-for="Input.Password"/>
+            <input asp-for="Input.Password" class="inputClass"/>
             <span asp-validation-for="Input.Password"></span>
         </div>
         
