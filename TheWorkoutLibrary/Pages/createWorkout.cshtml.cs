@@ -55,7 +55,7 @@ namespace TheWorkoutLibrary.Pages
                 .ToList();           
            
             lastWorkout = workouts.LastOrDefault();
-
+            // Need to add if statement if value equal NULL for new users who havent created workout yet
             workoutExcercises = _db.WorkoutExcercise
                 .Where(x => x.WorkoutId == lastWorkout.Id)
                 .ToList();

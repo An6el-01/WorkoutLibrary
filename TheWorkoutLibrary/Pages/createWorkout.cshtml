@@ -40,37 +40,37 @@
 </form>
 
 
-    <div>
+    <div class="NewWorkoutInfo">
         <h4>Name: </h4><p>@Model.lastWorkout.Name</p>
         <h4>Notes: </h4><p>@Model.lastWorkout.Notes</p>
         <h4>Difficulty: </h4><p>@Model.lastWorkout.Difficulty</p>
-    </div>
+    </div="">
 <form id="addExcerciseForm" method="post">
-
-        <div class="workouts">
+        
             @foreach (var excercise in Model.excercises)
             {
             <div class="addExcercises">
-                <h4>Excercise: </h4><p>@excercise.Name, @excercise.Notes, @excercise.Difficulty</p>
+                <h3>@excercise.Name</h3>
 
-                <label asp-for="newWorkoutExcercise.Sets">Sets </label>
-                <input name="sets" asp-for="newWorkoutExcercise.Sets" />
-                <span asp-validation-for="newWorkoutExcercise.Sets"></span>
+                <div class="LabelAndInput">
+                    <label asp-for="newWorkoutExcercise.Sets">Sets </label>
+                    <input name="sets" asp-for="newWorkoutExcercise.Sets" />
+                    <span asp-validation-for="newWorkoutExcercise.Sets"></span>
+                    <label asp-for="newWorkoutExcercise.Reps">Reps </label>
+                    <input name="reps" asp-for="newWorkoutExcercise.Reps" />
+                    <span asp-validation-for="newWorkoutExcercise.Reps"></span>
+                </div>
 
-
-                <label asp-for="newWorkoutExcercise.Reps">Reps </label>
-                <input name="reps" asp-for="newWorkoutExcercise.Reps" />
-                <span asp-validation-for="newWorkoutExcercise.Reps"></span>
-                <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-ExcerciseId="@excercise.Id">Add</button>
+                <button class="AddBtn" type="submit" asp-page-handler="Add" asp-route-ExcerciseId="@excercise.Id">Add</button>
             </div>
             }
-        </div>                    
+                          
 </form>
 
 <div class="groupedExcercises">
     @foreach (var item in Model.workoutExcercises)
     {
-        <iframe width="560" height="315" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
+        <iframe width="300" height="525" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
         <h4>Name: </h4><p>@item.Excercise.Name</p>
         <h4>Workout Id: </h4><p>@item.WorkoutId</p>
         <h4>Excercise Id: </h4><p>@item.ExcerciseId</p>

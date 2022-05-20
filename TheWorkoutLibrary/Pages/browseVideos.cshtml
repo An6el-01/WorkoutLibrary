@@ -145,13 +145,6 @@
                         </div>
 
                     </td>
-                    @if (User.Identity.IsAuthenticated)
-                    {
-                        <td>
-                            <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-itemID="@WO.Id">ADD</button>
-                        </td>
-                    }
-
                 </tr>
                 }
             </tbody>
