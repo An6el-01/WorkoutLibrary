@@ -21,7 +21,7 @@
 
         <div id="myMenu" class="dropdown">
             <a href="javascript:" class="buttonX" onclick="closeMenu()">&times;</a>
-            <div id="profileName">
+            <div class="profileName">
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <p>Hello, @UserManager.GetUserName(User)</p>
@@ -34,7 +34,7 @@
                         <p>Member</p>
                     }
                     <form asp-page="/Logout" method="post">
-                        <button type="submit">Logout</button>
+                        <button class="LogoutBtn" type="submit">LOGOUT</button>
                     </form>
                 }
                 else
@@ -59,10 +59,10 @@
                         <span class="material-icons navIcon">home</span>
                         <span class="navText">Dashboard</span>
                     </a>
-                    <a asp-page="/createdWorkoutLibrary" class="navLink">
+                    <a asp-page="/Workouts" class="navLink">
                         <span class="material-icons navIcon">directions_run</span>
                         <span class="navText">Workouts</span>
-                        <a asp-page="/browseVideos" class="navLink">
+                        <a asp-page="/Excercises" class="navLink">
                             <span class="material-icons navIcon">videocam</span>
                             <span class="navText">Exercises</span>
                         </a>
@@ -105,10 +105,11 @@
                 <span class="material-icons navIcon">home</span>
                 <span class="navText">Dashboard</span>
             </a>
-            <a asp-page="/createdWorkoutLibrary" class="navLink">
+            <a asp-page="/Workouts" class="navLink">
                 <span class="material-icons navIcon">directions_run</span>
                 <span class="navText">Workouts</span>
-                <a asp-page="/browseVideos" class="navLink">
+
+                <a asp-page="/Excercises" class="navLink">
                     <span class="material-icons navIcon">videocam</span>
                     <span class="navText">Exercises</span>
                 </a>

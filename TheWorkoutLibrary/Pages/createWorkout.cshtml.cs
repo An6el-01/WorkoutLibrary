@@ -126,7 +126,7 @@ namespace TheWorkoutLibrary.Pages
                 .ToList();
             lastWorkout = workouts.LastOrDefault();
 
-            return Page();
+            return RedirectToPage();
         }
         public async Task<IActionResult> OnPostAddAsync(int ExcerciseId)
         {

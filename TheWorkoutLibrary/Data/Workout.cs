@@ -10,11 +10,11 @@ namespace TheWorkoutLibrary.Data
     {
         [Key]
         public int Id { get; set; }
-        [StringLength(25)]
+        [Required, StringLength(25)]
         public string Name { get; set; }
         [StringLength(100)]
         public string Notes { get; set; }
-        [StringLength(25)]
+        [Required, StringLength(25)]
         public string Difficulty { get; set; }
         public int UserId { get; set; }
         [StringLength(125)]

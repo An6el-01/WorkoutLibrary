@@ -12,13 +12,13 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-    <link rel="stylesheet" href="~/CSS/StyleSheet.css" />
+<link rel="stylesheet" href="~/CSS/StyleSheet.css" />
+
 
 @if (User.Identity.IsAuthenticated)
 {
-    <div class="dDivWelcomeMessage">
-        <h1>MyWorkoutLibrary</h1>
-    </div>
+    <h1>Dashboard</h1>
+
     <div class="dgrid-container">
         <div class="grid-item">
             <a asp-page="/Calendar">
@@ -26,7 +26,7 @@
                     try
                     {
 
-                        <img class="DashBoardImg" src="~/Images/legpump.jpeg" alt="user">
+                        <img class="DashBoardImg" src="~/Images/cardio.jpeg" />
 
                     }
                     catch
@@ -86,12 +86,12 @@
         else
         {
             <div class="grid-item">
-                <a asp-page="/createdWorkoutLibrary">
+                <a asp-page="/Workouts">
                     @{
                         try
                         {
 
-                            <img class="DashBoardImg" src="~/Images/legpump.jpeg" alt="user">
+                            <img class="DashBoardImg" src="~/Images/deadlift.jpeg" alt="user">
 
                         }
                         catch
@@ -146,31 +146,31 @@ else
         </div>
         <div asp-validation-summary="All"></div>
         <div>
-            <input class="FormInputs" type="text" asp-for="Input.Email" placeholder="Email"/>
+            <input class="FormInputs" type="text" asp-for="Input.Email" placeholder="Email" />
             <span asp-validation-for="Input.Email"></span>
         </div>
         <div>
-            <input class="FormInputs" type="password" asp-for="Input.Password" placeholder="Password"/>
+            <input class="FormInputs" type="password" asp-for="Input.Password" placeholder="Password" />
             <span asp-validation-for="Input.Password"></span>
         </div>
 
         <div class="ResetDiv">
-                
+
             <div class="ResetBtn">
-                <button class ="resetID" type="reset" value="Reset">RESET</button>
+                <button class="resetID" type="reset" value="Reset">RESET</button>
             </div>
-    
+
             <button class="LoginSubmitBtn" type="submit">LOGIN</button>
         </div>
         <div class="RegisterText">
             <p5>Don't have an account? <a asp-page="/Register">Register Here</a></p5>
         </div>
-    
-    
+
+
     </form>
 
 }
-    
+
 
 
 

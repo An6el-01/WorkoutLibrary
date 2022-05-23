@@ -83,6 +83,28 @@ body {
     overflow-y: hidden;
     transition: 0.5s;
 }
+.profileName{    
+    margin:10px;
+    text-align:center;    
+}
+.profileName .LogoutBtn{   
+    border-radius: 29px;
+    width: 100px;
+    height: 30px;
+    background-color: #662582;
+    border: 1.5px solid #EFEFEF;
+    cursor: pointer;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    transition: all .5s ease-in-out;    
+}
+.profileName .LogoutBtn:hover{
+    outline: 3px solid #662582;
+    color:black;
+    border: 2px solid black;
+}
 
 .dropDownList {
     border-top: 1px solid #662582;
@@ -101,7 +123,7 @@ body {
 }
 
 .dropdown a {
-    padding: 15px 0px;
+    padding: 10px;
     text-decoration: none;
     font-size: 12.5px;
     color: black;
@@ -115,23 +137,30 @@ body {
 }
 
 .hamburger {
-    color: black;
+    color: white;
     left: 10px;
     top: 20px;
     font-size: 40px;
     cursor: pointer;
+    padding: 10px;
 }
-
+.hamburger:hover{     
+    color: #662582;
+    transition: 0.5s;
+}
 .dropdown .buttonX {
-    padding: 1px;
+    padding: 0px 15px;
     font-size: 40px;
     color: black;
+    font-weight:bold;
 }
 
 .dropdown .buttonX:hover {
     font-size: 45px;
     color: #662582;
+    transition: 0.5s;
 }
+
 /*Layout Page - Logo*/
 
 
@@ -364,11 +393,12 @@ tr:hover {
     padding:0px;
     margin: 20px auto;
 }
-.grid-item a{
+.grid-item a:link {
     text-decoration:none;
     color:black;
     padding:0px;
     margin:0px;
+    display: inline-block;
 }
 .grid-item:hover{
     transition: .10s;
@@ -379,6 +409,7 @@ tr:hover {
 }
 .DashBoardImg {
     max-width: 275px;
+    height: 200px;
     object-fit: cover;
     padding: 0px;
     margin-top:0px;
@@ -1352,11 +1383,11 @@ border-collapse: collapse;
 h1 {
     text-align: center;
     width: 325px;
+    height: 90px;
+    margin: 0px;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 50px;
-    font-weight: 600;
-    font-size: 30px;
+    padding: 10px;
     color: #FFFFFF;
 }
 iframe {
@@ -1378,6 +1409,8 @@ iframe {
 .addExcercises {
     border: 1px solid black;
     display: flex;
+    margin: 10px;
+    border-radius: 3px;
 }
 
 .addExcercises h3 {
@@ -1386,26 +1419,27 @@ iframe {
     width: 45%;
     max-width: 300px;
     min-width: 100px;
-    font-size: 15px;
+    font-size: 13px;
+    
 }
 
 .addExcercises label {
-    font-size: 15px;
+    font-size: 12px;
     max-width: 100px;
     font-weight: bold;
     padding: 5px;
     margin-top: 5px;
+    float:left;
 }
 
 .addExcercises input {
     border: 2px solid black;
     font-size: 15px;
-    max-width: 40px;
-    text-align: center;
-    margin-left: 10px;
+    max-width: 40px;   
     border-radius: 5px;
     padding: 5px;
     margin-top: 7px;
+    float:left;
 }
 .addExcercises label:hover{
     color:#662582;
@@ -1476,6 +1510,10 @@ input::-webkit-inner-spin-button {
 
     .detailsIcon {
         padding: 50px 0px 0px 290%;
+    }
+    .Logo {
+        width: 200px;
+        height: 45px;
     }
 }
 
@@ -1728,22 +1766,22 @@ input::-webkit-inner-spin-button {
 }
 
 .groupedExcercises .details {
-    width: 400px;
+    width:350px;
+    height:350px;
 }
-
 .details h2 {
-    line-height: 20px;
+    line-height: 50px;
     color: #FFFFFF;
     height: 50px;
     margin: 10px;
     padding-top: 5px;
     letter-spacing: 0.05em;
     font-weight: 600;
-    font-size: 30px;
+    font-size: 20px;
 }
 
 .details h3 {
-    width: 100px;
+    width: 85px;
     height: 25px;
     margin: 10px;
     float: left;
@@ -1755,9 +1793,9 @@ input::-webkit-inner-spin-button {
 }
 
 .details p {
-    margin: 10px 20px;
+    margin: 10px 17px;
     float: left;
-    width: 80px;
+    width: 70px;
     height: 35px;
     background: #FFFDFD;
     border: 1px solid #FFFFFF;
