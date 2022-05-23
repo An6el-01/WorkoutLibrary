@@ -221,17 +221,57 @@ tr {
 }
 
 
-.search {
-    text-align: center;
+.searchBox {
+    border: none;
+    width: 200px;
+    height: 40px;
+    margin-left: 10px;
     border-radius: 10px;
 }
 
 .searchButton {
-    border-radius: 10px;
+    border-radius: 29px;
+    width: 150px;
+    height: 58px;
+    background-color: #662582;
+    border: 1px solid #EFEFEF;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    transition: all .5s ease-in-out;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.uploadButton {
+    border-radius: 29px;
+    width: 150px;
+    height: 58px;
+    background-color: #662582;
+    border: 1px solid #EFEFEF;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    transition: all .5s ease-in-out;
+    margin-top: 10px;
+    margin-bottom: 10px;
     color: white;
     background-color: #662582;
     text-align: center;
 }
+
+    .uploadButton:hover, .searchButton:hover {
+        outline: 3px solid #662582;
+        font-size: 22px;
+        color: black;
+        border: 2px solid black;
+    }
 
 .searchUpload {
     text-align: center;
@@ -239,20 +279,18 @@ tr {
     margin-left: auto;
 }
 
-.searchUpload .SearchFull {
-    text-align: center;
-    margin-right: auto;
-    margin-left: auto;
-}
+    .searchUpload .SearchFull {
+        text-align: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
 
 .searchForm {
     text-align: center;
 }
 
-.searchUpload .uploadButton {
-    border-radius: 10px;
+.searchUpload {
     color: white;
-    background-color: #662582;
     text-align: center;
 }
 
