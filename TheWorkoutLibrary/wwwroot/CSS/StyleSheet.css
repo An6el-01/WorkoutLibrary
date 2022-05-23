@@ -505,19 +505,27 @@ tr:hover {
 
 /* Profile page */
 
+/* Profile page */
+
+
+
 /*.BackgroundProfile{
-    background: linear-gradient(180deg, rgba(196, 196, 196, 0.7) 0%, rgba(0, 0, 0, 0.7) 77.94%);
+background: linear-gradient(180deg, rgba(196, 196, 196, 0.7) 0%, rgba(0, 0, 0, 0.7) 77.94%);
 }*/
+
+
 
 .profileNameMain {
     background: white;
-    border-radius: 20px;
+    border-radius: 5px;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     width: 356px;
     height: 210px;
 }
+
+
 
 .greyUser {
     float: left;
@@ -526,6 +534,8 @@ tr:hover {
     height: auto;
     border-color: #662582;
 }
+
+
 
 .newUserImage {
     float: left;
@@ -536,11 +546,15 @@ tr:hover {
     border-color: #662582;
 }
 
+
+
 .newUserImage:hover {
     transform: scale(1.1);
     opacity: 0.7;
     cursor: grab;
 }
+
+
 
 .greyUser:hover {
     filter: grayscale(100%);
@@ -548,6 +562,8 @@ tr:hover {
     opacity: 0.7;
     cursor: grab;
 }
+
+
 
 .userImage {
     position: absolute;
@@ -560,9 +576,13 @@ tr:hover {
 }
 
 
+
+
 .p {
     text-align: center;
 }
+
+
 
 .p4 {
     font-size: 20px;
@@ -570,11 +590,15 @@ tr:hover {
     text-align: left;
 }
 
+
+
 .p5 {
     font-size: 20px;
     margin-top: 100px;
     text-align: left;
 }
+
+
 
 
 
@@ -585,12 +609,16 @@ tr:hover {
     float: left;
 }
 
+
+
 .dateJoined {
     float: left;
     text-align: left;
     margin-top: 150px;
     margin-left: 20px;
 }
+
+
 
 .calendarImage {
     position: absolute;
@@ -601,11 +629,15 @@ tr:hover {
     float: right;
 }
 
+
+
 .weightCalendar {
     color: #662582;
     width: 80%;
     height: auto;
 }
+
+
 
 
 .weightsImage {
@@ -618,11 +650,15 @@ tr:hover {
     float: right;
 }
 
+
+
 .weightsProfile {
     color: #662582;
     width: 80%;
     height: auto;
 }
+
+
 
 
 
@@ -635,13 +671,17 @@ tr:hover {
     margin-top: 20px;
 }
 
+
+
 .UserName {
     position: absolute;
     margin-left: 120px;
     float: right;
     font-size: 20px;
-    border-radius: 20px;
+    border-radius: 5px;
 }
+
+
 
 .PEmail {
     background: white;
@@ -651,16 +691,27 @@ tr:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
+
+.p7{
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .PEmail:hover {
     text-decoration-line: underline;
 }
 
+
+
 /*.profileTable .UN{
-    border-collapse: collapse;
+border-collapse: collapse;
 }*/
+
+
 
 
 .Subscription {
@@ -671,8 +722,10 @@ tr:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
+
+
 
 .Subscription .p6 {
     font-size: 20px;
@@ -683,23 +736,31 @@ tr:hover {
     margin-top: 20px;
 }
 
+
+
 .Subscription .greenTick {
     color: green;
-    float: right;
-    margin-right: 50px;
-    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
 }
+
+
 
 .Subscription .redTick {
     color: red;
-    float: right;
-    margin-right: 50px;
-    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
 }
+
+
 
 .Subscription:hover {
     text-decoration-line: underline;
 }
+
+
 
 .EndDate {
     background: white;
@@ -709,12 +770,16 @@ tr:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
+
+
 
 .EndDate:hover {
     text-decoration-line: underline;
 }
+
+
 
 .Renew {
     background: white;
@@ -724,12 +789,16 @@ tr:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
+
+
 
 .Renew:hover {
     text-decoration-line: underline;
 }
+
+
 
 .End {
     background: white;
@@ -739,19 +808,20 @@ tr:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 5px;
 }
+
+
 
 .End:hover {
     text-decoration-line: underline;
 }
 
-
-
-
-
-
-
+.EndBtn{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 3px;
+}
 
 /* Register page */
 

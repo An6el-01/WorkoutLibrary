@@ -20,97 +20,111 @@
 
         <h1>Profile</h1>
 
-        <div class="profileNameMain">
-            
-            @{
-                try
-                {
-                    <div class="userImage">
-                        <img class="newUserImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@Model.currentUser.ImageData))"/>
-                    </div>
-                }catch{
-                    
-                <div class="imageGrey">
-                        <img class="greyUser" src="/Images/greyProfile.png" alt="user">
-                    </div>
-                }
-                
-            }
-            
 
-            <div class="UserName">
+<div class="profileNameMain">
 
-                <p>@Model.currentUser.FirstName, @Model.currentUser.LastName</p>
-                @if (User.IsInRole("Admin"))
-                {
-                    <p>Admin</p>
-                }
-                else
-                {
-                    <p>Member</p>
-                }
-
-            </div>
-
-            <div class="dateJoined">
-                <p5>Date Joined: @Model.currentUser.StartDate </p5>
-            </div>
-
-            <div class="weightsImage">
-                <img class="weightsProfile" src="/Images/weightsProfile.png" alt="user">
-            </div>
-
-            <div class="calendarImage">
-                <img class="weightCalendar" src="/Images/weightCalendar.png" alt="user">
-            </div>
-
-
-        </div>
-
-        <div class="PEmail">
-            <p4>Email:</p4>
-            <p4>@Model.currentUser.Email</p4>
-        </div>
-        
-       
-        <form method="post">
-        @if (@Model.currentUser.SubscriptionStatus == false)
+    @{
+        try
         {
-            
-            <div class="Subscription">
-                <p6>Subscription Status: </p6>
-        
-        
-                <div class="redTick">
-                    <span class="material-symbols-outlined">
-                        verified
-                    </span>
-                </div>
+            <div class="userImage">
+                <img class="newUserImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@Model.currentUser.ImageData))"/>
             </div>
-            
-            <div class="Renew">
-                <p6>Renew Subscription</p6>
-                <button id="RenewBtn" type="submit" asp-page-handler="Renew" asp-route-Email="@Model.currentUser.Email">Renew</button>
-            </div>
-            
-        }else{
-            <div class="Subscription">
-        <p6>Subscription Status: </p6>
-        
-        
-        <div class="greenTick">
-            <span class="material-symbols-outlined">
-                verified
-            </span>
-        </div>
-        </div>
-        
-        <div class="End">
-                <p6>End Subscription</p6>
-                <button id="DeleteBtn" type="submit" asp-page-handler="Delete" asp-route-Email="@Model.currentUser.Email">End</button>
+        }catch{
+
+            <div class="imageGrey">
+                <img class="greyUser" src="/Images/greyProfile.png" alt="user">
             </div>
         }
-        </form>
 
-    
+    }
+
+
+
+    <div class="UserName">
+
+
+
+        <p>@Model.currentUser.FirstName, @Model.currentUser.LastName</p>
+        @if (User.IsInRole("Admin"))
+        {
+            <p>Admin</p>
+        }
+        else
+        {
+            <p>Member</p>
+        }
+
+
+
+    </div>
+
+
+
+    <div class="dateJoined">
+        <p5>Date Joined: @Model.currentUser.StartDate </p5>
+    </div>
+
+
+
+    <div class="weightsImage">
+        <img class="weightsProfile" src="/Images/weightsProfile.png" alt="user">
+    </div>
+
+
+
+    <div class="calendarImage">
+        <img class="weightCalendar" src="/Images/weightCalendar.png" alt="user">
+    </div>
+
+
+
+
+</div>
+
+
+
+<div class="PEmail">
+    <p7>Email:</p7>
+    <p7>@Model.currentUser.Email</p7>
+</div>
+
+
+<form method="post">
+    @if (@Model.currentUser.SubscriptionStatus == false)
+    {
+
+        <div class="Subscription">
+            <p6>Subscription Status: </p6>
+
+
+            <div class="redTick">
+                <span class="material-symbols-outlined">
+                    verified
+                </span>
+            </div>
+        </div>
+
+        <div class="Renew">
+            <p6>Renew Subscription</p6>
+            <button id="RenewBtn" type="submit" asp-page-handler="Renew" asp-route-Email="@Model.currentUser.Email">Renew</button>
+        </div>
+
+    }else{
+        <div class="Subscription">
+            <p6>Subscription Status: </p6>
+
+
+            <div class="greenTick">
+                <span class="material-symbols-outlined">
+                    verified
+                </span>
+            </div>
+        </div>
+
+        <div class="End">
+            <p6>End Subscription</p6>
+            <button id="EndBtn" type="submit" asp-page-handler="Delete" asp-route-Email="@Model.currentUser.Email">End</button>
+        </div>
+    }
+</form>  
 
