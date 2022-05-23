@@ -1,4 +1,6 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Hind&display=swap');
 html{
 }
 body {
@@ -221,57 +223,17 @@ tr {
 }
 
 
-.searchBox {
-    border: none;
-    width: 200px;
-    height: 40px;
-    margin-left: 10px;
+.search {
+    text-align: center;
     border-radius: 10px;
 }
 
 .searchButton {
-    border-radius: 29px;
-    width: 150px;
-    height: 58px;
-    background-color: #662582;
-    border: 1px solid #EFEFEF;
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;
-    font-style: italic;
-    font-weight: 700;
-    color: white;
-    transition: all .5s ease-in-out;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
-.uploadButton {
-    border-radius: 29px;
-    width: 150px;
-    height: 58px;
-    background-color: #662582;
-    border: 1px solid #EFEFEF;
-    font-size: 20px;
-    cursor: pointer;
-    text-align: center;
-    font-style: italic;
-    font-weight: 700;
-    color: white;
-    transition: all .5s ease-in-out;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    border-radius: 10px;
     color: white;
     background-color: #662582;
     text-align: center;
 }
-
-    .uploadButton:hover, .searchButton:hover {
-        outline: 3px solid #662582;
-        font-size: 22px;
-        color: black;
-        border: 2px solid black;
-    }
 
 .searchUpload {
     text-align: center;
@@ -279,18 +241,20 @@ tr {
     margin-left: auto;
 }
 
-    .searchUpload .SearchFull {
-        text-align: center;
-        margin-right: auto;
-        margin-left: auto;
-    }
+.searchUpload .SearchFull {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+}
 
 .searchForm {
     text-align: center;
 }
 
-.searchUpload {
+.searchUpload .uploadButton {
+    border-radius: 10px;
     color: white;
+    background-color: #662582;
     text-align: center;
 }
 
@@ -311,17 +275,17 @@ tr:hover {
 }
 
 .material-symbols-outlined1 {
-    color: limegreen;
+
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
 .material-symbols-outlined2 {
-    color: orange;
+
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
 .material-symbols-outlined3 {
-    color: red;
+
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
 }
 
@@ -341,27 +305,27 @@ tr:hover {
     cursor: pointer;
 }
 
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: white;
-        color: black;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 1;
-        top: -5px;
-        left: 110%;
-        border-style: solid;
-        border-color: purple;
-    }
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: white;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: 110%;
+    border-style: solid;
+    border-color: purple;
+}
 
 
 
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-    }
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 
 
 
@@ -381,7 +345,7 @@ tr:hover {
     color: white;
     text-align: center;
     margin-top: 60px;
-    
+
 }
 * {
     box-sizing: border-box;
@@ -462,7 +426,7 @@ tr:hover {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    
+
 }
 
 .emailDiv {
@@ -512,7 +476,7 @@ tr:hover {
     border-radius: 29px;
     width: 150px;
     height: 58px;
-    background-color: #662582;   
+    background-color: #662582;
     border: 1px solid #EFEFEF;
     font-size: 20px;
     cursor: pointer;
@@ -865,7 +829,7 @@ border-collapse: collapse;
 
 /* Register page */
 .RegisterForm{
-    
+
 }
 
 .RegisterForm {
@@ -938,7 +902,7 @@ border-collapse: collapse;
     margin-right: auto;
     width: 308px;
     height: 49px;
-    
+
 }
 
 .rDivEmail .input {
@@ -1144,25 +1108,25 @@ border-collapse: collapse;
 .EnterWorkoutForm .FormInputs{
     font-size:16px;
     margin:15px;
-    width:300px;    
-    height:40px;  
+    width:300px;
+    height:40px;
     border:1px solid #464646;
-    border-radius: 5px;     
+    border-radius: 5px;
 }
-.EnterWorkoutForm .WorkoutDifficulty{   
+.EnterWorkoutForm .WorkoutDifficulty{
     display:flex;
     flex-wrap:wrap;
     margin:15px;
     margin-left:auto;
     margin-right:auto;
-    width:325px;    
+    width:325px;
 }
 .WorkoutDifficulty h4{
     width:33%;
     text-align:center;
     margin:0px;
     padding:0px;
-    font-size:14px;    
+    font-size:14px;
 }
 .EnterWorkoutForm .RadioInput {
     cursor: pointer;
@@ -1230,9 +1194,9 @@ border-collapse: collapse;
         max-width: 325px;
     }
 
-        .NewWorkoutInfo .savedWorkoutsPicture {
-            max-width: 300px;
-        }
+    .NewWorkoutInfo .savedWorkoutsPicture {
+        max-width: 300px;
+    }
 
     #addExcerciseForm {
         max-width: 325px;
@@ -1247,10 +1211,13 @@ border-collapse: collapse;
 
 }
 /* Workouts Videos Page CSS*/
+/* Workouts Videos Page CSS*/
 .titleWorkouts {
     text-align: center;
     font-size: 32px;
 }
+
+
 
 
 
@@ -1259,11 +1226,13 @@ border-collapse: collapse;
     border-radius: 10px;
     margin-top: 100px;
     margin-left: auto;
-    margin-right:auto;
+    margin-right: auto;
     width: 80%;
     border: 3px solid #ffffff;
     padding: 10px;
 }
+
+
 
 
 
@@ -1278,10 +1247,20 @@ border-collapse: collapse;
 
 
 
+.savedWorkoutItem {
+    display: flex;
+}
+
+
+
+
+
 .libraryWorkoutsPicture {
     width: 80%;
     height: 50%;
 }
+
+
 
 
 
@@ -1304,6 +1283,8 @@ border-collapse: collapse;
 
 
 
+
+
 .workoutLevel1 {
     margin-right: auto;
     margin-left: auto;
@@ -1311,9 +1292,61 @@ border-collapse: collapse;
 
 
 
+
+
 .workoutLevel2 {
     margin-right: auto;
     margin-left: auto;
+}
+
+
+
+.lineSavedWorkouts {
+    padding: 1px;
+    border-width: 0;
+    color: #383636;
+    background-color: #383636
+}
+
+
+
+.savedWorkoutName {
+    width: 120px;
+    padding: 0px 20% 50% 5%;
+}
+
+
+
+
+.savedWorkoutIncExercises {
+    padding: 20% 0px 0px 30%;
+}
+
+
+
+@media screen and (min-width: 300px) {
+    .workoutLevel {
+        font-size: 10px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+
+    .workoutLevel1 {
+        font-size: 10px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+
+
+
+    .workoutLevel2 {
+        font-size: 10px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 /* Create Workouts Page CSS*/
 h1 {
@@ -1347,40 +1380,40 @@ iframe {
     display: flex;
 }
 
-    .addExcercises h3 {
-        padding: 7px;
-        margin: 0px;
-        width: 45%;
-        max-width: 300px;
-        min-width: 100px;
-        font-size: 15px;
-    }
+.addExcercises h3 {
+    padding: 7px;
+    margin: 0px;
+    width: 45%;
+    max-width: 300px;
+    min-width: 100px;
+    font-size: 15px;
+}
 
-    .addExcercises label {
-        font-size: 15px;
-        max-width: 100px;
-        font-weight: bold;
-        padding: 5px;
-        margin-top: 5px;
-    }
+.addExcercises label {
+    font-size: 15px;
+    max-width: 100px;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+}
 
-    .addExcercises input {
-        border: 2px solid black;
-        font-size: 15px;
-        max-width: 40px;
-        text-align: center;
-        margin-left: 10px;
-        border-radius: 5px;
-        padding: 5px;
-        margin-top: 7px;
-    }
+.addExcercises input {
+    border: 2px solid black;
+    font-size: 15px;
+    max-width: 40px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 5px;
+    padding: 5px;
+    margin-top: 7px;
+}
 .addExcercises label:hover{
-    color:#662582;    
+    color:#662582;
     font-size:17px;
 }
- .addExcercises input:hover{
-     border: 2px solid #662582;     
- }
+.addExcercises input:hover{
+    border: 2px solid #662582;
+}
 
 .AddBtn {
     border: 2px solid black;
@@ -1398,7 +1431,7 @@ iframe {
     font-weight: bold;
 }
 .AddBtn:hover{
-    outline: 3px solid #662582;    
+    outline: 3px solid #662582;
     color:black;
     border: 2px solid black;
 }
@@ -1408,32 +1441,193 @@ input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-.createWorkoutForm {       
+
+.WorkoutsPicture {
+    width: 240px;
+    height: 190px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+
+
+    .WorkoutsPicture {
+        width: 180px;
+        height: 130px;
+    }
+
+
+
+    .savedWorkoutName {
+        font-size: 17px;
+        padding: 0px 20% 35% 5%;
+    }
+
+
+
+
+    .savedWorkoutIncExercises {
+        display: none;
+    }
+
+
+
+    .detailsIcon {
+        padding: 50px 0px 0px 290%;
+    }
+}
+
+
+
+@media screen and (max-width: 650px) {
+    .WorkoutsPicture {
+        width: 120px;
+        height: 70px;
+    }
+
+
+
+    .savedWorkoutName {
+        font-size: 12px;
+        padding: 0px 20% 3% 5%;
+    }
+
+
+
+
+    .savedWorkoutIncExercises {
+        display: none;
+    }
+
+
+
+    .detailsIcon {
+        padding: 20px 0px 0px 60%;
+    }
+}
+
+
+@media screen and (max-width: 500px) {
+
+
+
+    .WorkoutsPicture {
+        width: 180px;
+        height: 140px;
+    }
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .material-symbols-outlined {
+        font-size: 1px;
+    }
+
+
+
+    .WorkoutsPicture {
+        width: 90px;
+        height: 40px;
+    }
+
+
+
+    .savedWorkoutName {
+        font-size: 10px;
+        padding: 0px 0% 0% 2%;
+    }
+
+
+
+
+    .savedWorkoutIncExercises {
+        display: none;
+    }
+
+
+
+    .detailsIcon {
+        padding: 20px 0px 0px 60%;
+    }
+}
+
+
+* {
+    -webkit-font-smoothing: antialiased;
+}
+
+
+
+
+
+:root {
+    --border-radius: 10px;
+}
+
+
+.Card {
+    margin-right: auto;
+    margin-left: auto;
+    padding: 1px;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    width: 640px;
+}
+
+
+
+@media screen and (max-width: 800px) {
+    .Card {
+        width: 450px;
+    }
+}
+
+
+
+@media screen and (max-width: 590px) {
+    .Card {
+        width: 260px;
+    }
+}
+
+
+
+
+.CardInner {
+    padding: 16px 16px;
+    background-color: rgba(255,255,255, .7);
+    border-radius: var(--border-radius);
+}
+
+.createWorkoutForm {
     border-radius: 5px;
     width: 800px;
     height: 400px;
     margin: 30px;
     margin-left: auto;
-    margin-right: auto;    
+    margin-right: auto;
     text-align:center;
 }
 .createWorkoutForm .FormInputs{
     font-size:16px;
     margin:15px;
-    width:300px;    
-    height:40px;  
+    width:300px;
+    height:40px;
     border:1px solid #464646;
-    border-radius: 5px;   
-    
+    border-radius: 5px;
+
 }
-.createWorkoutForm .WorkoutDifficulty{   
+.createWorkoutForm .WorkoutDifficulty{
     display:flex;
     flex-wrap:wrap;
     margin:15px;
     margin-left:auto;
     margin-right:auto;
     width:325px;
-    
+
 }
 .WorkoutDifficulty h4{
     width:33%;
@@ -1441,7 +1635,7 @@ input::-webkit-inner-spin-button {
     margin:0px;
     padding:0px;
     font-size:14px;
-    
+
 }
 
 .createWorkoutForm .RadioInput {
@@ -1450,12 +1644,12 @@ input::-webkit-inner-spin-button {
 }
 .createWorkoutForm .CreateBtn{
     margin-left:auto;
-    margin-right:auto; 
+    margin-right:auto;
     display: block;
     border-radius: 29px;
     width: 150px;
     height: 40px;
-    background-color: #662582;   
+    background-color: #662582;
     border: 1.5px solid #EFEFEF;
     font-size: 20px;
     cursor: pointer;
@@ -1482,34 +1676,34 @@ input::-webkit-inner-spin-button {
     margin-right: auto;
 }
 
-    .NewWorkoutInfo .savedWorkoutsPicture {
-        border-radius: 5px;
-        width: 775px;
-        margin: 12px;
-    }
+.NewWorkoutInfo .savedWorkoutsPicture {
+    border-radius: 5px;
+    width: 775px;
+    margin: 12px;
+}
 
 .NewWorkoutInfo h2 {
-        height: 50px;
-        margin: 0px 12px;
-        padding: 5px;
-        font-weight: 800;
-        font-size: 30px;
+    height: 50px;
+    margin: 0px 12px;
+    padding: 5px;
+    font-weight: 800;
+    font-size: 30px;
 
 }
 
 .NewWorkoutInfo h4 {
-   margin: 12px;
-        padding: 5px;
-        height: 30px;
-        font-weight: 700;
-        font-size: 20px;
+    margin: 12px;
+    padding: 5px;
+    height: 30px;
+    font-weight: 700;
+    font-size: 20px;
 }
 .NewWorkoutInfo p {
-        margin: 12px;
-        padding: 5px;
-        height: 100px;
-        font-weight: 600;
-        font-size: 16px;
+    margin: 12px;
+    padding: 5px;
+    height: 100px;
+    font-weight: 600;
+    font-size: 16px;
 }
 
 .groupedExcercises {
@@ -1523,19 +1717,19 @@ input::-webkit-inner-spin-button {
 }
 
 .groupedExcercises iframe {
-        margin-left: auto;
-        margin-right: auto;
-        padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
 
 }
 
-    .groupedExcercises .CreateVid {
-        width: 350px;
-    }
+.groupedExcercises .CreateVid {
+    width: 350px;
+}
 
-    .groupedExcercises .details {
-        width: 400px;
-    }
+.groupedExcercises .details {
+    width: 400px;
+}
 
 .details h2 {
     line-height: 20px;

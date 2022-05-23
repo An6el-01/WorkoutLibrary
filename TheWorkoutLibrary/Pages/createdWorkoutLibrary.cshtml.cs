@@ -17,11 +17,10 @@ namespace TheWorkoutLibrary.Pages
 
         [BindProperty] public string Search { get; set; }
 
-        public IList<Workout> workouts { get; private set; } 
+        public IList<Workout> workouts { get; private set; }
 
         public IList<WorkoutExcercise> workoutExcercises { get; private set; }
 
-        public IList<WorkoutItem> Items { get; set; }
 
         public createdWorkoutLibraryModel(AppDbContext db, UserManager<ApplicationUser> um)
         {
@@ -42,5 +41,8 @@ namespace TheWorkoutLibrary.Pages
             "FROM Excercise INNER JOIN WorkoutExcercise ON Excercise.Id = WorkoutExcercise.ExcerciseId ").ToList();*/
 
         }
+
+        
     }
 }
+
