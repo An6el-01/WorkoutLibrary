@@ -138,38 +138,37 @@
 }
 else
 {
-    <form class="LoginForm" method="post">
+    <form class="createWorkoutForm" method="post">
 
         <div class="welcomeMessage">
-            <h1>Login</h1>
+            <h2>Login</h2>
             <h2>Enter User Details</h2>
         </div>
         <div asp-validation-summary="All"></div>
-        <div class="emailDiv">
-            <label class="emailLabel" asp-for="Input.Email"></label>
-            <input type="text" asp-for="Input.Email" class="inputClass"/>
+        <div>
+            <input class="FormInputs" type="text" name="name" asp-for="Input.Email" placeholder="Email" />
             <span asp-validation-for="Input.Email"></span>
         </div>
-
-        <div class="passwordDiv">
-            <label class="passwordLabel" asp-for="Input.Password"></label>
-            <input asp-for="Input.Password" class="inputClass"/>
+        <div>
+            <input class="FormInputs" type="text" name="notes" asp-for="Input.Password" placeholder="Password" />
             <span asp-validation-for="Input.Password"></span>
         </div>
-        
+
         <div class="ResetDiv">
-            
+                
             <div class="ResetBtn">
                 <button class ="resetID" type="reset" value="Reset">RESET</button>
             </div>
-
+    
             <button class="LoginSubmitBtn" type="submit">LOGIN</button>
         </div>
         <div class="RegisterText">
-                        <p5>Don't have an account? <a asp-page="/Register">Register Here</a></p5>
-                    </div>
-        
+            <p5>Don't have an account? <a asp-page="/Register">Register Here</a></p5>
+        </div>
+    
+    
     </form>
+
 }
     
 
