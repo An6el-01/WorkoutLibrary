@@ -55,10 +55,21 @@ namespace TheWorkoutLibrary.Pages
                 .ToList();           
            
             lastWorkout = workouts.LastOrDefault();
+
             // Need to add if statement if value equal NULL for new users who havent created workout yet
-            workoutExcercises = _db.WorkoutExcercise
-                .Where(x => x.WorkoutId == lastWorkout.Id)
-                .ToList();
+            if (lastWorkout == null)
+            {
+                workoutExcercises = _db.WorkoutExcercise
+               .Where(x => x.WorkoutId == 0)
+               .ToList();
+            }
+            else
+            {
+                workoutExcercises = _db.WorkoutExcercise
+               .Where(x => x.WorkoutId == lastWorkout.Id)
+               .ToList();
+            }
+           
         }
 
         public async Task<IActionResult> OnPostAsync()
@@ -113,6 +124,7 @@ namespace TheWorkoutLibrary.Pages
             workoutExcercises = _db.WorkoutExcercise
                 .Where(x => x.WorkoutId == lastWorkout.Id)
                 .ToList();
+            lastWorkout = workouts.LastOrDefault();
 
             return Page();
         }
@@ -139,7 +151,8 @@ namespace TheWorkoutLibrary.Pages
                     ExcerciseId = ExcerciseId,
                     WorkoutId = lastWorkout.Id,
                     Sets = Convert.ToInt32(Request.Form["sets"]),
-                    Reps = Convert.ToInt32(Request.Form["reps"])
+                    Reps = Convert.ToInt32(Request.Form["reps"]),
+                    Rest = Convert.ToInt32(Request.Form["rest"])
                 };
 
                 _db.WorkoutExcercise.Add(newWorkoutExc);
@@ -153,6 +166,7 @@ namespace TheWorkoutLibrary.Pages
             newWorkoutExcercise.WorkoutId = lastWorkout.Id;           
             newWorkoutExcercise.Sets = Convert.ToInt32(Request.Form["sets"]);
             newWorkoutExcercise.Reps = Convert.ToInt32(Request.Form["reps"]);
+            newWorkoutExcercise.Rest = Convert.ToInt32(Request.Form["rest"]);
             _db.WorkoutExcercise.Add(newWorkoutExcercise);
             try
             {

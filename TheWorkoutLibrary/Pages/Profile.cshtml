@@ -16,7 +16,7 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-    <div class = "BackgroundProfile">
+   
 
         <h1>Profile</h1>
 
@@ -72,7 +72,7 @@
             <p4>@Model.currentUser.Email</p4>
         </div>
         
-        </div>
+       
         <form method="post">
         @if (@Model.currentUser.SubscriptionStatus == false)
         {

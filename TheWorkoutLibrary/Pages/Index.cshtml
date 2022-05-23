@@ -17,7 +17,6 @@
 @if (User.Identity.IsAuthenticated)
 {
     <div class="dDivWelcomeMessage">
-        <h1>Welcome</h1>
         <h1>MyWorkoutLibrary</h1>
     </div>
     <div class="dgrid-container">
@@ -32,11 +31,11 @@
                     }
                     catch
                     {
-                        <img src="~/Images/empty.png" alt="No Image Provided"/>
+                        <img src="~/Images/empty.png" alt="No Image Provided" />
                     }
                 }
                 <div class="dashboardHeaders">
-                    <h2>Saved Workouts</h2>
+                    <h2>Calendar</h2>
                 </div>
             </a>
         </div>
@@ -53,7 +52,7 @@
                         }
                         catch
                         {
-                            <img src="~/Images/empty.png" alt="No Image Provided"/>
+                            <img src="~/Images/empty.png" alt="No Image Provided" />
                         }
                     }
                     <div class="dashboardHeaders">
@@ -62,25 +61,51 @@
                 </a>
             </div>
         }
-        <div class="grid-item">
-            <a asp-page="/createWorkout">
-                @{
-                    try
-                    {
+        @if (User.IsInRole("Admin"))
+        {
+            <div class="grid-item">
+                <a asp-page="/createWorkout">
+                    @{
+                        try
+                        {
 
-                        <img class="DashBoardImg" src="~/Images/legpump.jpeg" alt="user">
+                            <img class="DashBoardImg" src="~/Images/legpump.jpeg" alt="user">
 
+                        }
+                        catch
+                        {
+                            <img src="~/Images/empty.png" alt="No Image Provided" />
+                        }
                     }
-                    catch
-                    {
-                        <img src="~/Images/empty.png" alt="No Image Provided"/>
+                    <div class="dashboardHeaders">
+                        <h2>Create Workout</h2>
+                    </div>
+                </a>
+            </div>
+        }
+        else
+        {
+            <div class="grid-item">
+                <a asp-page="/createdWorkoutLibrary">
+                    @{
+                        try
+                        {
+
+                            <img class="DashBoardImg" src="~/Images/legpump.jpeg" alt="user">
+
+                        }
+                        catch
+                        {
+                            <img src="~/Images/empty.png" alt="No Image Provided" />
+                        }
                     }
-                }
-                <div class="dashboardHeaders">
-                    <h2>Create Workout</h2>
-                </div>
-            </a>
-        </div>
+                    <div class="dashboardHeaders">
+                        <h2>Workouts</h2>
+                    </div>
+                </a>
+            </div>
+
+        }
         @foreach (var item in Model.oldestWorkouts)
         {
             <div class="grid-item">
@@ -96,7 +121,7 @@
                         }
                         catch
                         {
-                            <img src="/Images/empty.png" alt="No Image Provided"/>
+                            <img src="/Images/empty.png" alt="No Image Provided" />
                         }
                     }
 
@@ -135,10 +160,10 @@ else
         <div class="ResetDiv">
             
             <div class="ResetBtn">
-                <button class ="resetID" type="reset" value="Reset">Reset</button>
+                <button class ="resetID" type="reset" value="Reset">RESET</button>
             </div>
 
-            <button class="LoginSubmitBtn" type="submit">Log In</button>
+            <button class="LoginSubmitBtn" type="submit">LOGIN</button>
         </div>
         <div class="RegisterText">
                         <p5>Don't have an account? <a asp-page="/Register">Register Here</a></p5>

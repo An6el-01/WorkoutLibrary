@@ -15,5 +15,6 @@ namespace TheWorkoutLibrary.Data
         public Excercise Excercise { get; set; }
         public int Sets { get; set; }
         public int Reps { get; set; }
+        public int Rest { get; set; }
     }
 }

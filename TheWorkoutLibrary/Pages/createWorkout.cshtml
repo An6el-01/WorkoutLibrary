@@ -5,77 +5,87 @@
     Layout = "~/Pages/_Layout.cshtml";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<h1>createWorkout</h1>
+<h1>Create Workout</h1>
 
-<form id="createWorkoutForm" method="post" enctype="multipart/form-data">
-
-    <h4>Create New Workout</h4>
-
+<form class="createWorkoutForm" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="All"></div>
     <div>
-        <label asp-for="newWorkout.Name">Workout Name</label>
-        <input type="text" name="name" asp-for="newWorkout.Name" />
+        <input class="FormInputs" type="text" name="name" asp-for="newWorkout.Name" placeholder="Workout Title" />
         <span asp-validation-for="newWorkout.Name"></span>
     </div>
     <div>
-        <label asp-for="newWorkout.Notes">Notes</label>
-        <input type="text" name="notes" asp-for="newWorkout.Notes" />
+        <input class="FormInputs" type="text" name="notes" asp-for="newWorkout.Notes" placeholder="Notes" />
         <span asp-validation-for="newWorkout.Notes"></span>
     </div>
-    <div>
-        <label>Workout Difficulty</label>
+    <div class="WorkoutDifficulty">
+        <h4>Beginner</h4>
+        <h4>Intermediate</h4>
+        <h4>Advanced</h4>
         @foreach (var level in Model.difficulties)
-        {
-            <input type="radio" name='difficulty' asp-for="newWorkout.Difficulty" value="@level" />@level<br />
+        {                    
+            <input class="RadioInput" type="radio" name='difficulty' asp-for="newWorkout.Difficulty" value="@level" />
+            <span asp-validation-for="newWorkout.Difficulty"></span>
         }
     </div>
     <div>
-        <label asp-for="newWorkout.ImageURL">Upload Image URL</label>
-        <input name="image" asp-for="newWorkout.ImageURL" />
+        <input class="FormInputs" name="image" asp-for="newWorkout.ImageURL" placeholder="Image URL" />
         <span asp-validation-for="newWorkout.ImageURL"></span>
     </div>
 
-    <button id="createBtn" type="submit" asp-page-handler="Create">CREATE</button>
+    <button class="CreateBtn" type="submit" asp-page-handler="Create">CREATE</button>
 </form>
-
-
-    <div class="NewWorkoutInfo">
-        <h4>Name: </h4><p>@Model.lastWorkout.Name</p>
-        <h4>Notes: </h4><p>@Model.lastWorkout.Notes</p>
-        <h4>Difficulty: </h4><p>@Model.lastWorkout.Difficulty</p>
-    </div="">
 <form id="addExcerciseForm" method="post">
-        
-            @foreach (var excercise in Model.excercises)
-            {
-            <div class="addExcercises">
-                <h3>@excercise.Name</h3>
 
-                <div class="LabelAndInput">
-                    <label asp-for="newWorkoutExcercise.Sets">Sets </label>
-                    <input name="sets" asp-for="newWorkoutExcercise.Sets" />
-                    <span asp-validation-for="newWorkoutExcercise.Sets"></span>
-                    <label asp-for="newWorkoutExcercise.Reps">Reps </label>
-                    <input name="reps" asp-for="newWorkoutExcercise.Reps" />
-                    <span asp-validation-for="newWorkoutExcercise.Reps"></span>
-                </div>
+    @foreach (var excercise in Model.excercises)
+    {
+        <div class="addExcercises">
+            <h3>@excercise.Name</h3>
 
-                <button class="AddBtn" type="submit" asp-page-handler="Add" asp-route-ExcerciseId="@excercise.Id">Add</button>
+            <div class="LabelAndInput">
+                <label asp-for="newWorkoutExcercise.Sets">Sets </label>
+                <input type="number" name="sets" asp-for="newWorkoutExcercise.Sets" />
+                <span asp-validation-for="newWorkoutExcercise.Sets"></span>
+                <label asp-for="newWorkoutExcercise.Reps">Reps </label>
+                <input type="number" name="reps" asp-for="newWorkoutExcercise.Reps" />
+                <span asp-validation-for="newWorkoutExcercise.Reps"></span>
+                <label asp-for="newWorkoutExcercise.Rest">Rest </label>
+                <input type="number" name="rest" asp-for="newWorkoutExcercise.Rest" />
+                <span asp-validation-for="newWorkoutExcercise.Rest"></span>
             </div>
-            }
-                          
+
+            <button class="AddBtn" type="submit" asp-page-handler="Add" asp-route-ExcerciseId="@excercise.Id">ADD</button>
+        </div>
+    }
+
 </form>
+@if (Model.lastWorkout != null) {
+<div class="NewWorkoutInfo">
+    <img class="savedWorkoutsPicture" src="@Model.lastWorkout.ImageURL" alt="@Model.lastWorkout.ImageURL" width="800">
+    <h2>@Model.lastWorkout.Name</h2>
+    <h4>@Model.lastWorkout.Difficulty</h4>
+    <p>@Model.lastWorkout.Notes</p>
+</div>
+}
 
 <div class="groupedExcercises">
     @foreach (var item in Model.workoutExcercises)
     {
-        <iframe width="300" height="525" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>        
-        <h4>Name: </h4><p>@item.Excercise.Name</p>
-        <h4>Workout Id: </h4><p>@item.WorkoutId</p>
-        <h4>Excercise Id: </h4><p>@item.ExcerciseId</p>
-        <h4>Sets: </h4><p>@item.Sets</p>
-        <h4>Reps: </h4><p>@item.Reps</p>
+        <div class="CreateVid">
+            <iframe width="300" height="525" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="details">
+            <h2>@item.Excercise.Name </h2>
+            <h3>Sets</h3>
+            <h3>Reps</h3>
+            <h3>Rest(sec)</h3>
+            <p>@item.Sets</p>
+            <p>@item.Reps</p>
+            <p>@item.Rest</p>
+        </div>
     }
 </div>
 

@@ -10,25 +10,31 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<h4>Description</h4>
-<div>
-    <img class="savedWorkoutsPicture" src="@Model.workout.ImageURL" alt="@Model.workout.ImageURL" width="600" height="400">
+<h1>Description</h1>
+<div class="NewWorkoutInfo">
+    <img class="savedWorkoutsPicture" src="@Model.workout.ImageURL" alt="@Model.workout.ImageURL" width="800">
     <h2>@Model.workout.Name</h2>
-    <h2>@Model.workout.Difficulty</h2>
-    <h2>@Model.workout.Notes</h2>
-
-    <div class="groupedExcercises">
-        @foreach (var item in Model.workoutExcercises)
-        {
-
-            @if (item.WorkoutId == Model.workout.Id)
-            {
-                <iframe width="560" height="315" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                <h4>Excercises : </h4><p>@item.Excercise.Name</p>                
-                <h4>Excercise Id: </h4><p>@item.ExcerciseId</p>
-                <h4>Sets: </h4><p>@item.Sets</p>
-                <h4>Reps: </h4><p>@item.Reps</p>
-            }
-        }
-    </div>
+    <h4>@Model.workout.Difficulty</h4>
+    <p>@Model.workout.Notes</p>
 </div>
+<div class="groupedExcercises">
+    @foreach (var item in Model.workoutExcercises)
+    {
+        @if (item.WorkoutId == Model.workout.Id)
+        {
+            <div class="CreateVid">
+                <iframe width="300" height="525" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="details">
+                <h2>@item.Excercise.Name </h2>
+                <h3>Sets</h3>
+                <h3>Reps</h3>
+                <h3>Rest(sec)</h3>
+                <p>@item.Sets</p>
+                <p>@item.Reps</p>
+                <p>@item.Rest</p>
+            </div>
+        }
+    }
+    </div>
+
