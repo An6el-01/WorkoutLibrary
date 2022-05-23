@@ -1000,154 +1000,66 @@ tr:hover {
 .firstName {
 }
 /* Upload page */
-
-.whiteWorkoutName {
-    background: white;
-    width: 308px;
-    height: 49px;
+.EnterWorkoutForm {
+    border-radius: 5px;
+    width: 800px;
+    height: 400px;
+    margin: 30px;
     margin-left: auto;
     margin-right: auto;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.whiteWorkoutName .workoutNameClass {
-    float: right;
-    margin-top: 3px;
-    border-radius: 10px;
-    width: 250px;
-    height: 49px;
-}
-
-.whiteWorkoutName .Text .textImage {
-    width: 80%;
-    height: auto;
-    margin-left: 10px;
-    margin-top: 5px;
-}
-
-.whiteWorkoutName .Text {
-    position: absolute;
-    width: 50px;
-    height: 49px;
-}
-
-.whiteWorkoutNotes {
-    background: white;
-    width: 308px;
-    height: 49px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    border: 1px solid black;
-    border-radius: 10px;
-}
-
-.whiteWorkoutNotes .Notes {
-    position: absolute;
-    width: 50px;
-    height: 49px;
-}
-
-.whiteWorkoutNotes .Notes .notesImage {
-    width: 80%;
-    height: auto;
-    margin-left: 10px;
-    margin-top: 5px;
-}
-
-.whiteWorkoutNotes .workoutNotes {
-    float: right;
-    margin-top: 5px;
-    margin-left: 100px;
-    border-radius: 10px;
-    width: 250px;
-    height: 49px;
-}
-
-.workoutDifficultyDiv {
-    background: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    width: 308px;
-    height: 175px;
-}
-
-.material-symbols-outlined4 {
-    position: absolute;
-    margin-left: 15px;
-    color: limegreen;
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
-}
-
-.material-symbols-outlined5 {
-    position: absolute;
-    margin-left: 15px;
-    color: orange;
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
-}
-
-.material-symbols-outlined6 {
-    position: absolute;
-    margin-left: 15px;
-    color: red;
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 48
-}
-
-.uploadBox {
-    background: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 329px;
-    height: 204px;
-}
-
-.Upload {
     text-align: center;
+}
+.EnterWorkoutForm .FormInputs{
+    font-size:16px;
+    margin:15px;
+    width:300px;    
+    height:40px;  
+    border:1px solid #464646;
+    border-radius: 5px;     
+}
+.EnterWorkoutForm .WorkoutDifficulty{   
+    display:flex;
+    flex-wrap:wrap;
+    margin:15px;
+    margin-left:auto;
+    margin-right:auto;
+    width:325px;    
+}
+.WorkoutDifficulty h4{
+    width:33%;
+    text-align:center;
+    margin:0px;
+    padding:0px;
+    font-size:14px;    
+}
+.EnterWorkoutForm .RadioInput {
+    cursor: pointer;
+    margin: 10px auto;
+}
+.EnterWorkoutForm .EnterWorkoutBtn {
     margin-left: auto;
     margin-right: auto;
-}
-
-.inputUpload {
-    float: left;
-    margin-top: 70px;
-    margin-left: 75px;
-}
-
-.buttonSubmit {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    width: 40px;
-    height: 20px;
-}
-
-.buttonSubmit .EnterWorkoutBtn {
-    border-radius: 10px;
-    color: white;
+    display: block;
+    border-radius: 29px;
+    width: 150px;
+    height: 40px;
     background-color: #662582;
+    border: 1.5px solid #EFEFEF;
+    font-size: 20px;
+    cursor: pointer;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    transition: all .5s ease-in-out;
+    margin-top: 25px;
 }
-
-.youtubeLink{
-    background: white;
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 329px;
-    height: 50px;
+.EnterWorkoutForm .EnterWorkoutBtn:hover {
+    outline: 3px solid #662582;
+    font-size: 22px;
+    color: black;
+    border: 2px solid black;
 }
-
 
 /* weeklyWorkout page */
 
@@ -1195,6 +1107,9 @@ tr:hover {
     }
 
     .createWorkoutForm {
+        max-width: 325px;
+    }
+    .EnterWorkoutForm {
         max-width: 325px;
     }
 
