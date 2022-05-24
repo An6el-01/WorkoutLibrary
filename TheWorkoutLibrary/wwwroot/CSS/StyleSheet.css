@@ -411,12 +411,12 @@ tr:hover {
     border:2px solid white;
 }
 .DashBoardImg {
-    max-width: 275px;
+    width: 275px;
     height: 200px;
     object-fit: cover;
     padding: 0px;
-    margin-top:0px;
-    margin-bottom:0px;
+    margin-top: 0px;
+    margin-bottom: 0px;
 }
 .dashboardHeaders {
     background: white;
