@@ -1,15 +1,15 @@
-﻿@page
+﻿@page "{id:int}"
 @using TheWorkoutLibrary.Data
-@model TheWorkoutLibrary.Pages.UploadModel
+@model TheWorkoutLibrary.Pages.EditExcerciseModel
 @{
-    ViewData["Title"] = "Upload";
+    ViewData["Title"] = "Edit";
     Layout = "~/Pages/_Layout.cshtml";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<h1>Upload</h1>
+<h1>Edit Exercise</h1>
 
 <form class="EnterWorkoutForm" method="post" enctype="multipart/form-data">
     <div asp-validation-summary="All"></div>

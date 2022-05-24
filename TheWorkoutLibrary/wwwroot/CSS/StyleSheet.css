@@ -1407,10 +1407,10 @@ iframe {
 }
 
 .addExcercises {
-    border: 1px solid black;
-    display: flex;
+    border-bottom: 2px solid #662582;
+    display: block;
     margin: 10px;
-    border-radius: 3px;
+    height: 100px;
 }
 
 .addExcercises h3 {
@@ -1757,17 +1757,20 @@ input::-webkit-inner-spin-button {
 .groupedExcercises iframe {
     margin-left: auto;
     margin-right: auto;
-    padding: 10px;
-
+    width:300px;
+    height:550px;
+    border-radius:5px;
+    border:2px solid white;
 }
 
 .groupedExcercises .CreateVid {
     width: 350px;
+    margin-top:20px;
 }
 
 .groupedExcercises .details {
     width:350px;
-    height:350px;
+    height:225px;
 }
 .details h2 {
     line-height: 50px;

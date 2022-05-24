@@ -98,46 +98,46 @@
                         }
 
 
-                        <td>
-                            <h2>@WO.Name</h2>
+                    <td>
+                        <h2>@WO.Name</h2>
 
-                            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 
+                        {
+                            <a class="edit" asp-page="/EditExcercise" asp-route-id="@WO.Id">
+                                <span class="material-symbols-outlined">
+                                    edit_note
+                                </span>
+                            </a>                           
+                        }
+
+                        <div class="Dumbbell">
+                            @if (@WO.Difficulty == "Beginner")
                             {
-                                <div class="Edit">
+                                <div class="material-symbols-outlined1">
                                     <span class="material-symbols-outlined">
-                                        edit_note
+                                        fitness_center
                                     </span>
                                 </div>
                             }
-
-                            <div class="Dumbbell">
-                                @if (@WO.Difficulty == "Beginner")
-                                {
-                                    <div class="material-symbols-outlined1">
-                                        <span class="material-symbols-outlined">
-                                            fitness_center
-                                        </span>
-                                    </div>
-                                }
-                                else if (@WO.Difficulty == "Intermediate")
-                                {
-                                    <div class="material-symbols-outlined2">
-                                        <span class="material-symbols-outlined">
-                                            fitness_center
-                                        </span>
-                                    </div>
-                                }
-                                else if (@WO.Difficulty == "Advanced")
-                                {
-                                    <div class="material-symbols-outlined3">
-                                        <span class="material-symbols-outlined">
-                                            fitness_center
-                                        </span>
-                                    </div>
-                                }
-                            </div>
-                        </td>
+                            else if (@WO.Difficulty == "Intermediate")
+                            {
+                                <div class="material-symbols-outlined2">
+                                    <span class="material-symbols-outlined">
+                                        fitness_center
+                                    </span>
+                                </div>
+                            }
+                            else if (@WO.Difficulty == "Advanced")
+                            {
+                                <div class="material-symbols-outlined3">
+                                    <span class="material-symbols-outlined">
+                                        fitness_center
+                                    </span>
+                                </div>
+                            }
+                        </div>
+                    </td>
                         <td>
                             <div class="tooltip">
                                 <div class="info">
