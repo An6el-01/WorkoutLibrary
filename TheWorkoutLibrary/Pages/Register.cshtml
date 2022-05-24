@@ -13,20 +13,21 @@
 <div class="welcomeMessage">
     <h2>Registration</h2>
 </div>
+
 <div class="paymentDiv">
     <h2>Payment</h2>
-    <form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">
-        <script src="//checkout.stripe.com/v2/checkout.js"
-                class="stripe-button"
-                data-key="@Stripe.Value.PublishableKey"
-                data-locale="auto"
-                data-description="Membership Payment"
-                data-amount="@Model.AmountPayable"
-                data-currency="GBP">
-        </script>
-    </form>
-</div>
-
+    <h5>Please Pay After Register Form is Completed</h5>
+        <form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">
+            <script src="//checkout.stripe.com/v2/checkout.js"
+                    class="stripe-button"
+                    data-key="@Stripe.Value.PublishableKey"
+                    data-locale="auto"
+                    data-description="Membership Payment"
+                    data-amount="@Model.AmountPayable"
+                    data-currency="GBP">
+            </script>
+        </form>
+    </div>
 
 <form class="RegisterForm" method="post" enctype="multipart/form-data">
 
@@ -75,10 +76,13 @@
             <button class ="resetID" type="reset" value="Reset">Reset</button>
         </div>
     
+        
         <button class="RegisterSubmitBtn" type="submit">Register</button>
-    </div>
+        </div>
     
     <div class="RegisterText">
-        <p5>Have an account? <a asp-page="/Login">Log In Here</a></p5>
-        </div>
-</form>
+            <p5>Have an account? <a asp-page="/Login">Log In Here</a></p5>
+            </div>
+    </form>
+
+
