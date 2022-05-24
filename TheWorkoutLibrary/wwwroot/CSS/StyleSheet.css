@@ -560,6 +560,28 @@ background: linear-gradient(180deg, rgba(196, 196, 196, 0.7) 0%, rgba(0, 0, 0, 0
     height: 210px;
 }
 
+.profileLogout {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    text-align: center;
+}
+
+.profileLogout .LogoutBtn{
+    border-radius: 29px;
+    width: 100px;
+    height: 30px;
+    background-color: #662582;
+    border: 1.5px solid #EFEFEF;
+    cursor: pointer;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    transition: all .5s ease-in-out;
+    
+}
+
 
 
 .greyUser {
@@ -1239,6 +1261,8 @@ border-collapse: collapse;
     .EnterWorkoutForm {
         max-width: 325px;
     }
+    
+    
 
 }
 /* Workouts Videos Page CSS*/

@@ -109,7 +109,9 @@
             <button id="RenewBtn" type="submit" asp-page-handler="Renew" asp-route-Email="@Model.currentUser.Email">Renew</button>
         </div>
 
-    }else{
+    }
+    else
+    {
         <div class="Subscription">
             <p6>Subscription Status: </p6>
 
@@ -126,5 +128,11 @@
             <button id="EndBtn" type="submit" asp-page-handler="Delete" asp-route-Email="@Model.currentUser.Email">End</button>
         </div>
     }
-</form>  
+        </form>
+<div class="profileLogout">
+        <form asp-page="/Logout" method="post">
+            <button class="LogoutBtn" type="submit">LOGOUT</button>
+        </form>
+    
+</div>
 
