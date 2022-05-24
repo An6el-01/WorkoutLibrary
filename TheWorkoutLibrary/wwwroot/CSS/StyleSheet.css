@@ -1739,43 +1739,44 @@ input::-webkit-inner-spin-button {
     border: 2px solid black;
 }
 .NewWorkoutInfo {
-    background: white;
     border-radius: 3px;
-    border: 2px solid white;
     width: 800px;
     margin: 30px;
     margin-left: auto;
     margin-right: auto;
+    text-align:center;
 }
 
 .NewWorkoutInfo .savedWorkoutsPicture {
     border-radius: 5px;
-    width: 775px;
+    width: 600px;
     margin: 12px;
+    border:2px solid white;
 }
 
 .NewWorkoutInfo h2 {
-    height: 50px;
     margin: 0px 12px;
     padding: 5px;
     font-weight: 800;
-    font-size: 30px;
+    font-size: 20px;
+    color:white;
 
 }
 
-.NewWorkoutInfo h4 {
-    margin: 12px;
-    padding: 5px;
-    height: 30px;
+.NewWorkoutInfo h4 {    
+    margin-left:12px;
+    padding: 0px;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 16px;
+    color:white;
 }
 .NewWorkoutInfo p {
-    margin: 12px;
     padding: 5px;
-    height: 100px;
+    margin-left:12px;
+    height: 50px;
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
+    color:white;
 }
 
 .groupedExcercises {

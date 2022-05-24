@@ -16,12 +16,10 @@ namespace TheWorkoutLibrary.Pages
     {
         private AppDbContext _db;
 
-
         public string[] difficulties = new[] { "Beginner", "Intermediate", "Advanced" };
 
         [BindProperty]
         public Excercise excercise { get; set; }
-
 
         [BindProperty]
         public Workout Workout { get; set; }
@@ -32,6 +30,8 @@ namespace TheWorkoutLibrary.Pages
         public IFormFile Video { get; set; }
 
         public IList<Workout> workoutTbl { get; private set; }
+
+        [BindProperty] public string newEmbed { get; set; }
 
         public UploadModel(AppDbContext db, IHostingEnvironment he)
         {
@@ -44,12 +44,21 @@ namespace TheWorkoutLibrary.Pages
             if (!ModelState.IsValid) { return Page(); }
             excercise.Name = Convert.ToString(Request.Form["name"]);
             excercise.Notes = Convert.ToString(Request.Form["notes"]);
-            excercise.YoutubeURL = Convert.ToString(Request.Form["youtube"]);
+            excercise.YoutubeURL = convertURL(Convert.ToString(Request.Form["youtube"]));
             excercise.Visibility = true;            
             _db.Excercise.Add(excercise);
             await _db.SaveChangesAsync();
-            return RedirectToPage("/browseVideos");
+            return RedirectToPage("/Excercises");
+        }
+        public string convertURL(string oldString)
+        {
+            //All Client's Videos are Shorts on private Youtube 
+
+            var res = oldString.Split("shorts/");
+            newEmbed = "https://www.youtube.com/embed/" + res[1];
+            return newEmbed;
         }
 
+        
     }
 }

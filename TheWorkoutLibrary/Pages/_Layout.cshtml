@@ -49,7 +49,7 @@
                         </a>
                     </div>
                 }
-                
+
             </div>
             @if (User.Identity.IsAuthenticated)
             {
@@ -71,12 +71,12 @@
                         <span class="material-icons navIcon">calendar_month</span>
                         <span class="navText">Calendar</span>
                     </a>
-                    
-                        <a asp-page="/Profile" class="navLink">
-                            <span class="material-icons navIcon">person</span>
-                            <span class="navText">Profile</span>
-                        </a>
-                    
+
+                    <a asp-page="/Profile" class="navLink">
+                        <span class="material-icons navIcon">person</span>
+                        <span class="navText">Profile</span>
+                    </a>
+
 
                     @if (User.IsInRole("Admin"))
                     {
@@ -99,42 +99,34 @@
         <span class="hamburger" onclick="openMenu()">&#9776;</span>
         <script src="app.js"></script>
 
-
-        <nav class="Nav">
-            <a asp-page="/Index" class="navLink">
-                <span class="material-icons navIcon">home</span>
-                <span class="navText">Dashboard</span>
-            </a>
-            <a asp-page="/Workouts" class="navLink">
-                <span class="material-icons navIcon">directions_run</span>
-                <span class="navText">Workouts</span>
-
-                <a asp-page="/Excercises" class="navLink">
-                    <span class="material-icons navIcon">videocam</span>
-                    <span class="navText">Exercises</span>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <nav class="Nav">
+                <a asp-page="/Index" class="navLink">
+                    <span class="material-icons navIcon">home</span>
+                    <span class="navText">Dashboard</span>
                 </a>
-            </a>
-            <a asp-page="/Calendar" class="navLink">
-                <span class="material-icons navIcon">calendar_month</span>
-                <span class="navText">Calendar</span>
-            </a>
-            @if (User.Identity.IsAuthenticated)
-            {
+                <a asp-page="/Workouts" class="navLink">
+                    <span class="material-icons navIcon">directions_run</span>
+                    <span class="navText">Workouts</span>
+
+                    <a asp-page="/Excercises" class="navLink">
+                        <span class="material-icons navIcon">videocam</span>
+                        <span class="navText">Exercises</span>
+                    </a>
+                </a>
+                <a asp-page="/Calendar" class="navLink">
+                    <span class="material-icons navIcon">calendar_month</span>
+                    <span class="navText">Calendar</span>
+                </a>                
                 <a asp-page="/Profile" class="navLink">
                     <span class="material-icons navIcon">person</span>
                     <span class="navText">Profile</span>
-                </a>
-            }
-            else
-            {
-                <a asp-page="/Login" class="navLink">
-                    <span class="material-icons navIcon">person</span>
-                    <span class="navText">Login</span>
-                </a>
-            }
+                </a>         
 
-        </nav>
-</div>
+            </nav>
+        }
+        </div>
     <main>
         @RenderBody()
     </main>
