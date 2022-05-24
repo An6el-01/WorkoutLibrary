@@ -29,12 +29,14 @@ body {
 
 .SocialLinks {
     margin-top: 20px;
+    padding-left: 20px;
 }
 
 .DisplayFooter {
     display: block;
     margin-bottom: 50px;
     background: white;
+    padding-left: 20px;
 }
 
 .InstaLogo {
@@ -55,6 +57,7 @@ body {
 
 .Email {
     float: left;
+    
 }
 
 .EmailLogo {
