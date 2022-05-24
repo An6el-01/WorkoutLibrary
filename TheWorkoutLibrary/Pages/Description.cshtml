@@ -10,7 +10,9 @@
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-<h1>Description</h1>
+<div class="welcomeMessage">
+    <h2>Description</h2>
+</div>
 <div class="NewWorkoutInfo">
     <img class="savedWorkoutsPicture" src="@Model.workout.ImageURL" alt="@Model.workout.ImageURL" width="800">
     <h2>@Model.workout.Name</h2>

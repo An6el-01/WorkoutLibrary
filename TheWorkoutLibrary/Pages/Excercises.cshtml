@@ -12,8 +12,8 @@
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
-<div class="Title">
-    <h1>Exercises</h1>
+<div class="welcomeMessage">
+    <h2>Exercises</h2>
 </div>
 <form class="SearchForm" method="POST">
     <div class="searchUpload">
@@ -32,133 +32,59 @@
 
     </div>
 </form>
+
+<div class="WorkoutDifficulty">
+    <h4>Beginner</h4>
+    <h4>Intermediate</h4>
+    <h4>Advanced</h4> 
+    <div class="KeyIcons">
+        <div class="material-symbols-outlined1">
+            <span class="material-symbols-outlined">
+                fitness_center
+            </span>
+        </div>
+        <div class="material-symbols-outlined2">
+            <span class="material-symbols-outlined">
+                fitness_center
+            </span>
+        </div>
+        <div class="material-symbols-outlined3">
+            <span class="material-symbols-outlined">
+                fitness_center
+            </span>
+        </div>
+    </div>
+</div>
+
+
 <form method="POST">
     <div class="browseVideo">
-
-
-        <table class="table">
-
-            <thead>
-            </thead>
-            <tr>
-                <td>
-                    <h3>
-                        Beginner
-                        <div class="material-symbols-outlined1">
-                            <span class="material-symbols-outlined">
-                                fitness_center
-                            </span>
-                        </div>
-                    </h3>
-                </td>
-
-                <td>
-                    <h3>
-                        Intermediate
-                        <div class="material-symbols-outlined2">
-                            <span class="material-symbols-outlined">
-                                fitness_center
-                            </span>
-                        </div>
-                    </h3>
-                </td>
-
-                <td>
-                    <h3>
-                        Advanced
-                        <div class="material-symbols-outlined3">
-                            <span class="material-symbols-outlined">
-                                fitness_center
-                            </span>
-                        </div>
-                    </h3>
-                </td>
-
-            </tr>
-
-            <tbody>
-                @foreach (var WO in Model.excercises)
+        @foreach (var WO in Model.excercises)
+        {
+            <div class="excerciseVideo">
+                <iframe src="@WO.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="videoDetails">
+                <h2>@WO.Name </h2>
+                <p>@WO.Difficulty </p>
+                <div class="tooltip">
+                    <div class="info">
+                        <span class="tooltiptext">@WO.Notes</span>
+                        <span class="material-symbols-outlined">
+                            info
+                        </span>
+                    </div>
+                </div>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
-                    <tr>
-
-                        @{
-                            try
-                            {
-                                <td>
-                                    <iframe class="browseVideo" width="560" height="315" src="@WO.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                </td>
-
-                            }
-                            catch
-                            {
-                                <td>
-                                    <img src="/Images/empty.png" alt="No Image Provided" />
-                                </td>
-                            }
-                        }
-
-
-                    <td>
-                        <h2>@WO.Name</h2>
-
-                        @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-
-                        {
-                            <a class="edit" asp-page="/EditExcercise" asp-route-id="@WO.Id">
-                                <span class="material-symbols-outlined">
-                                    edit_note
-                                </span>
-                            </a>                           
-                        }
-
-                        <div class="Dumbbell">
-                            @if (@WO.Difficulty == "Beginner")
-                            {
-                                <div class="material-symbols-outlined1">
-                                    <span class="material-symbols-outlined">
-                                        fitness_center
-                                    </span>
-                                </div>
-                            }
-                            else if (@WO.Difficulty == "Intermediate")
-                            {
-                                <div class="material-symbols-outlined2">
-                                    <span class="material-symbols-outlined">
-                                        fitness_center
-                                    </span>
-                                </div>
-                            }
-                            else if (@WO.Difficulty == "Advanced")
-                            {
-                                <div class="material-symbols-outlined3">
-                                    <span class="material-symbols-outlined">
-                                        fitness_center
-                                    </span>
-                                </div>
-                            }
-                        </div>
-                    </td>
-                        <td>
-                            <div class="tooltip">
-                                <div class="info">
-                                    <span class="tooltiptext">@WO.Notes</span>
-                                    <span class="material-symbols-outlined">
-                                        info
-                                    </span>
-                                </div>
-                            </div>
-
-                        </td>
-                    </tr>
+                    <a class="edit" asp-page="/EditExcercise" asp-route-id="@WO.Id">
+                        <span class="material-symbols-outlined">
+                            edit_note
+                        </span>
+                    </a>
                 }
-            </tbody>
-        </table>
+            </div>
+        }        
     </div>
-
-
-
-
-
-
 </form>
 

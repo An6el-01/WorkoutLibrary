@@ -9,10 +9,10 @@
 @using Microsoft.Extensions.Options
 @inject IOptions<StripeSettings> Stripe
 
-<div class="registerWelcomeMessage">
-    <h1>Registration</h1>
-</div>
 
+<div class="welcomeMessage">
+    <h2>Registration</h2>
+</div>
 <div class="paymentDiv">
     <h2>Payment</h2>
     <form asp-page-handler="Charge" asp-route-amount="@Model.AmountPayable" method="POST">

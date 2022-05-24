@@ -17,132 +17,149 @@
 
 @if (User.Identity.IsAuthenticated)
 {
-    <h1>Dashboard</h1>
+<div class="welcomeMessage">
+    <h2>Dashboard</h2>
+</div>
 
-    <div class="dgrid-container">        
-        @if (User.IsInRole("Admin"))
-        {
-            <div class="grid-item">
-                <a asp-page="/createWorkout">
-                    @{
-                        try
-                        {
+<div class="dgrid-container">
+    @if (User.IsInRole("Admin"))
+    {
+        <div class="grid-item">
+            <a asp-page="/createWorkout">
+                @{
+                    try
+                    {
 
-                            <img class="DashBoardImg" src="~/Images/legpump.jpeg" alt="user">
+                        <img class="DashBoardImg" src="~/Images/legpump.jpeg" alt="user">
 
-                        }
-                        catch
-                        {
-                            <img src="~/Images/empty.png" alt="No Image Provided" />
-                        }
                     }
-                    <div class="dashboardHeaders">
-                        <h2>Create Workout</h2>
-                    </div>
-                </a>
-            </div>
-        }
-        else
-        {
-            <div class="grid-item">
-                <a asp-page="/Workouts">
-                    @{
-                        try
-                        {
-
-                            <img class="DashBoardImg" src="~/Images/deadlift.jpeg" alt="user">
-
-                        }
-                        catch
-                        {
-                            <img src="~/Images/empty.png" alt="No Image Provided" />
-                        }
+                    catch
+                    {
+                        <img src="~/Images/empty.png" alt="No Image Provided" />
                     }
-                    <div class="dashboardHeaders">
-                        <h2>Workouts</h2>
-                    </div>
-                </a>
-            </div>
-
-        }    
-    <div class="grid-item">
-        <a asp-page="/Calendar">
-            @{
-                try
-                {
-
-                    <img class="DashBoardImg" src="~/Images/cardio.jpeg" />
-
                 }
-                catch
-                {
-                    <img src="~/Images/empty.png" alt="No Image Provided" />
+                <div class="dashboardHeaders">
+                    <h2>Create Workout</h2>
+                </div>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a asp-page="/Upload">
+                @{
+                    try
+                    {
+                        <img class="DashBoardImg" src="~/Images/cardio.jpeg" />
+                    }
+                    catch
+                    {
+                        <img src="~/Images/empty.png" alt="No Image Provided" />
+                    }
                 }
-            }
-            <div class="dashboardHeaders">
-                <h2>Calendar</h2>
-            </div>
-        </a>
-    </div>
-        @foreach (var item in Model.recentWorkouts)
-        {
-            <div class="grid-item">
-                <a asp-page="/Description" asp-route-id="@item.Id">
-                    @{
-                        try
-                        {
+                <div class="dashboardHeaders">
+                    <h2>Upload</h2>
+                </div>
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="grid-item">
+            <a asp-page="/Workouts">
+                @{
+                    try
+                    {
 
-                            <img class="DashBoardImg" src="@item.ImageURL" alt="user">
+                        <img class="DashBoardImg" src="~/Images/deadlift.jpeg" alt="user">
 
-                        }
-                        catch
-                        {
-                            <img src="~/Images/empty.png" alt="No Image Provided" />
-                        }
                     }
-                    <div class="dashboardHeaders">
-                        <h2>@item.Name</h2>
-                    </div>
-                </a>
-            </div>
-        }
-        @foreach (var item in Model.oldestWorkouts)
-        {
-            <div class="grid-item">
-                <a asp-page="/Description" asp-route-id="@item.Id">
-
-
-                    @{
-                        try
-                        {
-
-                            <img class="DashBoardImg" src="@item.ImageURL" alt="user">
-
-                        }
-                        catch
-                        {
-                            <img src="/Images/empty.png" alt="No Image Provided" />
-                        }
+                    catch
+                    {
+                        <img src="~/Images/empty.png" alt="No Image Provided" />
                     }
+                }
+                <div class="dashboardHeaders">
+                    <h2>Workouts</h2>
+                </div>
+            </a>
+        </div>
+        <div class="grid-item">
+            <a asp-page="/Calendar">
+                @{
+                    try
+                    {
+
+                        <img class="DashBoardImg" src="~/Images/cardio.jpeg" />
+
+                    }
+                    catch
+                    {
+                        <img src="~/Images/empty.png" alt="No Image Provided" />
+                    }
+                }
+                <div class="dashboardHeaders">
+                    <h2>Calendar</h2>
+                </div>
+            </a>
+        </div>
+    }
+
+    @foreach (var item in Model.recentWorkouts)
+    {
+        <div class="grid-item">
+            <a asp-page="/Description" asp-route-id="@item.Id">
+                @{
+                    try
+                    {
+
+                        <img class="DashBoardImg" src="@item.ImageURL" alt="user">
+
+                    }
+                    catch
+                    {
+                        <img src="~/Images/empty.png" alt="No Image Provided" />
+                    }
+                }
+                <div class="dashboardHeaders">
+                    <h2>@item.Name</h2>
+                </div>
+            </a>
+        </div>
+    }
+    @foreach (var item in Model.oldestWorkouts)
+    {
+        <div class="grid-item">
+            <a asp-page="/Description" asp-route-id="@item.Id">
 
 
-                    <div class="dashboardHeaders">
-                        <h2>@item.Name</h2>
-                    </div>
-                </a>
+                @{
+                    try
+                    {
 
-            </div>
+                        <img class="DashBoardImg" src="@item.ImageURL" alt="user">
 
-        }
-    </div>
+                    }
+                    catch
+                    {
+                        <img src="/Images/empty.png" alt="No Image Provided" />
+                    }
+                }
+
+
+                <div class="dashboardHeaders">
+                    <h2>@item.Name</h2>
+                </div>
+            </a>
+
+        </div>
+
+    }
+</div>
 }
 else
 {
     <form class="createWorkoutForm" method="post">
-
         <div class="welcomeMessage">
             <h2>Login</h2>
-            <h2>Enter User Details</h2>
         </div>
         <div asp-validation-summary="All"></div>
         <div>
@@ -165,8 +182,6 @@ else
         <div class="RegisterText">
             <p5>Don't have an account? <a asp-page="/Register">Register Here</a></p5>
         </div>
-
-
     </form>
 
 }
