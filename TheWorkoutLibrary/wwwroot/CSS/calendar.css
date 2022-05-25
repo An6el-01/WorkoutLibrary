@@ -4,106 +4,92 @@
     box-sizing: border-box;
 }
 
-html {
-}
 
-.container {
+/* Started Again */
+
+/* Month Banner with Arrows */
+
+.monthBox{
+    background: white;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
-    height: 100vh;
-    color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.calendar {
-    width: 45rem;
-    height: 52rem;
-    background-color: #E1E1E1;
-    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
-}
-
-.month {
-    width: 100%;
-    height: 12rem;
-    background-color: #6F5685;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
+    display:flex;
+    height: 70px;
     text-align: center;
-    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
 }
 
-    .month i {
-        font-size: 2.5rem;
-        cursor: pointer;
-    }
-
-    .month h1 {
-        font-size: 3rem;
-        font-weight: 400;
-        text-transform: uppercase;
-        letter-spacing: 0.2rem;
-        margin-bottom: 1rem;
-    }
-
-    .month p {
-        font-size: 1.6rem;
-    }
-
-.weekdays {
-    width: 100%;
-    height: 5rem;
-    padding: 0 0.4rem;
-    display: flex;
-    align-items: center;
+.monthBox h3 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-top: 10px;
+    margin-bottom: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: black;
+    text-align: center;
 }
 
-    .weekdays div {
-        font-size: 1.5rem;
-        font-weight: 400;
-        letter-spacing: 0.1rem;
-        width: calc(44.2rem / 7);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-    }
 
-.days {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0.2rem;
+/* Icons */
+
+.material-iconsCal1{
+    margin-top: 20px;
+    color: black;
+    text-align: center;
+}
+.material-iconsCal2{
+    margin-top: 20px;
+    color: black;
+    text-align: center;
 }
 
-    .days div {
-        font-size: 1.4rem;
-        margin: 0.3rem;
-        width: calc(40.2rem / 7);
-        height: 5rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
-        transition: background-color 0.2s;
-    }
 
-        .days div:hover:not(.today) {
-            background-color: #9D9D9D;
-            border: 0.2rem solid #777;
-            cursor: pointer;
-        }
+/* Exersize */
 
-.prev-date,
-.next-date {
-    opacity: 0.5;
+
+.exerciseBox{
+    background: white;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 95%;
+    border-radius:5px;
+    height: 90px;
+    padding: 10px;
+    display:flex;
+
+}
+.exerciseTitle{
+    position: absolute;
+
+}
+.exercises{
+    margin-top: 50px;
+    float: left;
 }
 
-.today {
-    background-color: #6F5685;
+
+/* A */
+
+
+a:link {
+    text-decoration: none;
 }
+
+
+a:hover {
+    color: #443452;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+/* Table */
+
+
 
 table {
     font-family: sans-serif;
@@ -111,89 +97,96 @@ table {
     border-spacing: 0;
     border-collapse: separate;
     table-layout: fixed;
-    margin-bottom: 50px;
+    margin-bottom: 20px;
+    margin-top: 0px;
 }
 
-    table thead tr th {
-        background: #6F5685;
-        color: #d4cadd;
-        padding: 0.5em;
-        overflow: hidden;
-    }
+table thead tr th {
+    background: white;
+    color: #d4cadd;
+    padding: 0.5em;
+    overflow: hidden;
+}
 
-        table thead tr th:first-child {
-            border-radius: 3px 0 0 0;
-        }
+table thead tr th:first-child {
+    border-radius: 3px 0 0 0;
+}
 
-        table thead tr th:last-child {
-            border-radius: 0 3px 0 0;
-        }
+table thead tr th:last-child {
+    border-radius: 0 3px 0 0;
+}
 
-        table thead tr th .day {
-            display: block;
-            font-size: 1.2em;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            margin: 0 auto 5px;
-            padding: 5px;
-            line-height: 1.8;
-        }
+table thead tr th .day {
+    display: block;
+    font-size: 1.2em;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin: 0 auto 5px;
+    padding: 5px;
+    line-height: 1.8;
+}
 
-            table thead tr th .day.active {
-                background: #d4cadd;
-                color: #6F5685;
-            }
+table thead tr th .day.active {
+    background-color: #28AC9F;
+    color: #6F5685;
+}
 
-        table thead tr th .short {
-            display: none;
-        }
+table thead tr th .short {
+    display: none;
+}
 
-        table thead tr th i {
-            vertical-align: middle;
-            font-size: 2em;
-        }
+table thead tr th i {
+    vertical-align: middle;
+    font-size: 2em;
+}
 
-    table tbody tr {
-        background: #d4cadd;
-    }
+table tbody tr {
+    background: #28AC9F;
+}
 
-        table tbody tr:nth-child(odd) {
-            background: #cdc1d7;
-        }
+table tbody tr:nth-child(odd) {
+    background: #28AC9F;
+}
 
-        table tbody tr:nth-child(4n + 0) td {
-            border-bottom: 1px solid #6F5685;
-        }
+table tbody tr:nth-child(4n + 0) td {
+    border-bottom: 1px solid #6F5685;
+}
 
-        table tbody tr td {
-            text-align: center;
-            vertical-align: middle;
-            border-left: 1px solid #6F5685;
-            position: relative;
-            height: 32px;
-            font-size: 40px;
-        }
+table tbody tr td {
+    text-align: center;
+    vertical-align: middle;
+    border-left: 1px solid #6F5685;
+    position: relative;
+    height: 32px;
+    font-size: 40px;
+}
 
-            table tbody tr td:last-child {
-                border-right: 1px solid #6F5685;
-            }
+table tbody tr td:last-child {
+    border-right: 1px solid #6F5685;
+}
 
-            table tbody tr td.hour {
-                font-size: 20px;
-                padding: 0;
-                color: #6F5685;
-                background: #fff;
-                border-bottom: 1px solid #6F5685;
-                border-collapse: separate;
-                min-width: 100px;
-                cursor: default;
-                height: 100px;
-            }
+table tbody tr td.hour {
+    font-size: 20px;
+    padding: 0;
+    color: #6F5685;
+    background: #fff;
+    border-bottom: 1px solid #6F5685;
+    border-collapse: separate;
+    min-width: 100px;
+    cursor: default;
+    height: 100px;
+}
 
-                table tbody tr td.hour span {
-                    display: block;
-                }
+table tbody tr td.hour span {
+    display: block;
+}
+
+
+
+/* Media Queries */
+
+
 
 @media (max-width: 60em) {
     table thead tr th .long {
@@ -216,36 +209,27 @@ table {
         font-size: 65%;
     }
 
-        table thead tr th .day {
-            display: block;
-            font-size: 1.2em;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            margin: 0 auto 5px;
-            padding: 5px;
-        }
+    table thead tr th .day {
+        display: block;
+        font-size: 1.2em;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        margin: 0 auto 5px;
+        padding: 5px;
 
-
-
+    }
+    
     table tbody tr td.hour {
         font-size: 40px;
     }
 
-        table tbody tr td.hour span {
-            transform: translateY(16px) rotate(270deg);
-            -webkit-transform: translateY(16px) rotate(270deg);
-            -moz-transform: translateY(16px) rotate(270deg);
-        }
-}
-
-a:link {
-    text-decoration: none;
+    table tbody tr td.hour span {
+        transform: translateY(16px) rotate(270deg);
+        -webkit-transform: translateY(16px) rotate(270deg);
+        -moz-transform: translateY(16px) rotate(270deg);
+    }
 }
 
 
-a:hover {
-    color: #443452;
-    background-color: transparent;
-    text-decoration: none;
-}
+

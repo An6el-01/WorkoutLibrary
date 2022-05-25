@@ -1,100 +1,99 @@
-﻿@page
+﻿
+@page
 @model TheWorkoutLibrary.Pages.CalendarModel
 @{ ViewData["Title"] = "Calendar";
     Layout = "~/Pages/_Layout.cshtml";
 }
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-
 <link rel="stylesheet" href="~/CSS/calendar.css">
 
-<div class="welcomeMessage">
-    <h2>Calendar</h2>
-</div>
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" />
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet" />
-
-
-<body>
-    <div class="container">
-        <div class="calendar">
-            <div class="month">
-                <i class="fas fa-angle-left prev"></i>
-                <div class="date">
-                    <h1></h1>
-                    <p></p>
-                </div>
-                <i class="fas fa-angle-right next"></i>
-            </div>
-            <div class="weekdays">
-                <div>Sun</div>
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
-            </div>
-            <div class="days"></div>
-        </div>
+<div class="monthBox">
+    
+    
+    <div class="material-iconsCal1">
+        <span class="material-icons">
+            arrow_back_ios
+        </span>
     </div>
-    <script src="~/JS/calendar.js"></script>
+    
+    <h3>May</h3>
+    
+    <div class="material-iconsCal2">
+        <span class="material-icons">
+            arrow_forward_ios
+        </span>
+    </div>
+    
+</div>
 
+<table>
+    <thead>
+    <tr>
+        <th> <span class="long">Monday</span>
+            <span class="short">Mon</span>
+        </th>
+        <th> <span class="long">Tuesday</span>
+            <span class="short">Tue</span>
+        </th>
+        <th> <span class="long">Wendsday</span>
+            <span class="short">We</span>
+        </th>
+        <th> <span class="long">Thursday</span>
+            <span class="short">Thur</span>
+        </th>
+        <th> <span class="long">Friday</span>
+            <span class="short">Fri</span>
+        </th>
+        <th> <span class="long">Saturday</span>
+            <span class="short">Sat</span>
+        </th>
+        <th> <span class="long">Sunday</span>
+            <span class="short">Sun</span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><a asp-page="/createdWorkoutLibrary">+</a></td>
+        <td><a asp-page="/createdWorkoutLibrary">+</a></td>
+        <td><a asp-page="/createdWorkoutLibrary">+</a></td>
+        <td><a asp-page="/createdWorkoutLibrary">+</a></td>
+        <td><a asp-page="/createdWorkoutLibrary">+</a></td>
+        <td><a asp-page="/createdWorkoutLibrary">+</a></td>
+        <td><a asp-page="/createdWorkoutLibrary">+</a></td>
+    </tr>
+    </tbody>
+</table>
 
-    <table>
-        <thead>
-            <tr>
-                <th></th>
-                <th>
+<div class="NewWorkoutInfo">
+    <img class="savedWorkoutsPicture" src="@Model.calendarWorkout.ImageURL" alt="@Model.calendarWorkout.ImageURL" width="800">
+    <h2>@Model.calendarWorkout.Name</h2>
+    <h4>@Model.calendarWorkout.Difficulty</h4>
+    <p>@Model.calendarWorkout.Notes</p>
+</div>
 
-                    <span class="long">Monday</span>
-                    <span class="short">Mon</span>
-                </th>
-                <th>
+<div class="groupedExcercises">
+    @foreach (var item in Model.workoutExcercisesCalendar)
+    {
+        @if (item.WorkoutId == Model.calendarWorkout.Id)
+        {
+            <div class="CreateVid">
+                <iframe width="300" height="525" src="@item.Excercise.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="details">
+                <h2>@item.Excercise.Name </h2>
+                <h3>Sets</h3>
+                <h3>Reps</h3>
+                <h3>Rest(sec)</h3>
+                <p>@item.Sets</p>
+                <p>@item.Reps</p>
+                <p>@item.Rest</p>
+            </div>
 
-                    <span class="long">Tuesday</span>
-                    <span class="short">Tue</span>
-                </th>
-                <th>
-
-                    <span class="long">Wendsday</span>
-                    <span class="short">We</span>
-                </th>
-                <th>
-
-                    <span class="long">Thursday</span>
-                    <span class="short">Thur</span>
-                </th>
-                <th>
-
-                    <span class="long">Friday</span>
-                    <span class="short">Fri</span>
-                </th>
-                <th>
-
-                    <span class="long">Saturday</span>
-                    <span class="short">Sat</span>
-                </th>
-                <th>
-
-                    <span class="long">Sunday</span>
-                    <span class="short">Sun</span>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="hour" rowspan="4"><span>Workout</span></td>
-                <td><a asp-page="/createdWorkoutLibrary">+</a></td>
-                <td><a asp-page="/createdWorkoutLibrary">+</a></td>
-                <td><a asp-page="/createdWorkoutLibrary">+</a></td>
-                <td><a asp-page="/createdWorkoutLibrary">+</a></td>
-                <td><a asp-page="/createdWorkoutLibrary">+</a></td>
-                <td><a asp-page="/createdWorkoutLibrary">+</a></td>
-                <td><a asp-page="/createdWorkoutLibrary">+</a></td>
-            </tr>
-        </tbody>
-    </table>
-</body>
-
+        }
+    }
+    </div>
+<!--<div class="exerciseBox">
+    <h2 class="exerciseTitle">Chest Day</h2>
+    <h4 class="exercises">Dumbbell Bench, Smith Machine Incline Bench, Cable Flys, Dips</h4>
+</div>-->
