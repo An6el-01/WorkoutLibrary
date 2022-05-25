@@ -4,136 +4,181 @@
 @using TheWorkoutLibrary.Data
 @model TheWorkoutLibrary.Pages.ProfileModel
 @{
-    ViewData["Title"] = "Profile";
-    Layout = "~/Pages/_Layout.cshtml";
+ViewData["Title"] = "Profile";
+Layout = "~/Pages/_Layout.cshtml";
 }
+
+
 
 
 <link rel="stylesheet" href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
+
+
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
 
-   
+
+
+
 <div class="welcomeMessage">
-    <h2>Profile</h2>
+<h2>Profile</h2>
 </div>
+
+
 
 <div class="profileNameMain">
 
-    @{
-        try
-        {
-            <div class="userImage">
-                <img class="newUserImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@Model.currentUser.ImageData))"/>
-            </div>
-        }catch{
 
-            <div class="imageGrey">
-                <img class="greyUser" src="/Images/greyProfile.png" alt="user">
-            </div>
-        }
 
-    }
+@{
+try
+{
+<div class="userImage">
+<img class="newUserImage" src="@string.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(@Model.currentUser.ImageData))"/>
+</div>
+}catch{
 
 
 
-    <div class="UserName">
+<div class="imageGrey">
+<img class="greyUser" src="/Images/greyProfile.png" alt="user">
+</div>
+}
 
 
 
-        <p>@Model.currentUser.FirstName, @Model.currentUser.LastName</p>
-        @if (User.IsInRole("Admin"))
-        {
-            <p>Admin</p>
-        }
-        else
-        {
-            <p>Member</p>
-        }
+}
 
 
 
-    </div>
+
+
+<div class="UserName">
 
 
 
-    <div class="dateJoined">
-        <p5>Date Joined: @Model.currentUser.StartDate </p5>
-    </div>
 
 
+<p>@Model.currentUser.FirstName, @Model.currentUser.LastName</p>
+@if (User.IsInRole("Admin"))
+{
+<p>Admin</p>
+}
+else
+{
+<p>Member</p>
+}
 
-    <div class="weightsImage">
-        <img class="weightsProfile" src="~/Images/weightsProfile.png" alt="user">
-    </div>
-
-
-
-    <div class="calendarImage">
-        <img class="weightCalendar" src="~/Images/weightCalendar.png" alt="user">
-    </div>
 
 
 
 
 </div>
+
+
+
+
+
+<div class="dateJoined">
+<p5>Date Joined: @Model.currentUser.StartDate </p5>
+</div>
+
+
+
+
+
+<div class="weightsImage">
+<img class="weightsProfile" src="~/Images/weightsProfile.png" alt="user">
+</div>
+
+
+
+
+
+<div class="calendarImage">
+<img class="weightCalendar" src="~/Images/weightCalendar.png" alt="user">
+</div>
+
+
+
+
+
+
+</div>
+
+
 
 
 
 <div class="PEmail">
-    <p7>Email:</p7>
-    <p7>@Model.currentUser.Email</p7>
+<p7>Email:</p7>
+<p7>@Model.currentUser.Email</p7>
 </div>
+
+
 
 
 <form method="post">
-    @if (@Model.currentUser.SubscriptionStatus == false)
-    {
-
-        <div class="Subscription">
-            <p6>Subscription Status: </p6>
+@if (@Model.currentUser.SubscriptionStatus == false)
+{
 
 
-            <div class="redTick">
-                <span class="material-symbols-outlined">
-                    verified
-                </span>
-            </div>
-        </div>
 
-        <div class="Renew">
-            <p6>Renew Subscription</p6>
-            <button id="RenewBtn" type="submit" asp-page-handler="Renew" asp-route-Email="@Model.currentUser.Email">Renew</button>
-        </div>
-
-    }
-    else
-    {
-        <div class="Subscription">
-            <p6>Subscription Status: </p6>
+<div class="Subscription">
+<p6>Subscription Status: </p6>
 
 
-            <div class="greenTick">
-                <span class="material-symbols-outlined">
-                    verified
-                </span>
-            </div>
-        </div>
 
-        <div class="End">
-            <p6>End Subscription</p6>
-            <p></p>
-            <button id="EndBtn" type="submit" asp-page-handler="Delete" asp-route-Email="@Model.currentUser.Email">END</button>
-        </div>
-    }
-        </form>
-<div class="profileLogout">
-        <form asp-page="/Logout" method="post">
-            <button class="LogoutBtn" type="submit">LOGOUT</button>
-        </form>
-    
+
+<div class="redTick">
+<span class="material-symbols-outlined">
+verified
+</span>
+</div>
 </div>
 
+
+
+<div class="Renew">
+<p6>Renew Subscription</p6>
+<button id="RenewBtn" type="submit" asp-page-handler="Renew" asp-route-Email="@Model.currentUser.Email">Renew</button>
+</div>
+
+
+
+}
+else
+{
+<div class="Subscription">
+<p6>Subscription Status: </p6>
+
+
+
+
+<div class="greenTick">
+<span class="material-symbols-outlined">
+verified
+</span>
+</div>
+</div>
+
+
+
+<div class="End">
+<p6>End Subscription</p6>
+<p></p>
+<button id="EndBtn" type="submit" asp-page-handler="Delete" asp-route-Email="@Model.currentUser.Email">END</button>
+</div>
+}
+</form>
+<div class="profileLogout">
+<form asp-page="/Logout" method="post">
+<button class="LogoutBtn" type="submit">LOGOUT</button>
+</form>
+
+</div>
