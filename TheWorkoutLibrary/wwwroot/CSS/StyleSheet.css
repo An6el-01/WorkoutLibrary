@@ -1832,7 +1832,7 @@ input::-webkit-inner-spin-button {
     width:300px;
     height:550px;
     border-radius:5px;
-    border:2px solid white;
+    border:2px solid #F5F5F5;
 }
 
 .groupedExcercises .CreateVid {
@@ -1846,7 +1846,7 @@ input::-webkit-inner-spin-button {
 }
 .details h2 {
     line-height: 50px;
-    color: #FFFFFF;
+    color: #F5F5F5;
     height: 50px;
     margin: 10px;
     padding-top: 5px;
@@ -1872,7 +1872,7 @@ input::-webkit-inner-spin-button {
     float: left;
     width: 70px;
     height: 35px;
-    background: #FFFDFD;
+    background: #F5F5F5;
     border: 1px solid #FFFFFF;
     border-radius: 11px;
     font-style: normal;
@@ -1895,9 +1895,9 @@ input::-webkit-inner-spin-button {
     margin:5px;   
 }
 .browseVideo {
-    background:white;
-    border:1px solid #662582;
-    border-radius:3px;
+    background: #F5F5F5;
+    border: 1px solid #662582;
+    border-radius: 3px;
     width: 800px;
     margin: 30px;
     margin-left: auto;
@@ -1906,25 +1906,22 @@ input::-webkit-inner-spin-button {
     flex-wrap: wrap;
 }
 .browseVideo .videoDetails{
-    border: 1px solid white;
     width:400px;
     text-align:left;
+    margin-left:10px;
 }
 .browseVideo .excerciseVideo{
     width:300px;   
     height:300px;
-}
-.browseVideo iframe{
-    width:300px;
-    height:300px;
-    padding:10px;
+    margin:10px;
 }
 .videoDetails p{
     width:120px;
 }
-.videoDetails h2{
+.videoDetails h2 {
+    font-size: 15px;
     padding: 0px;
-    width:350px;
+    width: 350px;
     margin-top: 10px;
 }
 .videoDetails .info{
@@ -1935,6 +1932,56 @@ input::-webkit-inner-spin-button {
     display:flex;
     padding:5px;
     width:35px;
+}
+.search {
+    margin-top: 30px;
+    padding: 0px;
+    height: 40px;
+}
+.search input {
+    border-radius: 17.5px;
+    border: 0.5px solid rgba(102, 37, 130, 0.25);
+    height: 35px;
+    width: 225px;
+    padding:0px;
+    padding-left: 15px;
+    font-size: 16px;   
+}
+.searchBtn{
+    margin:0px;
+    border-radius: 29px;
+    height:35px;
+    background-color: #662582;
+    border: 2px solid #EFEFEF;
+    font-size: 10px;
+    cursor: pointer;
+    font-style: italic;
+    font-weight: 800;
+    color: white;
+    transition: all .5s ease-in-out; 
+}
+.uploadButton{
+    margin:0px;
+    border-radius: 29px;
+    height:35px;
+    background-color: #662582;
+    border: 2px solid #EFEFEF;
+    font-size: 10px;
+    cursor: pointer;
+    font-style: italic;
+    font-weight: 800;
+    color: white;
+    transition: all .5s ease-in-out;      
+}
+.searchBtn:hover {
+    outline: 3px solid #662582;   
+    color:black;
+    border: 2px solid black;
+}
+.uploadButton:hover{
+    outline: 3px solid #662582;   
+    color:black;
+    border: 2px solid black;
 }
 
 

@@ -15,58 +15,69 @@
 <div class="welcomeMessage">
     <h2>Exercises</h2>
 </div>
-<form class="SearchForm" method="POST">
-    <div class="searchUpload">
 
-        <div class="SearchFull">
-            <div class="search"><input class="searchBox" asp-for="Search" placeholder="Search" /></div>
-            <button class="searchButton" type="submit" asp-page-handler="Search">SEARCH</button>
-        </div>
-
-
+<form class="SearchForm" method="POST"> 
+    <div class="search">
+        <input class="searchBox" asp-for="Search" placeholder="  Search" />
+        <button class="searchBtn" type="submit" asp-page-handler="Search">SEARCH</button>
         @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-
         {
             <button class="uploadButton" type="submit" asp-page-handler="Upload">UPLOAD</button>
         }
-
-    </div>
+    </div>   
 </form>
-
-<div class="WorkoutDifficulty">
-    <h4>Beginner</h4>
-    <h4>Intermediate</h4>
-    <h4>Advanced</h4> 
-    <div class="KeyIcons">
-        <div class="material-symbols-outlined1">
-            <span class="material-symbols-outlined">
-                fitness_center
-            </span>
-        </div>
-        <div class="material-symbols-outlined2">
-            <span class="material-symbols-outlined">
-                fitness_center
-            </span>
-        </div>
-        <div class="material-symbols-outlined3">
-            <span class="material-symbols-outlined">
-                fitness_center
-            </span>
-        </div>
-    </div>
-</div>
-
 
 <form method="POST">
     <div class="browseVideo">
+        <div class="savedWorkoutLevels">
+            <h3 class="workoutLevel">
+                Beginner
+                <div class="material-symbols-outlined1">
+                    <span class="material-symbols-outlined">fitness_center</span>
+                </div>
+            </h3>
+            <h3 class="workoutLevel1">
+                Intermediate
+                <div class="material-symbols-outlined2">
+                    <span class="material-symbols-outlined">fitness_center</span>
+                    <span class="material-symbols-outlined">fitness_center</span>
+                </div>
+            </h3>
+            <h3 class="workoutLevel2">
+                Advanced
+                <div class="material-symbols-outlined3">
+                    <span class="material-symbols-outlined">fitness_center</span>
+                    <span class="material-symbols-outlined">fitness_center</span>
+                    <span class="material-symbols-outlined">fitness_center</span>
+                </div>
+            </h3>
+        </div>
+
         @foreach (var WO in Model.excercises)
         {
-            <div class="excerciseVideo">
-                <iframe src="@WO.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+            
+                <iframe class="excerciseVideo" src="@WO.YoutubeURL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            
             <div class="videoDetails">
                 <h2>@WO.Name </h2>
-                <p>@WO.Difficulty </p>
+                @if (WO.Difficulty == "Beginner")
+                {
+                    <div class="material-symbols-outlined1">
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>}
+                @if (WO.Difficulty == "Intermediate")
+                {
+                    <div class="material-symbols-outlined2">
+                        <span class="material-symbols-outlined">fitness_center</span>
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>}
+                @if (WO.Difficulty == "Advanced")
+                {
+                    <div class="material-symbols-outlined3">
+                        <span class="material-symbols-outlined">fitness_center</span>
+                        <span class="material-symbols-outlined">fitness_center</span>
+                        <span class="material-symbols-outlined">fitness_center</span>
+                    </div>}
                 <div class="tooltip">
                     <div class="info">
                         <span class="tooltiptext">@WO.Notes</span>
@@ -84,7 +95,7 @@
                     </a>
                 }
             </div>
-        }        
+        }
     </div>
 </form>
 

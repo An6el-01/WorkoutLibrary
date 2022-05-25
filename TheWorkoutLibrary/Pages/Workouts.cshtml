@@ -23,18 +23,12 @@ Layout = "~/Pages/_Layout.cshtml";
     <h2>Workouts</h2>
 </div>
 
-<div class="greyBox">
-<!--<form class="SearchForm" method="POST">-->
-<div class="searchUpload">
+<div class="search">
+    <input class="searchBox" placeholder="  Search" />
+    <button class="searchBtn">SEARCH</button>
+</div>
 
-    <div class="SearchFull">
-        <button class="searchButton" type="submit" asp-page-handler="Search"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#657789" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search"><circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" /></svg></button>
-        <input class="wL-input" placeholder="SearchLibrary" />
-    </div>
-
-    
-    
-
+<div class="greyBox">   
     <div class="savedWorkoutLevels">
         <td>
             <h3 class="workoutLevel">
@@ -78,9 +72,9 @@ Layout = "~/Pages/_Layout.cshtml";
 
 
 
-<div class="savedWorkoutsItems">
-    @*<table class="excerciseTable">
-<tbody>
+    <div class="savedWorkoutsItems">
+        @*<table class="excerciseTable">
+            <tbody>
 
 
 
@@ -88,20 +82,20 @@ Layout = "~/Pages/_Layout.cshtml";
 
 
 
-@foreach (var item in Model.workouts)
-{
-<tr>
-<td>
-<img class="libraryWorkoutsPicture" src="@item.ImageURL" alt="@item.ImageURL" width="600" height="400">
-</td>
-<td class="itemName">@item.Name</td>
-<td class="itemNotes">@item.Notes</td>
-<td class="itemDifficulty">@item.Difficulty</td>
-<td>
-<button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@item.Id">Add</button>
-</td>
-</tr>
-}
+            @foreach (var item in Model.workouts)
+            {
+            <tr>
+            <td>
+            <img class="libraryWorkoutsPicture" src="@item.ImageURL" alt="@item.ImageURL" width="600" height="400">
+            </td>
+            <td class="itemName">@item.Name</td>
+            <td class="itemNotes">@item.Notes</td>
+            <td class="itemDifficulty">@item.Difficulty</td>
+            <td>
+            <button id="AddBtn" type="submit" asp-page-handler="Add" asp-route-recipeID="@item.Id">Add</button>
+            </td>
+            </tr>
+            }
 
 
 
@@ -109,8 +103,8 @@ Layout = "~/Pages/_Layout.cshtml";
 
 
 
-</tbody>
-</table>*@
+            </tbody>
+            </table>*@
 
 
 
@@ -118,77 +112,77 @@ Layout = "~/Pages/_Layout.cshtml";
 
 
 
-    @foreach (var workout in Model.workouts)
-    {
-        <div class="savedWorkoutItem">
-            <img class="WorkoutsPicture" src="@workout.ImageURL" alt="@workout.ImageURL">
-            <div>
-                <h2 class="savedWorkoutName">@workout.Name</h2>
+        @foreach (var workout in Model.workouts)
+        {
+            <div class="savedWorkoutItem">
+                <img class="WorkoutsPicture" src="@workout.ImageURL" alt="@workout.ImageURL">
+                <div>
+                    <h2 class="savedWorkoutName">@workout.Name</h2>
 
 
 
-                @if (workout.Difficulty == "Beginner")
-                {
-                    <div class="material-symbols-outlined1">
-                        <span class="material-symbols-outlined">fitness_center</span>
-                    </div>}
-                @if (workout.Difficulty == "Intermediate")
-                {
-                    <div class="material-symbols-outlined2">
-                        <span class="material-symbols-outlined">fitness_center</span>
-                        <span class="material-symbols-outlined">fitness_center</span>
-                    </div>}
-                @if (workout.Difficulty == "Advanced")
-                {
-                    <div class="material-symbols-outlined3">
-                        <span class="material-symbols-outlined">fitness_center</span>
-                        <span class="material-symbols-outlined">fitness_center</span>
-                        <span class="material-symbols-outlined">fitness_center</span>
+                    @if (workout.Difficulty == "Beginner")
+                    {
+                        <div class="material-symbols-outlined1">
+                            <span class="material-symbols-outlined">fitness_center</span>
+                        </div>}
+                    @if (workout.Difficulty == "Intermediate")
+                    {
+                        <div class="material-symbols-outlined2">
+                            <span class="material-symbols-outlined">fitness_center</span>
+                            <span class="material-symbols-outlined">fitness_center</span>
+                        </div>}
+                    @if (workout.Difficulty == "Advanced")
+                    {
+                        <div class="material-symbols-outlined3">
+                            <span class="material-symbols-outlined">fitness_center</span>
+                            <span class="material-symbols-outlined">fitness_center</span>
+                            <span class="material-symbols-outlined">fitness_center</span>
 
 
 
-                    </div>}
-
-
-
-
-
-            </div>
+                        </div>}
 
 
 
 
 
-
-
-            <div>
-                <h4 class="savedWorkoutIncExercises">Included Excercises: @string.Join(", ", workout.Excercises.Select(x => x.Excercise.Name))</h4>
-
-
-
-
-
-            </div>
-
-
-
-            <a asp-page="/Description" asp-route-id="@workout.Id">
-                <div class="detailsIcon">
-                    <span class="material-icons">
-                        arrow_forward_ios
-                    </span>
                 </div>
-            </a>
-            <br />
-        </div>
-        <hr class="lineSavedWorkouts"/>
-    }
 
 
 
 
 
-</div>
+
+
+                <div>
+                    <h4 class="savedWorkoutIncExercises">Included Excercises: @string.Join(", ", workout.Excercises.Select(x => x.Excercise.Name))</h4>
+
+
+
+
+
+                </div>
+
+
+
+                <a asp-page="/Description" asp-route-id="@workout.Id">
+                    <div class="detailsIcon">
+                        <span class="material-icons">
+                            arrow_forward_ios
+                        </span>
+                    </div>
+                </a>
+                <br />
+            </div>
+            <hr class="lineSavedWorkouts" />
+        }
+
+
+
+
+
+    </div>
 </div>
     
 </div>
