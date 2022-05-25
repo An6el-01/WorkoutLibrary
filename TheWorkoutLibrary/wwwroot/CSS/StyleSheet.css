@@ -90,7 +90,7 @@ body {
     margin:10px;
     text-align:center;    
 }
-.profileName .LogoutBtn{   
+.profileName .LogoutBtn, #EndBtn{   
     border-radius: 29px;
     width: 100px;
     height: 30px;
@@ -103,11 +103,11 @@ body {
     color: white;
     transition: all .5s ease-in-out;    
 }
-.profileName .LogoutBtn:hover{
-    outline: 3px solid #662582;
-    color:black;
-    border: 2px solid black;
-}
+    .profileName .LogoutBtn:hover, #EndBtn:hover {
+        outline: 3px solid #662582;
+        color: black;
+        border: 2px solid black;
+    }
 
 .dropDownList {
     border-top: 1px solid #662582;
@@ -863,7 +863,7 @@ border-collapse: collapse;
 .End {
     background: white;
     width: 308px;
-    height: 49px;
+    height: 79px;
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
