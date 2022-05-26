@@ -1333,6 +1333,9 @@ border-collapse: collapse;
     .tooltiptext {
         margin-top: 50px;
     }
+    .RegisterForm {
+        max-width: 360px;
+    }
 
 
     
@@ -2008,6 +2011,24 @@ input::-webkit-inner-spin-button {
 .uploadButton:hover{
     outline: 3px solid #662582;   
     color:black;
+    border: 2px solid black;
+}
+.profileName .LogoutBtn, #RenewBtn{   
+    border-radius: 29px;
+    width: 100px;
+    height: 30px;
+    background-color: #662582;
+    border: 1.5px solid #EFEFEF;
+    cursor: pointer;
+    text-align: center;
+    font-style: italic;
+    font-weight: 700;
+    color: white;
+    transition: all .5s ease-in-out;    
+}
+.profileName .LogoutBtn:hover, #RenewBtn:hover {
+    outline: 3px solid #662582;
+    color: black;
     border: 2px solid black;
 }
 
