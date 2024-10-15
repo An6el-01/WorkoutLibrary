@@ -16,9 +16,6 @@ namespace TheWorkoutLibrary.Data
         public string FirstName { get; set; }
         [StringLength(50)]
         public string LastName { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public Boolean SubscriptionStatus { get; set; }
-        public byte[] ImageData { get; set; }        
+              
     }
 }
